@@ -400,3 +400,47 @@ kbd {
   font-size: 13px;
   line-height: 1.35;
 }
+
+/* TinkerHub vertical-slice application + result flow */
+.start-overlay, .result-overlay {
+  position: absolute; inset: 0; z-index: 20; display: grid; place-items: center;
+  padding: 28px; background: radial-gradient(circle at 70% 20%, rgba(132,63,48,.22), transparent 35%), rgba(10,13,15,.76);
+  backdrop-filter: blur(7px);
+}
+.start-card {
+  width: min(620px, calc(100vw - 44px)); padding: 30px 32px; border: 1px solid rgba(239,231,204,.24);
+  border-radius: 6px; background: rgba(24,25,23,.95); box-shadow: 0 28px 90px rgba(0,0,0,.48); color: #eee8d7;
+}
+.start-stamp { display: inline-block; padding: 6px 9px; border: 2px solid #a84c41; color: #d66c60; font-size: 10px; font-weight: 900; letter-spacing: .14em; transform: rotate(-1.5deg); }
+.start-kicker { margin-top: 20px; color: #9b9b8f; font-size: 9px; font-weight: 800; letter-spacing: .16em; }
+.start-card h2 { margin: 8px 0 12px; max-width: 520px; font-size: clamp(34px, 6vw, 64px); line-height: .94; letter-spacing: -.055em; }
+.start-copy { max-width: 570px; color: #b8b7ad; font-size: 13px; line-height: 1.58; }
+.start-rules { display: grid; gap: 7px; margin: 18px 0; }
+.start-rules span { display: grid; grid-template-columns: 28px 1fr; gap: 9px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,.07); color: #c7c5ba; font-size: 11px; }
+.start-rules b { color: #c66155; }
+.candidate-field { display: grid; gap: 6px; margin-top: 18px; color: #8e918b; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.candidate-field input { padding: 12px 13px; border: 1px solid rgba(255,255,255,.14); border-radius: 6px; background: #111413; color: #f0ecdf; font: inherit; font-size: 14px; outline: none; }
+.begin-test, .certificate button { margin-top: 14px; width: 100%; border: 0; border-radius: 6px; padding: 13px 16px; background: #a43f35; color: white; font-size: 11px; font-weight: 900; letter-spacing: .12em; cursor: pointer; }
+.start-card small { display: block; margin-top: 11px; color: #777b76; font-size: 9px; text-align: center; }
+.certificate {
+  position: relative; width: min(760px, calc(100vw - 44px)); padding: 32px 38px; overflow: hidden;
+  border: 8px double #776c55; background: #e9e1c8; box-shadow: 0 35px 100px rgba(0,0,0,.55); color: #2b2a26;
+}
+.certificate::before { content: "FORM 404-K"; position: absolute; right: -22px; top: 78px; color: rgba(142,54,45,.09); font-size: 74px; font-weight: 950; transform: rotate(-8deg); }
+.certificate-topline { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 9px; border-bottom: 1px solid #9e9275; font-size: 9px; font-weight: 900; letter-spacing: .11em; }
+.certificate-seal { position: absolute; right: 42px; top: 66px; width: 92px; height: 92px; display: grid; place-items: center; border: 4px double #9b4037; border-radius: 50%; color: #9b4037; font-size: 13px; font-weight: 950; text-align: center; transform: rotate(9deg); }
+.certificate-kicker { margin: 24px 0 8px; color: #756c59; font-size: 9px; font-weight: 900; letter-spacing: .15em; }
+.certificate h2 { max-width: 560px; margin: 0 0 13px; font-size: clamp(25px, 4vw, 42px); line-height: 1; letter-spacing: -.04em; }
+.certificate-name { max-width: 600px; font-size: 12px; line-height: 1.6; }
+.certificate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 20px 0; border: 1px solid #b0a486; background: #b0a486; }
+.certificate-grid div { padding: 10px; background: #e9e1c8; }
+.certificate-grid span { display: block; color: #756e60; font-size: 8px; text-transform: uppercase; letter-spacing: .08em; }
+.certificate-grid strong { display: block; margin-top: 3px; font-size: 20px; }
+.certificate-verdict { padding: 12px 14px; border-left: 4px solid #9b4037; background: rgba(124,105,72,.08); }
+.certificate-verdict span { color: #746c5d; font-size: 8px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.certificate-verdict p { margin: 5px 0 0; font-size: 13px; line-height: 1.5; }
+.certificate-signatures { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 25px 0 4px; color: #5f594e; font-size: 9px; }
+.certificate-signatures span { padding-top: 16px; border-top: 1px solid #877c65; }
+.certificate-signatures i { color: #908672; font-weight: 400; }
+.certificate button { width: auto; min-width: 230px; }
+@media (max-width: 720px) { .start-card { padding: 22px; } .certificate { padding: 24px; } .certificate-grid { grid-template-columns: repeat(2, 1fr); } .certificate-seal { display: none; } }

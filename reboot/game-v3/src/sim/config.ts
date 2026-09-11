@@ -179,6 +179,8 @@ export type Telemetry = {
   shifting: boolean
   shiftProgress: number
   shiftSerial: number
+  impactSerial: number
+  impactSpeedKmh: number
   wheels: WheelTelemetry[]
 }
 
@@ -204,6 +206,8 @@ export const EMPTY_TELEMETRY: Telemetry = {
   shifting: false,
   shiftProgress: 0,
   shiftSerial: 0,
+  impactSerial: 0,
+  impactSpeedKmh: 0,
   wheels: Array.from({ length: 4 }, () => ({
     contact: false,
     suspensionLength: 0,

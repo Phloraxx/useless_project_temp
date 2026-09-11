@@ -1,15 +1,20 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 import * as RAPIER from "@dimforge/rapier3d-compat"
 import { BUS, SURFACE_GRIP, type BusTuning, type Telemetry } from "./sim/config"
 import { createKeyboardInput } from "./sim/input"
 import { createDrivetrainState, resetDrivetrain, stepDrivetrain, type DrivetrainOutput, type DrivetrainState } from "./sim/drivetrain"
+import { AnimatedCharacter } from "./characters/components/AnimatedCharacter"
+import { MotionSignalContext, ZERO_MOTION } from "./characters/animation/motionSignalStore"
+import type { CharacterState } from "./characters/types"
+import { KeralaVerticalSlice } from "./world/KeralaVerticalSlice"
 
 type Props = {
   tuning: BusTuning
   onTelemetry: (value: Telemetry) => void
   resetToken?: number
+  runActive?: boolean
 }
 
 type Simulation = {
@@ -27,6 +32,9 @@ type Simulation = {
   previousFrameVelocity: THREE.Vector3
   drivetrain: DrivetrainState
   drivetrainOutput: DrivetrainOutput
+  eventQueue: RAPIER.EventQueue
+  impactSerial: number
+  impactSpeedKmh: number
 }
 
 const RAD_TO_DEG = 180 / Math.PI
@@ -56,10 +64,12 @@ function addFixedBox(
   halfExtents: [number, number, number],
   position: [number, number, number],
   friction = 0.9,
+  reportCollision = false,
 ) {
   const collider = RAPIER.ColliderDesc.cuboid(...halfExtents)
     .setTranslation(...position)
     .setFriction(friction)
+  if (reportCollision) collider.setActiveEvents(RAPIER.ActiveEvents.COLLISION_EVENTS)
   world.createCollider(collider)
 }
 
@@ -92,6 +102,7 @@ function resetBus(sim: Simulation) {
   sim.previousTelemetryVelocity.set(0, 0, 0)
   sim.previousTelemetryYaw = 0
   sim.previousFrameVelocity.set(0, 0, 0)
+  sim.impactSpeedKmh = 0
   resetDrivetrain(sim.drivetrain)
   sim.drivetrainOutput = stepDrivetrain(sim.drivetrain, 0, 0, 0, 320)
 }
@@ -104,20 +115,20 @@ function GroundAndCourse() {
 
   return (
     <group>
-      <mesh receiveShadow position={[0, -0.44, 240]}>
-        <boxGeometry args={[90, 0.22, 540]} />
+      <mesh receiveShadow position={[0, -0.44, 445]}>
+        <boxGeometry args={[90, 0.22, 950]} />
         <meshStandardMaterial color="#4e5547" roughness={1} />
       </mesh>
-      <mesh receiveShadow position={[0, -0.12, 240]}>
-        <boxGeometry args={[13, 0.24, 520]} />
+      <mesh receiveShadow position={[0, -0.12, 445]}>
+        <boxGeometry args={[13, 0.24, 930]} />
         <meshStandardMaterial color="#30343a" roughness={0.95} />
       </mesh>
-      <mesh receiveShadow position={[-8.5, -0.17, 240]}>
-        <boxGeometry args={[4, 0.18, 520]} />
+      <mesh receiveShadow position={[-8.5, -0.17, 445]}>
+        <boxGeometry args={[4, 0.18, 930]} />
         <meshStandardMaterial color="#765640" roughness={1} />
       </mesh>
-      <mesh receiveShadow position={[8.5, -0.17, 240]}>
-        <boxGeometry args={[4, 0.18, 520]} />
+      <mesh receiveShadow position={[8.5, -0.17, 445]}>
+        <boxGeometry args={[4, 0.18, 930]} />
         <meshStandardMaterial color="#765640" roughness={1} />
       </mesh>
       <mesh receiveShadow position={[0, 0.012, 390]}>
@@ -136,7 +147,7 @@ function GroundAndCourse() {
         </mesh>
       ))}
 
-      {Array.from({ length: 25 }, (_, i) => (
+      {Array.from({ length: 45 }, (_, i) => (
         <mesh key={`center-${i}`} position={[0, 0.015, i * 20 + 10]}>
           <boxGeometry args={[0.11, 0.025, 7]} />
           <meshStandardMaterial color="#ddd9c8" />
@@ -241,6 +252,31 @@ function AutoObstacle() {
   )
 }
 
+function QueueObstacles() {
+  return <>
+    <group position={[1.85, 0.52, 558]} rotation-y={0.03}>
+      <mesh castShadow position={[0,0.55,0]}><boxGeometry args={[1.7,0.9,3.5]} /><meshStandardMaterial color="#5e6e72" roughness={0.74} /></mesh>
+      <mesh position={[0,1.08,-0.15]}><boxGeometry args={[1.48,0.55,1.7]} /><meshStandardMaterial color="#334147" /></mesh>
+    </group>
+    <group position={[-1.75, 0.48, 580]} rotation-y={-0.05}>
+      <mesh castShadow position={[0,0.52,0]}><boxGeometry args={[1.55,1.05,3.0]} /><meshStandardMaterial color="#c7a322" roughness={0.72} /></mesh>
+      <mesh position={[0,1.12,-0.15]}><boxGeometry args={[1.28,0.52,1.45]} /><meshStandardMaterial color="#252b2e" /></mesh>
+    </group>
+  </>
+}
+
+function SecondBusStopSet() {
+  return <group position={[-5.45,0,625]} rotation-y={Math.PI}>
+    <mesh castShadow position={[0,1.35,0]}><boxGeometry args={[0.12,2.7,0.12]} /><meshStandardMaterial color="#313840" /></mesh>
+    <mesh castShadow position={[0,2.55,0]}><boxGeometry args={[1.65,0.62,0.10]} /><meshStandardMaterial color="#d7c04d" /></mesh>
+    <mesh castShadow position={[-1.8,1.15,0.2]}><boxGeometry args={[2.5,0.12,2.2]} /><meshStandardMaterial color="#5b5249" /></mesh>
+    {[[-1.1,"#795e70"],[-1.8,"#55746a"]].map(([x,color],i)=><group key={i} position={[Number(x),0.95,-0.15+i*0.55]}>
+      <mesh castShadow position={[0,0.72,0]}><capsuleGeometry args={[0.18,0.72,5,8]} /><meshStandardMaterial color={String(color)} /></mesh>
+      <mesh castShadow position={[0,1.45,0]}><sphereGeometry args={[0.20,12,10]} /><meshStandardMaterial color="#8b684f" /></mesh>
+    </group>)}
+  </group>
+}
+
 function QualificationBillboard() {
   return (
     <group position={[5.55, 0, 343]}>
@@ -269,7 +305,7 @@ function Barrier({ position }: { position: [number, number, number] }) {
   )
 }
 
-export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
+export function HandlingLab({ tuning, onTelemetry, resetToken = 0, runActive = true }: Props) {
   const simRef = useRef<Simulation | null>(null)
   const tuningRef = useRef(tuning)
   const busRef = useRef<THREE.Group>(null)
@@ -289,10 +325,34 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
   const desiredLook = useRef(new THREE.Vector3())
   const tempDelta = useRef(new THREE.Vector3())
   const euler = useRef(new THREE.Euler(0, 0, 0, "YXZ"))
+  const runActiveRef = useRef(runActive)
+  const motionSignals = useRef({ ...ZERO_MOTION })
+  const cinematicRef = useRef<{ until: number } | null>(null)
+  const cinematicPosition = useRef(new THREE.Vector3())
+  const cinematicLook = useRef(new THREE.Vector3())
+  const translationVector = useRef(new THREE.Vector3())
+  const [examinerState, setExaminerState] = useState<CharacterState>("sitIdle")
 
   useEffect(() => {
     tuningRef.current = tuning
   }, [tuning])
+
+  useEffect(() => {
+    runActiveRef.current = runActive
+  }, [runActive])
+
+  useEffect(() => {
+    let timer = 0
+    const onGrading = () => {
+      if (!runActiveRef.current) return
+      cinematicRef.current = { until: performance.now() + 1550 }
+      setExaminerState("sitTalk")
+      window.clearTimeout(timer)
+      timer = window.setTimeout(() => setExaminerState("sitIdle"), 1500)
+    }
+    window.addEventListener("adutha:grading-shot", onGrading)
+    return () => { window.removeEventListener("adutha:grading-shot", onGrading); window.clearTimeout(timer) }
+  }, [])
 
   useEffect(() => {
     const sim = simRef.current
@@ -311,10 +371,10 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
       createdWorld = world
       world.timestep = BUS.fixedDt
 
-      addFixedBox(world, [45, 0.11, 270], [0, -0.44, 240], 0.52)
-      addFixedBox(world, [6.5, 0.2, 260], [0, -0.2, 240], 1.0)
-      addFixedBox(world, [2.0, 0.2, 260], [-8.5, -0.2, 240], 0.65)
-      addFixedBox(world, [2.0, 0.2, 260], [8.5, -0.2, 240], 0.65)
+      addFixedBox(world, [45, 0.11, 475], [0, -0.44, 445], 0.52)
+      addFixedBox(world, [6.5, 0.2, 465], [0, -0.2, 445], 1.0)
+      addFixedBox(world, [2.0, 0.2, 465], [-8.5, -0.2, 445], 0.65)
+      addFixedBox(world, [2.0, 0.2, 465], [8.5, -0.2, 445], 0.65)
       addFixedBox(world, [6.2, 0.095, 0.375], [0, 0.095, 300], 0.9)
       for (let i = 0; i < 8; i += 1) {
         const y = 0.035 + (i % 2) * 0.015
@@ -322,10 +382,12 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
         const halfZ = (0.55 + (i % 2) * 0.35) / 2
         addFixedBox(world, [(8.6 - (i % 2) * 1.1) / 2, halfY, halfZ], [((i % 3) - 1) * 1.6, y, 432 + i * 5.2], 0.82)
       }
-      addFixedBox(world, [2.0, 0.58, 0.55], [-4.55, 0.58, 232], 0.7)
-      addFixedBox(world, [2.0, 0.58, 0.55], [4.55, 0.58, 257], 0.7)
-      addFixedBox(world, [2.0, 0.58, 0.55], [-4.55, 0.58, 282], 0.7)
-      addFixedBox(world, [0.78, 0.72, 1.5], [-1.55, 0.72, 218], 0.7)
+      addFixedBox(world, [2.0, 0.58, 0.55], [-4.55, 0.58, 232], 0.7, true)
+      addFixedBox(world, [2.0, 0.58, 0.55], [4.55, 0.58, 257], 0.7, true)
+      addFixedBox(world, [2.0, 0.58, 0.55], [-4.55, 0.58, 282], 0.7, true)
+      addFixedBox(world, [0.78, 0.72, 1.5], [-1.55, 0.72, 218], 0.7, true)
+      addFixedBox(world, [0.85, 0.75, 1.75], [1.85, 0.75, 558], 0.72, true)
+      addFixedBox(world, [0.78, 0.72, 1.5], [-1.75, 0.72, 580], 0.72, true)
 
       const bodyDesc = RAPIER.RigidBodyDesc.dynamic()
         .setTranslation(BUS.start.x, BUS.start.y, BUS.start.z)
@@ -375,6 +437,7 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
 
       const input = createKeyboardInput()
       const drivetrain = createDrivetrainState()
+      const eventQueue = new RAPIER.EventQueue(true)
       simRef.current = {
         world,
         chassis,
@@ -390,6 +453,9 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
         previousFrameVelocity: new THREE.Vector3(),
         drivetrain,
         drivetrainOutput: stepDrivetrain(drivetrain, 0, 0, 0, tuningRef.current.shiftDurationMs),
+        eventQueue,
+        impactSerial: 0,
+        impactSpeedKmh: 0,
       }
       resetBus(simRef.current)
     }
@@ -409,7 +475,10 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
     if (!sim) return
 
     const delta = Math.min(frameDelta, 0.1)
-    const input = sim.input.sample()
+    const sampledInput = sim.input.sample()
+    const input = runActiveRef.current
+      ? sampledInput
+      : { ...sampledInput, throttle: 0, brake: 1, reverseRequested: false, steer: 0, resetRequested: false }
     if (input.resetRequested) resetBus(sim)
 
     sim.accumulator += delta
@@ -487,7 +556,12 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
       )
       const stabilityRatio = Math.max(0, Math.min(1, speedKmh / Math.max(1, tuningNow.maxSpeedKmh)))
       sim.chassis.setAngularDamping(BUS.angularDamping + tuningNow.highSpeedYawDamping * stabilityRatio * stabilityRatio)
-      sim.world.step()
+      sim.world.step(sim.eventQueue)
+      sim.eventQueue.drainCollisionEvents((_handle1, _handle2, started) => {
+        if (!started) return
+        sim.impactSerial += 1
+        sim.impactSpeedKmh = speedKmh
+      })
       sim.accumulator -= BUS.fixedDt
       substeps += 1
     }
@@ -550,6 +624,10 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
     const frameLongAccel = frameAx * forward.x + frameAy * forward.y + frameAz * forward.z
     const frameLatAccel = frameAx * right.x + frameAy * right.y + frameAz * right.z
     const frameVerticalAccel = frameAx * up.x + frameAy * up.y + frameAz * up.z
+    motionSignals.current.longitudinalAccel = frameLongAccel
+    motionSignals.current.lateralAccel = frameLatAccel
+    motionSignals.current.verticalImpulse = Math.max(0, Math.abs(frameVerticalAccel) - 0.8)
+    motionSignals.current.yawRate = sim.chassis.angvel().y
 
     const targetBodyRoll = THREE.MathUtils.clamp(-frameLatAccel * tuningNow.bodyRollGain, -0.075, 0.075)
     const shiftPitchRelease = sim.drivetrainOutput.shifting ? 0.0075 * sim.drivetrainOutput.load : 0
@@ -578,6 +656,17 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
       .addScaledVector(up, 1.4)
       .addScaledVector(forward, tuningNow.cameraLookAhead + speedRatio * 4.0)
       .addScaledVector(right, steerRatio * 1.4)
+
+    const cinematic = cinematicRef.current
+    if (cinematic && performance.now() < cinematic.until) {
+      translationVector.current.set(translation.x, translation.y, translation.z)
+      cinematicPosition.current.set(3.45, 2.15, 2.6).applyQuaternion(threeQ).add(translationVector.current)
+      cinematicLook.current.set(0.55, 1.65, 3.05).applyQuaternion(threeQ).add(translationVector.current)
+      desiredCamera.current.copy(cinematicPosition.current)
+      desiredLook.current.copy(cinematicLook.current)
+    } else if (cinematic) {
+      cinematicRef.current = null
+    }
 
     const probeOrigin = {
       x: translation.x + up.x * 2.8,
@@ -667,6 +756,8 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
         shifting: sim.drivetrainOutput.shifting,
         shiftProgress: sim.drivetrainOutput.shiftProgress,
         shiftSerial: sim.drivetrain.shiftSerial,
+        impactSerial: sim.impactSerial,
+        impactSpeedKmh: sim.impactSpeedKmh,
         wheels: Array.from({ length: 4 }, (_, i) => ({
           contact: sim.vehicle.wheelIsInContact(i),
           suspensionLength: sim.vehicle.wheelSuspensionLength(i) ?? 0,
@@ -696,24 +787,56 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
       <fog attach="fog" args={["#aab2b7", 80, 360]} />
 
       <GroundAndCourse />
+      <KeralaVerticalSlice />
       <BusStopSet />
       <AutoObstacle />
+      <QueueObstacles />
+      <SecondBusStopSet />
       <QualificationBillboard />
 
       <group ref={busRef}>
         <group ref={visualBodyRef}>
-          <mesh castShadow position={[0, 1.28, -0.05]}>
-            <boxGeometry args={[2.34, 2.55, 10.55]} />
+          <mesh castShadow position={[0, 0.98, -0.05]}>
+            <boxGeometry args={[2.34, 1.08, 10.55]} />
             <meshStandardMaterial color="#8f2f2c" roughness={0.82} />
           </mesh>
-          <mesh castShadow position={[0, 2.02, 4.68]}>
-            <boxGeometry args={[2.20, 1.08, 0.12]} />
-            <meshStandardMaterial color="#1e2930" roughness={0.35} />
+          <mesh castShadow position={[0, 2.72, -0.05]}>
+            <boxGeometry args={[2.34, 0.42, 10.55]} />
+            <meshStandardMaterial color="#8f2f2c" roughness={0.82} />
           </mesh>
-          <mesh castShadow position={[0, 0.72, 0]}>
-            <boxGeometry args={[2.2, 0.34, 10.7]} />
+          <mesh castShadow position={[0, 0.70, 0]}>
+            <boxGeometry args={[2.38, 0.32, 10.7]} />
             <meshStandardMaterial color="#d4c7a5" roughness={0.9} />
           </mesh>
+          {[-1.19, 1.19].map((x) => (
+            <mesh key={x} position={[x, 1.88, -0.15]}>
+              <boxGeometry args={[0.055, 1.26, 8.7]} />
+              <meshStandardMaterial color="#26343a" transparent opacity={0.38} roughness={0.25} />
+            </mesh>
+          ))}
+          <mesh castShadow position={[0, 1.95, 5.22]}>
+            <boxGeometry args={[2.22, 1.30, 0.11]} />
+            <meshStandardMaterial color="#223137" transparent opacity={0.58} roughness={0.3} />
+          </mesh>
+          <mesh position={[0, 2.55, 5.30]}>
+            <boxGeometry args={[1.52, 0.34, 0.04]} />
+            <meshStandardMaterial color="#161b1d" />
+          </mesh>
+          <mesh position={[0, 0.62, 0]}>
+            <boxGeometry args={[2.05, 0.10, 9.8]} />
+            <meshStandardMaterial color="#5c5145" roughness={0.96} />
+          </mesh>
+          <MotionSignalContext.Provider value={motionSignals}>
+            <group position={[0.52, 0.66, 3.18]} rotation-y={Math.PI}>
+              <AnimatedCharacter role="examiner" state={examinerState} scale={0.95} lodMode="hero" />
+            </group>
+            <group position={[-0.62, 0.66, 1.0]} rotation-y={Math.PI}>
+              <AnimatedCharacter role="conductor" state="railIdle" scale={0.95} lodMode="hero" />
+            </group>
+            <group position={[0.58, 0.66, -1.4]} rotation-y={Math.PI}>
+              <AnimatedCharacter model="female" role="passenger" state="sitIdle" scale={0.94} lodMode="adaptive" />
+            </group>
+          </MotionSignalContext.Provider>
         </group>
       </group>
 

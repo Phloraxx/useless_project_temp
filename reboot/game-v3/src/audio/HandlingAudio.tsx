@@ -129,9 +129,20 @@ export function HandlingAudio({ telemetry }: { telemetry: Telemetry }) {
     setEnabled(true)
   }
 
+  useEffect(() => {
+    const startFromQualification = () => {
+      if (enabled) return
+      if (!noiseRef.current) noiseRef.current = createNoiseRig()
+      void noiseRef.current.context.resume()
+      void Promise.allSettled(engineRef.current.map((audio) => audio.play())).then(() => setEnabled(true))
+    }
+    window.addEventListener("adutha:start-audio", startFromQualification)
+    return () => window.removeEventListener("adutha:start-audio", startFromQualification)
+  }, [enabled])
+
   return (
     <button className={`audio-toggle ${enabled ? "is-on" : ""}`} onClick={toggle}>
-      {enabled ? "LAB AUDIO ON" : "ENABLE LAB AUDIO"}
+      {enabled ? "BUS AUDIO ON" : "ENABLE BUS AUDIO"}
     </button>
   )
 }

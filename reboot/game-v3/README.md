@@ -58,14 +58,19 @@ The exaggerated stereotypes behind the scoring are documented in `../research/PA
 
 ## Current useless qualification route
 
-The playable integration now turns the old handling course into a five-beat fictional qualification test:
+The default build is now a finite ~900 m TinkerHub showcase route with a complete application → exam → certificate loop. The player starts at the fictional application desk, enters a name, completes eight absurd qualification beats and finishes at a depot where the examiner generates a personalised result.
 
-1. **Bus-stop cardio test (~102 m)** — exact textbook placement loses marks; a controlled offset can raise the fake Passenger Fitness metric.
-2. **Auto negotiation (~218 m)** — a physical auto blocks part of the lane. Clear it with commitment instead of stopping for a committee meeting.
-3. **Decorative line recognition (232–282 m)** — the chicane rewards confident use of available road while the bus remains upright and collision-free.
-4. **Suspension trust exercise (~300 m)** — carrying speed over the hump can earn parody points; excessively ceremonial crawling increases textbook suspicion.
-5. **Passenger core workout (425–476 m)** — the rough patch rewards schedule-preserving momentum if the vehicle survives it.
+1. **Bus-stop cardio test (~102 m)** — exact textbook placement loses marks; controlled offset increases Passenger Fitness.
+2. **Auto negotiation (~218 m)** — pass a physical auto obstruction without turning the road into a committee meeting.
+3. **Decorative line recognition (232–282 m)** — use the chicane confidently while keeping the bus under control.
+4. **Suspension trust exercise (~300 m)** — a speed breaker tests whether you trust the suspension more than the textbook.
+5. **Passenger core workout (425–476 m)** — rough road rewards schedule-preserving momentum if physics agrees.
+6. **Queue Allergy (525–596 m)** — two physical obstructions leave a usable gap; commitment is graded.
+7. **Late Bell Recovery (~625 m)** — a second stop tests practical placement after a late request.
+8. **Timetable Diplomacy (675–825 m)** — final dry-road sprint with a rival service; horn timing can improve the fictional grade.
 
-The wet section before the rough-road viva deliberately flips the logic: identical aggression receives examiner concern because the road no longer supports the joke. `H` operates the qualification horn and awards/loses Horn Diplomacy depending on context and spam.
+Real contact with the scored obstacles is now reported by Rapier collision events. A meaningful collision ends the qualification immediately; reckless-looking near-miss driving can still earn parody points. The depot result records Natural Aptitude, Approval, Passenger Fitness, Schedule Recovery, Road Ownership and Textbook Contamination.
 
-All of these are fictional parody rules, not real driving advice. The point of the game is that the examiner's scoring system is absurd.
+## Judge route
+
+See `../JUDGE_DEMO.md` for the short showcase sequence. `?lab=1` still opens the engineering/tuning view.

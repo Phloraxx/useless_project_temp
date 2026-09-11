@@ -1,9 +1,9 @@
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Canvas } from "@react-three/fiber"
 import { HandlingLab } from "./HandlingLab"
 import { HandlingAudio } from "./audio/HandlingAudio"
 import { PlaytestPanel } from "./ui/PlaytestPanel"
-import { UselessQualificationPanel } from "./gameplay/UselessQualificationPanel"
+import { UselessQualificationPanel, type QualificationMetrics } from "./gameplay/UselessQualificationPanel"
 import { setVirtualControl, setVirtualSteer, type VirtualControl } from "./sim/input"
 import {
   BUILTIN_PRESETS,
@@ -260,58 +260,159 @@ function TuningPanel({ tuning, setTuning }: {
   )
 }
 
+type GamePhase = "intro" | "running" | "result"
+
+function StartOverlay({ candidate, setCandidate, onStart }: { candidate: string; setCandidate: (value: string) => void; onStart: () => void }) {
+  return (
+    <section className="start-overlay">
+      <div className="start-card">
+        <div className="start-stamp">TINKERHUB USELESS PROJECTS</div>
+        <div className="start-kicker">REGIONAL PUBLIC TRANSPORT APTITUDE BOARD · FORM 404-K</div>
+        <h2>KSRTC Driver<br />Qualification Test</h2>
+        <p className="start-copy">Normal driving licences verify road rules. This completely unnecessary second licence verifies whether you possess the fictional instincts required to make an examiner quietly worried and strangely impressed at the same time.</p>
+        <div className="start-rules">
+          <span><b>01</b> Exact bus-stop alignment may indicate dangerous textbook dependency.</span>
+          <span><b>02</b> Dry-road confidence, horn diplomacy and timetable recovery earn marks.</span>
+          <span><b>03</b> Crashing still means you crashed. Bureaucracy cannot fix physics.</span>
+        </div>
+        <label className="candidate-field">
+          <span>Candidate name</span>
+          <input value={candidate} maxLength={32} onChange={(event) => setCandidate(event.currentTarget.value)} placeholder="Applicant #404" />
+        </label>
+        <button className="begin-test" onClick={onStart}>BEGIN QUALIFICATION</button>
+        <small>Parody. Not affiliated with KSRTC. Definitely not driving advice.</small>
+      </div>
+    </section>
+  )
+}
+
+function resultFor(metrics: QualificationMetrics | null) {
+  if (metrics?.tag === "ACTUAL ACCIDENT") return { title: "DISQUALIFIED — ACTUAL VEHICLE CONTACT", code: "KQ-X", passed: false }
+  if (!metrics) return { title: "RESULT PENDING", code: "FORM LOST", passed: false }
+  if (metrics.approval >= 72 && metrics.score >= 430) return { title: "ENDORSED — NATURAL ROUTE INSTINCT", code: "KQ-01", passed: true }
+  if (metrics.approval >= 56 && metrics.score >= 240) return { title: "PROVISIONAL — PROMISING ROAD OWNERSHIP", code: "KQ-02", passed: true }
+  if (metrics.textbookContamination >= 35) return { title: "NOT ENDORSED — TEXTBOOK TENDENCIES OBSERVED", code: "KQ-17", passed: false }
+  return { title: "NOT ENDORSED — INSTINCT INCONCLUSIVE", code: "KQ-09", passed: false }
+}
+
+function ResultOverlay({ candidate, metrics, onRetry }: { candidate: string; metrics: QualificationMetrics | null; onRetry: () => void }) {
+  const result = resultFor(metrics)
+  const safeCandidate = candidate.trim() || "Applicant #404"
+  return (
+    <section className="result-overlay">
+      <div className="certificate">
+        <div className="certificate-topline"><span>FICTIONAL REGIONAL TRANSPORT APTITUDE BOARD</span><b>{result.code}</b></div>
+        <div className="certificate-seal">QUALIFIED<br />ISH</div>
+        <p className="certificate-kicker">CERTIFICATE OF EXTREMELY SPECIFIC DRIVING COMPETENCE</p>
+        <h2>{result.title}</h2>
+        <p className="certificate-name">This is to certify that <strong>{safeCandidate}</strong> completed one unnecessarily serious public-bus aptitude examination and returned enough of the vehicle for assessment.</p>
+        <div className="certificate-grid">
+          <div><span>Natural aptitude</span><strong>{metrics?.score ?? 0}</strong></div>
+          <div><span>Examiner approval</span><strong>{Math.round(metrics?.approval ?? 0)}%</strong></div>
+          <div><span>Passenger fitness contribution</span><strong>{Math.round(metrics?.passengerFitness ?? 0)}%</strong></div>
+          <div><span>Schedule recovery</span><strong>{Math.round(metrics?.scheduleRecovery ?? 0)}%</strong></div>
+          <div><span>Road ownership</span><strong>{Math.round(metrics?.roadOwnership ?? 0)}%</strong></div>
+          <div><span>Textbook contamination</span><strong>{Math.round(metrics?.textbookContamination ?? 0)}%</strong></div>
+        </div>
+        <div className="certificate-verdict">
+          <span>Examiner's final observation</span>
+          <p>{result.passed ? "വണ്ടി കൊണ്ടുവന്നു. സമയവും കൊണ്ടുവന്നു. പുസ്തകം മാത്രം കുറച്ചു വീട്ടിൽ വെക്കാം." : "Driving അറിയാം. പക്ഷേ ഈ പ്രത്യേക പരീക്ഷയ്ക്ക് അതാണ് ചെറിയ പ്രശ്നം."}</p>
+        </div>
+        <div className="certificate-signatures"><span>Examiner<br /><i>signature unreadable</i></span><span>Administrative efficiency officer<br /><i>stamp applied twice</i></span></div>
+        <button onClick={onRetry}>TAKE THE TEST AGAIN</button>
+      </div>
+    </section>
+  )
+}
+
 export default function App() {
+  const labMode = useMemo(() => new URLSearchParams(window.location.search).get("lab") === "1", [])
+  const [phase, setPhase] = useState<GamePhase>(labMode ? "running" : "intro")
+  const [candidate, setCandidate] = useState("Applicant #404")
+  const [metrics, setMetrics] = useState<QualificationMetrics | null>(null)
   const [tuning, setTuning] = useState<BusTuning>(DEFAULT_TUNING)
   const [telemetry, setTelemetry] = useState<Telemetry>(EMPTY_TELEMETRY)
   const [resetToken, setResetToken] = useState(0)
+  const runArmedRef = useRef(labMode)
+  const phaseRef = useRef<GamePhase>(labMode ? "running" : "intro")
   const [blindMode, setBlindMode] = useState(false)
-  const onTelemetry = useCallback((value: Telemetry) => setTelemetry(value), [])
+  const onTelemetry = useCallback((value: Telemetry) => {
+    setTelemetry(value)
+    if (labMode || phaseRef.current !== "running" || !value.ready) return
+    const z = value.position[2]
+    if (!runArmedRef.current && z < 20) { runArmedRef.current = true; return }
+    if (runArmedRef.current && z > 886) {
+      phaseRef.current = "result"
+      setPhase("result")
+    }
+  }, [labMode])
   const onBlindModeChange = useCallback((blind: boolean) => setBlindMode(blind), [])
   const stateText = useMemo(() => telemetry.ready ? "PHYSICS LIVE" : "INITIALISING WASM", [telemetry.ready])
   const coarsePointer = useMemo(() => matchMedia("(pointer: coarse)").matches, [])
-  const labMode = useMemo(() => new URLSearchParams(window.location.search).get("lab") === "1", [])
+  const onQualificationMetrics = useCallback((next: QualificationMetrics) => {
+    setMetrics(next)
+    if (!labMode && phaseRef.current === "running" && next.approval <= 0) {
+      phaseRef.current = "result"
+      setPhase("result")
+    }
+  }, [labMode])
+
+  useEffect(() => {
+    if (phase !== "result" || !metrics) return
+    const previous = Number(localStorage.getItem("adutha-stoppil.best-qualification") ?? "0")
+    if (metrics.score > previous) localStorage.setItem("adutha-stoppil.best-qualification", String(metrics.score))
+  }, [phase, metrics])
+
+  const beginRun = () => {
+    setMetrics(null)
+    runArmedRef.current = false
+    phaseRef.current = "running"
+    setResetToken((value) => value + 1)
+    setPhase("running")
+    window.dispatchEvent(new Event("adutha:start-audio"))
+  }
 
   return (
     <main className="app-shell">
-      <div className="portrait-warning"><strong>Rotate to landscape</strong><span>The handling lab is designed for two-thumb driving.</span></div>
+      <div className="portrait-warning"><strong>Rotate to landscape</strong><span>The qualification test needs both thumbs and questionable confidence.</span></div>
       <div className="viewport">
         <Canvas
           shadows={!coarsePointer}
           dpr={coarsePointer ? 1 : [1, 1.5]}
-          camera={{ fov: 54, near: 0.1, far: 700, position: [0, 6, -12] }}
+          camera={{ fov: 54, near: 0.1, far: 800, position: [0, 6, -12] }}
           gl={{ antialias: true, powerPreference: "high-performance" }}
         >
-          <HandlingLab tuning={tuning} onTelemetry={onTelemetry} resetToken={resetToken} />
+          <HandlingLab tuning={tuning} onTelemetry={onTelemetry} resetToken={resetToken} runActive={labMode || phase === "running"} />
         </Canvas>
       </div>
 
       <header className="topbar">
         <div>
           <div className="eyebrow">TINKERHUB USELESS PROJECTS / FICTIONAL LICENCE TEST</div>
-          <h1>{labMode ? "R1 Handling Lab" : "KSRTC Driver Qualification Test"}</h1>
+          <h1>{labMode ? "R1 Handling Lab" : "അടുത്ത സ്റ്റോപ്പിൽ™"}</h1>
         </div>
         <div className={`status-pill ${telemetry.ready ? "is-live" : ""}`}>
-          <i />{labMode ? stateText : telemetry.ready ? "QUALIFICATION LIVE" : stateText}
+          <i />{labMode ? stateText : phase === "intro" ? "APPLICATION DESK" : phase === "result" ? "RESULT ISSUED" : telemetry.ready ? "QUALIFICATION LIVE" : stateText}
         </div>
       </header>
 
-      <div className="controls-card">
+      {(labMode || phase === "running") && <div className="controls-card">
         <span><kbd>W</kbd> throttle</span>
         <span><kbd>S</kbd> brake / reverse</span>
         <span><kbd>A</kbd><kbd>D</kbd> steer</span>
         <span><kbd>SPACE</kbd> full brake</span>
         <span><kbd>H</kbd> horn diplomacy</span>
         <span><kbd>R</kbd> reset</span>
-      </div>
+      </div>}
 
       {labMode && !blindMode && <TelemetryPanel telemetry={telemetry} />}
       {labMode && !blindMode && <TuningPanel tuning={tuning} setTuning={setTuning} />}
-      {!labMode && <UselessQualificationPanel telemetry={telemetry} />}
+      {!labMode && phase === "running" && <UselessQualificationPanel telemetry={telemetry} onMetrics={onQualificationMetrics} />}
       <HandlingAudio telemetry={telemetry} />
       {labMode && <PlaytestPanel telemetry={telemetry} setTuning={setTuning} resetBus={() => setResetToken((value) => value + 1)} onBlindModeChange={onBlindModeChange} />}
-      <TouchControls />
+      {(labMode || phase === "running") && <TouchControls />}
 
-      <div className="course-legend">
+      {(labMode || phase === "running") && <div className="course-legend">
         {labMode ? <>
           <span><b>0–100 m</b> acceleration + stop</span>
           <span><b>120–205 m</b> slalom</span>
@@ -320,9 +421,12 @@ export default function App() {
         </> : <>
           <span><b>Rule 1</b> textbook driving is suspicious</span>
           <span><b>Dry road</b> confidence earns points</span>
-          <span><b>Bus stop</b> passenger cardio opportunity</span>
+          <span><b>Finish</b> depot at 900 m</span>
         </>}
-      </div>
+      </div>}
+
+      {!labMode && phase === "intro" && <StartOverlay candidate={candidate} setCandidate={setCandidate} onStart={beginRun} />}
+      {!labMode && phase === "result" && <ResultOverlay candidate={candidate} metrics={metrics} onRetry={beginRun} />}
     </main>
   )
 }

@@ -96,7 +96,7 @@ CC0 assets and audio used by the public project are documented in [`reboot/SOURC
 A newer bus mesh experimented with during development was derived from a user-downloaded OBJ whose redistribution rights could not be established. That source, its texture and derived "authentic" bus exports are intentionally **not included in this public repository**. The source code and authored blockout/prototype assets remain available without publishing that unresolved third-party material.
 
 ### Project Demo
-The current repository is an active integration snapshot. Run `reboot/game-v3` locally using the commands above. The subsystem proofs and handoff documents are kept in `reboot/workstreams/` so the development trail is reproducible.
+The default `reboot/game-v3` build is now the integrated TinkerHub vertical slice: application desk → ~900 m Kerala qualification route → eight scored encounters → depot certificate. The subsystem proofs and handoff documents remain in `reboot/workstreams/` so the development trail is reproducible.
 
 ## Team Contributions
 - Sourav P Bijoy: Team lead; game direction, implementation/integration, testing and production pipeline.
