@@ -2,7 +2,9 @@
 
 # അടുത്ത സ്റ്റോപ്പിൽ™
 
-**A simulation-based public transport driver qualification system for evaluating route-specific operational behaviour.**
+**കേരള റൂട്ട്-സർവീസ് ഡ്രൈവർ യോഗ്യതാ സംവിധാനം — a simulation-based public transport qualification system for route-specific operational behaviour.**
+
+> **“ലൈസൻസ് കിട്ടിയത് മാത്രം പോരാ. സർവീസ് പിടിക്കണം.”**
 
 ## Basic Details
 
@@ -14,11 +16,13 @@
 
 ### Project Description
 
-അടുത്ത സ്റ്റോപ്പിൽ™ is a browser-based 3D driving simulation that implements a fictional operator-specific qualification process for public transport drivers.
+അടുത്ത സ്റ്റോപ്പിൽ™ is a browser-based 3D driving simulation that implements a fictional Kerala public-transport driver qualification process.
 
-The candidate operates a full-size bus through a Kerala-inspired route while an onboard examiner evaluates vehicle control, stop placement, schedule recovery, traffic negotiation, horn communication, surface adaptation and passenger-service behaviour. The system converts these observations into a set of operational metrics and produces a final qualification certificate at the end of the route.
+The candidate operates a full-size bus through a Kerala-inspired route while an onboard examiner evaluates **സ്റ്റോപ്പ് സെൻസ്**, **സമയം പിടിക്കൽ**, **റോഡ് വായന**, **വണ്ടി കൈയിൽ**, horn communication, surface adaptation and passenger-service behaviour. The system converts these observations into operational metrics and produces a final qualification certificate at the end of the route.
 
-The project is intentionally based on an unnecessary premise: a normal driving licence is treated as insufficient for public-service route operation, and an additional qualification is introduced to certify a candidate's supposed "route instinct."
+The premise is deliberately unnecessary but internally rigorous: a normal driving licence is treated as only the first layer of eligibility. Route service requires a second, operator-specific assessment of whether the candidate can actually **സർവീസ് പിടിക്കുക** — keep the vehicle, timetable and surrounding traffic under workable control.
+
+Kerala is not treated as a decorative backdrop. The service language deliberately draws from familiar **ആനവണ്ടി**, **കണ്ടക്ടർ ബെൽ**, **ഓട്ടോ ഗ്യാപ്**, **സ്റ്റോപ്പ്**, **കുഴി**, rain and timetable vocabulary, while the implementation remains a fictional simulation rather than a reproduction of any real KSRTC route or operating rule.
 
 ### The Problem (that doesn't exist)
 
@@ -26,13 +30,14 @@ Conventional driver licensing primarily evaluates legal compliance, basic vehicl
 
 This creates a hypothetical assessment gap. A driver may be legally qualified while still lacking measurable evidence in areas such as:
 
-- practical stop-position selection;
-- schedule recovery under route pressure;
-- decisive progress through mixed traffic;
-- context-sensitive horn communication;
-- adaptation to dry, wet and damaged road surfaces;
-- passenger-service timing;
-- confidence when negotiating limited road space.
+- practical stop-position judgement — **സ്റ്റോപ്പ് സെൻസ്**;
+- recovering lost timetable margin — **സമയം പിടിക്കൽ**;
+- reading gaps, autos, buses and mixed traffic — **റോഡ് വായന**;
+- keeping the vehicle settled during committed manoeuvres — **വണ്ടി കൈയിൽ**;
+- context-sensitive acoustic communication — **ഹോൺ ഭാഷ**;
+- adapting the same driving decision to rain — **മഴക്കാല ബുദ്ധി**;
+- maintaining progress over damaged surfaces — **കുഴി മാനേജ്മെന്റ്**;
+- responding to late passenger/conductor stop requests — **ബെൽ റെസ്പോൺസ്**.
 
 The project therefore assumes that an additional certification process is required before a driver can be considered operationally qualified for a fictional Kerala public transport service.
 
@@ -44,34 +49,51 @@ A candidate drives a monitored assessment route with an examiner, conductor and 
 
 The current qualification model includes:
 
-| Metric | Operational interpretation |
-| --- | --- |
-| **Passenger Fitness** | Estimates the additional walking distance created by imperfect stop placement. |
-| **Schedule Recovery** | Measures the candidate's ability to regain fictional timetable performance through sustained route progress. |
-| **Road Ownership** | Represents decisiveness in positioning and traffic negotiation. |
-| **Horn Diplomacy** | Evaluates context-sensitive acoustic communication with surrounding road users. |
-| **Managed Recklessness** | Records aggressive-looking manoeuvres that remain within the simulation's control envelope. |
-| **Examiner Approval** | Tracks cumulative institutional confidence in the candidate. |
-| **Textbook Contamination** | Detects excessive dependence on conventional driving-school behaviour. |
+| Metric | Kerala operating term | Operational interpretation |
+| --- | --- | --- |
+| **Passenger Fitness** | **നടത്തം ബോണസ്** | Estimates the additional walking distance created by imperfect stop placement. |
+| **Schedule Recovery** | **സമയം പിടിക്കൽ** | Measures the candidate's ability to regain fictional timetable performance through sustained route progress. |
+| **Road Ownership** | **റോഡ് വായന** | Represents decisiveness in positioning and mixed-traffic negotiation. |
+| **Horn Diplomacy** | **ഹോൺ ഭാഷ** | Evaluates context-sensitive acoustic communication with surrounding road users. |
+| **Managed Recklessness** | **വണ്ടി കൈയിൽ** | Records aggressive-looking manoeuvres that remain inside the simulation's control envelope. |
+| **Examiner Approval** | **സാറിന്റെ മാർക്ക്** | Tracks cumulative institutional confidence in the candidate. |
+| **Textbook Contamination** | **ഡ്രൈവിംഗ്-സ്കൂൾ ലക്ഷണം** | Detects excessive dependence on conventional driving-school behaviour. |
 
 The assessment deliberately produces counter-intuitive outcomes. For example, exact stop placement may increase Textbook Contamination, while a controlled offset may increase Passenger Fitness and Examiner Approval. The same aggressive manoeuvre may be rewarded on a dry road and penalised when road conditions no longer support it.
 
 This is a fictional simulation and is not affiliated with KSRTC. It is not intended as driving guidance, and its scoring model should not be interpreted as a description of real KSRTC drivers or real public-transport operating policy.
 
+## കേരള റൂട്ട് പദാവലി
+
+The following terms form part of the qualification record and are used consistently across route assessment, examiner notes and result interpretation.
+
+| Term | Meaning inside the qualification system |
+| --- | --- |
+| **സ്റ്റോപ്പ് സെൻസ്** | Knowing where the bus should actually come to rest relative to a stop, passengers and road geometry. |
+| **സമയം പിടിക്കൽ** | Recovering lost timetable margin without losing control of the vehicle. |
+| **റോഡ് വായന** | Reading gaps, autos, parked vehicles, road width and the intentions of surrounding traffic. |
+| **വണ്ടി കൈയിൽ** | Keeping a heavy bus composed while driving with commitment. |
+| **ഹോൺ ഭാഷ** | Treating a short, contextual horn as part of road communication rather than background noise. |
+| **മഴക്കാല ബുദ്ധി** | Understanding that dry-road confidence cannot simply be copied onto a wet road. |
+| **കുഴി മാനേജ്മെന്റ്** | Balancing route progress, suspension movement and passenger comfort over broken surfaces. |
+| **ബെൽ റെസ്പോൺസ്** | Responding to a late stop request without converting it into a full operational crisis. |
+
+Each term maps directly to a measurable telemetry or encounter outcome in the qualification model.
+
 ## Qualification Procedure
 
 The integrated demonstration route is approximately 900 metres long and contains eight authored assessment situations.
 
-| Stage | Assessment | Primary observation |
-| --- | --- | --- |
-| 01 | Stop-position assessment | Door placement relative to the designated stop area |
-| 02 | Auto-rickshaw negotiation | Commitment and clearance through a constrained lane |
-| 03 | Lateral-positioning assessment | Use of available road space through a chicane |
-| 04 | Suspension confidence assessment | Vehicle behaviour across a speed breaker |
-| 05 | Rough-surface assessment | Progress and stability over damaged road surface |
-| 06 | Queue-progress assessment | Maintaining useful forward movement in constrained traffic |
-| 07 | Late-stop recovery | Response to a delayed passenger stop requirement |
-| 08 | Final timetable assessment | Sustained service pace before entering the terminal |
+| Stage | Kerala service brief | Assessment | Primary observation |
+| --- | --- | --- | --- |
+| 01 | **സ്റ്റോപ്പ് സെൻസ്** | Stop-position assessment | Door placement relative to the designated stop area |
+| 02 | **ഓട്ടോ ഗ്യാപ്** | Auto-rickshaw negotiation | Commitment and clearance through a constrained lane |
+| 03 | **റോഡ് വായന** | Lateral-positioning assessment | Use of available road space through a chicane |
+| 04 | **ഹമ്പ് മാനേജ്മെന്റ്** | Suspension confidence assessment | Vehicle behaviour across a speed breaker |
+| 05 | **കുഴി മാനേജ്മെന്റ്** | Rough-surface assessment | Progress and stability over damaged road surface |
+| 06 | **ക്യൂ മാനേജ്മെന്റ്** | Queue-progress assessment | Maintaining useful forward movement in constrained traffic |
+| 07 | **ബെൽ റെസ്പോൺസ്** | Late-stop recovery | Response to a delayed passenger stop requirement |
+| 08 | **സമയം പിടിക്കൽ** | Final timetable assessment | Sustained service pace before entering the terminal |
 
 A meaningful collision with an assessment obstacle generates a direct disqualification condition. Near-miss or high-commitment behaviour can still contribute to qualification metrics when the bus remains under control.
 
@@ -130,6 +152,8 @@ flowchart LR
 The simulation separates physical safety from qualification scoring. Collision and loss-of-control events are evaluated independently from the fictional examiner's preferences, allowing the project to reward unusual behaviour without treating physical failure as a successful outcome.
 
 ### Runtime Flow
+
+**അപേക്ഷ → റൂട്ട് പരീക്ഷ → എക്സാമിനർ വിലയിരുത്തൽ → ഡിപ്പോ → സർട്ടിഫിക്കറ്റ്**
 
 ```text
 application desk
