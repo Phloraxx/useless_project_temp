@@ -181,6 +181,85 @@ function GroundAndCourse() {
   )
 }
 
+function BusStopSet() {
+  return (
+    <group position={[5.4, 0, 102]}>
+      <mesh castShadow position={[0, 1.35, 0]}>
+        <boxGeometry args={[0.12, 2.7, 0.12]} />
+        <meshStandardMaterial color="#313840" />
+      </mesh>
+      <mesh castShadow position={[0, 2.55, 0]}>
+        <boxGeometry args={[1.65, 0.62, 0.10]} />
+        <meshStandardMaterial color="#d7c04d" />
+      </mesh>
+      <mesh position={[-0.02, 2.55, -0.06]}>
+        <planeGeometry args={[1.45, 0.42]} />
+        <meshBasicMaterial color="#252b30" />
+      </mesh>
+      <mesh castShadow position={[1.7, 1.15, 0.35]}>
+        <boxGeometry args={[2.4, 0.12, 2.3]} />
+        <meshStandardMaterial color="#5a5148" />
+      </mesh>
+      <mesh castShadow position={[1.7, 2.3, 0.35]}>
+        <boxGeometry args={[2.7, 0.13, 2.55]} />
+        <meshStandardMaterial color="#7b5639" />
+      </mesh>
+      {[-0.5, 0.2, 0.9].map((x, i) => (
+        <group key={i} position={[x + 1.15, 0.95, -0.2 + i * 0.45]}>
+          <mesh castShadow position={[0, 0.72, 0]}>
+            <capsuleGeometry args={[0.18, 0.72, 5, 8]} />
+            <meshStandardMaterial color={["#526c78", "#826653", "#6d7154"][i]} />
+          </mesh>
+          <mesh castShadow position={[0, 1.45, 0]}>
+            <sphereGeometry args={[0.20, 12, 10]} />
+            <meshStandardMaterial color="#8b684f" />
+          </mesh>
+        </group>
+      ))}
+    </group>
+  )
+}
+
+function AutoObstacle() {
+  return (
+    <group position={[-1.55, 0.48, 218]} rotation-y={0.08}>
+      <mesh castShadow position={[0, 0.52, 0]}>
+        <boxGeometry args={[1.55, 1.05, 3.0]} />
+        <meshStandardMaterial color="#d6a525" roughness={0.72} />
+      </mesh>
+      <mesh castShadow position={[0, 1.12, -0.15]}>
+        <boxGeometry args={[1.28, 0.52, 1.45]} />
+        <meshStandardMaterial color="#252b2e" roughness={0.35} />
+      </mesh>
+      {[-0.58, 0.58].flatMap((x) => [-0.95, 0.95].map((z) => (
+        <mesh key={`${x}-${z}`} castShadow position={[x, 0.20, z]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.26, 0.26, 0.16, 12]} />
+          <meshStandardMaterial color="#16181a" />
+        </mesh>
+      )))}
+    </group>
+  )
+}
+
+function QualificationBillboard() {
+  return (
+    <group position={[5.55, 0, 343]}>
+      <mesh castShadow position={[0, 1.85, 0]}>
+        <boxGeometry args={[0.14, 3.7, 0.14]} />
+        <meshStandardMaterial color="#30353a" />
+      </mesh>
+      <mesh castShadow position={[-0.9, 3.05, 0]}>
+        <boxGeometry args={[3.6, 1.65, 0.12]} />
+        <meshStandardMaterial color="#eee9d7" />
+      </mesh>
+      <mesh position={[-0.9, 3.05, -0.07]}>
+        <planeGeometry args={[3.28, 1.34]} />
+        <meshBasicMaterial color="#922f2c" />
+      </mesh>
+    </group>
+  )
+}
+
 function Barrier({ position }: { position: [number, number, number] }) {
   return (
     <mesh castShadow receiveShadow position={position}>
@@ -246,6 +325,7 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
       addFixedBox(world, [2.0, 0.58, 0.55], [-4.55, 0.58, 232], 0.7)
       addFixedBox(world, [2.0, 0.58, 0.55], [4.55, 0.58, 257], 0.7)
       addFixedBox(world, [2.0, 0.58, 0.55], [-4.55, 0.58, 282], 0.7)
+      addFixedBox(world, [0.78, 0.72, 1.5], [-1.55, 0.72, 218], 0.7)
 
       const bodyDesc = RAPIER.RigidBodyDesc.dynamic()
         .setTranslation(BUS.start.x, BUS.start.y, BUS.start.z)
@@ -616,6 +696,9 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0 }: Props) {
       <fog attach="fog" args={["#aab2b7", 80, 360]} />
 
       <GroundAndCourse />
+      <BusStopSet />
+      <AutoObstacle />
+      <QualificationBillboard />
 
       <group ref={busRef}>
         <group ref={visualBodyRef}>

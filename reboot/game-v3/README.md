@@ -54,3 +54,18 @@ Malayalam gameplay lines are original, conversational drafts intended for native
 ## Research
 
 The exaggerated stereotypes behind the scoring are documented in `../research/PARODY_RESEARCH_REDDIT.md`, with Reddit source links and explicit notes that the material is anecdotal satire rather than evidence about every real driver.
+
+
+## Current useless qualification route
+
+The playable integration now turns the old handling course into a five-beat fictional qualification test:
+
+1. **Bus-stop cardio test (~102 m)** — exact textbook placement loses marks; a controlled offset can raise the fake Passenger Fitness metric.
+2. **Auto negotiation (~218 m)** — a physical auto blocks part of the lane. Clear it with commitment instead of stopping for a committee meeting.
+3. **Decorative line recognition (232–282 m)** — the chicane rewards confident use of available road while the bus remains upright and collision-free.
+4. **Suspension trust exercise (~300 m)** — carrying speed over the hump can earn parody points; excessively ceremonial crawling increases textbook suspicion.
+5. **Passenger core workout (425–476 m)** — the rough patch rewards schedule-preserving momentum if the vehicle survives it.
+
+The wet section before the rough-road viva deliberately flips the logic: identical aggression receives examiner concern because the road no longer supports the joke. `H` operates the qualification horn and awards/loses Horn Diplomacy depending on context and spam.
+
+All of these are fictional parody rules, not real driving advice. The point of the game is that the examiner's scoring system is absurd.

@@ -366,3 +366,37 @@ kbd {
   .qualification-heading strong { font-size: 10px; }
   .qualification-heading > b { font-size: 24px; }
 }
+
+.qualification-challenge {
+  margin: 8px 0 10px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: rgba(211, 190, 78, .11);
+  border: 1px solid rgba(211, 190, 78, .22);
+  color: #e8dfb2;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.movie-cameo {
+  margin: 8px 0 10px;
+  padding: 8px 9px;
+  border-left: 2px solid rgba(236, 225, 174, .48);
+  background: rgba(255, 255, 255, .035);
+}
+.movie-cameo span {
+  display: block;
+  color: #8f989f;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.movie-cameo strong {
+  display: block;
+  margin-top: 4px;
+  color: #f0ead0;
+  font-size: 13px;
+  line-height: 1.35;
+}

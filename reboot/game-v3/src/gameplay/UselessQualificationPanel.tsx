@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useReducer, useRef } from "react"
 import type { Telemetry } from "../sim/config"
+import type { MovieCameo } from "../dialogue/movieCameos"
 
 type Metrics = {
   score: number
@@ -11,6 +12,7 @@ type Metrics = {
   riskStreak: number
   message: string
   tag: string
+  cameo: MovieCameo | null
 }
 
 type Action =
@@ -19,6 +21,10 @@ type Action =
   | { type: "stop"; distance: number }
   | { type: "skip-stop" }
   | { type: "horn"; gapMs: number; dry: boolean; speed: number }
+  | { type: "auto-pass"; speed: number; clearanceX: number }
+  | { type: "chicane"; speed: number; laneUse: number }
+  | { type: "speed-breaker"; speed: number }
+  | { type: "rough-run"; speed: number }
 
 const INITIAL: Metrics = {
   score: 0,
@@ -30,6 +36,7 @@ const INITIAL: Metrics = {
   riskStreak: 0,
   message: "ലൈസൻസ് ടെസ്റ്റ് തുടങ്ങി. സാധാരണ ഡ്രൈവിംഗ് ഇവിടെ സംശയാസ്പദമാണ്.",
   tag: "APPLICATION ACCEPTED",
+  cameo: null,
 }
 
 const clamp = (value: number, min = 0, max = 100) => Math.max(min, Math.min(max, value))
@@ -80,6 +87,101 @@ function reducer(current: Metrics, action: Action): Metrics {
       scheduleRecovery: clamp(current.scheduleRecovery + 10),
       tag: "EXPRESS CONVERSION",
       message: "സ്റ്റോപ്പ് പോയി. അടുത്തത് വരെ walking plan automatic ആയി activate ആയി.",
+    }
+  }
+
+  if (action.type === "auto-pass") {
+    if (action.speed >= 28 && Math.abs(action.clearanceX) >= 0.4) {
+      return {
+        ...current,
+        score: current.score + 95,
+        approval: clamp(current.approval + 5),
+        roadOwnership: clamp(current.roadOwnership + 12),
+        scheduleRecovery: clamp(current.scheduleRecovery + 5),
+        tag: "AUTO NEGOTIATION PASSED",
+        message: "ഓട്ടോ കണ്ടു. gap കണ്ടു. committee meeting വെച്ചില്ല. +95.",
+        cameo: null,
+      }
+    }
+    return {
+      ...current,
+      score: Math.max(0, current.score - 15),
+      textbookContamination: clamp(current.textbookContamination + 7),
+      tag: "EXCESSIVE COURTESY",
+      message: "ഓട്ടോയ്ക്ക് ഇത്ര ബഹുമാനം? അടുത്ത തവണ invitation card കൊടുക്കാം.",
+    }
+  }
+
+  if (action.type === "chicane") {
+    if (action.speed >= 28 && action.laneUse >= 3) {
+      return {
+        ...current,
+        score: current.score + 110,
+        approval: clamp(current.approval + 5),
+        roadOwnership: clamp(current.roadOwnership + 14),
+        riskStreak: clamp(current.riskStreak + 3, 0, 20),
+        tag: "DECORATIVE LINE RECOGNITION",
+        message: "ലൈൻ കണ്ടു. decoration ആണെന്ന് ശരിയായി തിരിച്ചറിഞ്ഞു.",
+        cameo: null,
+      }
+    }
+    return {
+      ...current,
+      score: current.score + 20,
+      tag: "LANE DISCIPLINE DETECTED",
+      textbookContamination: clamp(current.textbookContamination + 5),
+      message: "Cone എല്ലാം respect ചെയ്തു. Examiner അല്പം നിരാശനാണ്.",
+    }
+  }
+
+  if (action.type === "speed-breaker") {
+    if (action.speed >= 34) {
+      return {
+        ...current,
+        score: current.score + 125,
+        approval: clamp(current.approval + 6),
+        scheduleRecovery: clamp(current.scheduleRecovery + 9),
+        riskStreak: clamp(current.riskStreak + 4, 0, 20),
+        tag: "SUSPENSION TRUST EXERCISE",
+        message: "ഹമ്പ് കണ്ടിട്ടും വിശ്വാസം suspension-ലേക്ക് outsource ചെയ്തു. +125.",
+      }
+    }
+    if (action.speed >= 18) {
+      return {
+        ...current,
+        score: current.score + 45,
+        approval: clamp(current.approval + 2),
+        tag: "ACCEPTABLE HUMP CONFIDENCE",
+        message: "കുറച്ചു brake ചെയ്തു. പക്ഷേ dignity രക്ഷപ്പെട്ടു.",
+      }
+    }
+    return {
+      ...current,
+      score: Math.max(0, current.score - 20),
+      textbookContamination: clamp(current.textbookContamination + 9),
+      tag: "DRIVING SCHOOL REFLEX",
+      message: "ഹമ്പിന് മുമ്പേ യാത്ര അവസാനിപ്പിക്കേണ്ട ആവശ്യമില്ലായിരുന്നു.",
+    }
+  }
+
+  if (action.type === "rough-run") {
+    if (action.speed >= 32) {
+      return {
+        ...current,
+        score: current.score + 140,
+        approval: clamp(current.approval + 7),
+        passengerFitness: clamp(current.passengerFitness + 10),
+        scheduleRecovery: clamp(current.scheduleRecovery + 8),
+        riskStreak: clamp(current.riskStreak + 5, 0, 20),
+        tag: "PASSENGER CORE WORKOUT",
+        message: "റോഡ് മോശം. timetable നല്ലത്. യാത്രക്കാർക്ക് free core workout.",
+      }
+    }
+    return {
+      ...current,
+      score: current.score + 25,
+      tag: "ROAD RESPECTED",
+      message: "റോഡ് കുഴിയാണെന്ന് കണ്ടു. അതിനെ personally എടുത്തു.",
     }
   }
 
@@ -163,6 +265,14 @@ export function UselessQualificationPanel({ telemetry }: { telemetry: Telemetry 
   const stopScoredRef = useRef(false)
   const stopSkippedRef = useRef(false)
   const furthestZRef = useRef(0)
+  const autoScoredRef = useRef(false)
+  const chicaneScoredRef = useRef(false)
+  const breakerScoredRef = useRef(false)
+  const roughScoredRef = useRef(false)
+  const chicaneLaneUseRef = useRef(0)
+  const chicaneSpeedRef = useRef(0)
+  const breakerSpeedRef = useRef(0)
+  const roughSpeedRef = useRef(0)
 
   useEffect(() => { telemetryRef.current = telemetry }, [telemetry])
 
@@ -173,6 +283,14 @@ export function UselessQualificationPanel({ telemetry }: { telemetry: Telemetry 
       furthestZRef.current = 0
       stopScoredRef.current = false
       stopSkippedRef.current = false
+      autoScoredRef.current = false
+      chicaneScoredRef.current = false
+      breakerScoredRef.current = false
+      roughScoredRef.current = false
+      chicaneLaneUseRef.current = 0
+      chicaneSpeedRef.current = 0
+      breakerSpeedRef.current = 0
+      roughSpeedRef.current = 0
       lastTickRef.current = performance.now()
       dispatch({ type: "reset" })
       return
@@ -193,6 +311,33 @@ export function UselessQualificationPanel({ telemetry }: { telemetry: Telemetry 
         stopSkippedRef.current = true
         dispatch({ type: "skip-stop" })
       }
+    }
+
+    const z = telemetry.position[2]
+    const speed = Math.abs(telemetry.speedKmh)
+    if (!autoScoredRef.current && z > 227) {
+      autoScoredRef.current = true
+      dispatch({ type: "auto-pass", speed, clearanceX: telemetry.position[0] })
+    }
+
+    if (z >= 232 && z <= 282) {
+      chicaneLaneUseRef.current = Math.max(chicaneLaneUseRef.current, Math.abs(telemetry.position[0]))
+      chicaneSpeedRef.current = Math.max(chicaneSpeedRef.current, speed)
+    } else if (!chicaneScoredRef.current && z > 286) {
+      chicaneScoredRef.current = true
+      dispatch({ type: "chicane", speed: chicaneSpeedRef.current, laneUse: chicaneLaneUseRef.current })
+    }
+
+    if (z >= 292 && z <= 304) breakerSpeedRef.current = Math.max(breakerSpeedRef.current, speed)
+    if (!breakerScoredRef.current && z > 306) {
+      breakerScoredRef.current = true
+      dispatch({ type: "speed-breaker", speed: breakerSpeedRef.current })
+    }
+
+    if (z >= 425 && z <= 476) roughSpeedRef.current = Math.max(roughSpeedRef.current, speed)
+    if (!roughScoredRef.current && z > 478) {
+      roughScoredRef.current = true
+      dispatch({ type: "rough-run", speed: roughSpeedRef.current })
     }
   }, [telemetry])
 
@@ -221,6 +366,19 @@ export function UselessQualificationPanel({ telemetry }: { telemetry: Telemetry 
     return () => window.removeEventListener("keydown", onHorn)
   }, [])
 
+  const currentChallenge = useMemo(() => {
+    const z = telemetry.position[2]
+    if (z < 82) return "NEXT: BUS STOP — exact stopping is suspicious"
+    if (z < 125) return "EXAM 01: stop somewhere useful-ish"
+    if (z < 205) return "NEXT: AUTO NEGOTIATION — commitment matters"
+    if (z < 230) return "EXAM 02: pass the auto without a committee meeting"
+    if (z < 288) return "EXAM 03: cones are advisory artwork"
+    if (z < 310) return "EXAM 04: trust the suspension"
+    if (z < 425) return telemetry.surface === "wet" ? "MONSOON CLAUSE: confidence now requires evidence" : "BUILD SPEED — rough-road viva ahead"
+    if (z < 480) return "EXAM 05: passenger core-workout section"
+    return "FINAL: return alive with maximum institutional confidence"
+  }, [telemetry.position, telemetry.surface])
+
   const classification = useMemo(() => {
     if (metrics.approval >= 78 && metrics.score >= 350) return "ENDORSEMENT: NATURAL KSRTC INSTINCT"
     if (metrics.approval >= 62) return "PROVISIONAL: PROMISING ROAD OWNERSHIP"
@@ -241,6 +399,13 @@ export function UselessQualificationPanel({ telemetry }: { telemetry: Telemetry 
         <span>{metrics.tag}</span>
         <p>{metrics.message}</p>
       </div>
+      <div className="qualification-challenge">{currentChallenge}</div>
+      {metrics.cameo && (
+        <div className="movie-cameo" aria-label={`Movie dialogue cameo from ${metrics.cameo.movie}`}>
+          <span>MOVIE CAMEO · {metrics.cameo.movie.toUpperCase()} ({metrics.cameo.year})</span>
+          <strong>“{metrics.cameo.line}”</strong>
+        </div>
+      )}
       <div className="qualification-grid">
         <QualificationMetric label="Examiner approval" value={metrics.approval} suffix="%" />
         <QualificationMetric label="Passenger fitness" value={metrics.passengerFitness} suffix="%" />

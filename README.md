@@ -6,8 +6,8 @@
 ### Team Name: അടുത്ത സ്റ്റോപ്പിൽ
 
 ### Team Members
-- Team Lead: Sourav P Bijoy — Final Year, Sahrdaya College of Engineering & Technology
-- Member 2: Aradhana Rose — Second Year, Sahrdaya College of Engineering & Technology
+- Team Lead: Sourav P Bijoy — S7, Sahrdaya College of Engineering & Technology
+- Member 2: Aradhana Rose — S3, Sahrdaya College of Engineering & Technology
 
 ### Project Description
 A fake **KSRTC Driver Qualification Test** built for TinkerHub Useless Projects. Normal driving tests reward careful textbook driving; this one sarcastically asks whether you have enough fictional “KSRTC instinct” to pass. On a dry road, confident and reckless-looking-but-controlled driving can earn absurd qualification points. Actually crashing, hitting pedestrians or losing the bus still fails you.
