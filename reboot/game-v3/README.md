@@ -1,39 +1,56 @@
-# അടുത്ത സ്റ്റോപ്പിൽ — R1 Handling Lab
+# അടുത്ത സ്റ്റോപ്പിൽ™ — KSRTC Driver Qualification Test
 
-This app is the disposable vehicle-feel laboratory for the V2 reboot. It is intentionally separate from the legacy game and contains no final world, dialogue, passenger or bus art.
+TinkerHub Useless Projects build by Sourav P Bijoy and Aradhana Rose, Sahrdaya College of Engineering & Technology.
 
-## Public test build
+This is a fictional Kerala bus-driving qualification test where normal textbook driving is suspicious. The examiner rewards exaggerated “KSRTC instinct” through deliberately useless metrics while the physics simulation still decides whether the bus remains under control.
 
-`https://adutha-r1-144-24-114-90.sslip.io`
+## Run
 
-The old public prototype remains untouched.
+```bash
+npm ci
+npm run dev
+```
+
+Production validation:
+
+```bash
+npm run lint
+npm run build
+```
 
 ## Controls
 
-Desktop: `W` throttle, `S` brake then reverse after near-stop, `A/D` steer, `Space` emergency brake, `R` reset.
+- `W` / Up — throttle
+- `S` / Down — service brake, then reverse near standstill
+- `A/D` / Left/Right — steer
+- `Space` — full brake
+- `H` — Horn Diplomacy
+- `R` — reset the bus and qualification run
 
-Mobile landscape: analog steering pad, `GO`, and `BRAKE / REV`.
+## Useless qualification rules
 
-Audio is opt-in because browsers block autoplay. `ENABLE LAB AUDIO` enables telemetry-driven placeholder engine, road and brake layers.
+The default UI is the fake **KSRTC Qualification Board**. It tracks:
 
-## Built-in feel candidates
+- Passenger Fitness
+- Schedule Recovery
+- Road Ownership
+- Horn Diplomacy
+- Managed Recklessness
+- Examiner Approval
+- Textbook Contamination
 
-- **Heavy** — slower power response, softer steering and more visual weight.
-- **Balanced** — current reference baseline and best objective rough-road result.
-- **Arcade** — faster response, stronger brakes and more direct camera/steering.
+A controlled stop a few metres away from the exact marker can earn Passenger Fitness because the passengers receive “free walking.” A suspiciously perfect stop loses fictional qualification points. Dry-road pace and clean aggressive-looking control can build Managed Recklessness; wet-road repetition loses marks.
 
-## Structured human comparison
+This is parody game logic, not real driving advice or a factual claim about all KSRTC drivers.
 
-Use the `R1 HUMAN TEST` panel instead of switching presets from memory.
+## Engineering / handling mode
 
-Each run lasts 60 seconds. The lab shuffles Heavy, Balanced and Arcade, hides the mapping as Candidate A/B/C, and automatically resets between runs. Telemetry and tuning controls are hidden during the blind portion.
+Open the app with `?lab=1` to restore the telemetry, tuning and blind handling-comparison panels used during development.
 
-During each run, use the whole lab: accelerate, brake hard once, corner, touch the laterite shoulder and cross the rough section.
+## Dialogue
 
-The harness records maximum speed, distance, body roll/pitch, longitudinal/lateral acceleration, minimum wheel contacts, time spent on wet/laterite/rough surfaces and steering correction count.
+Malayalam gameplay lines are original, conversational drafts intended for native-actor review. Optional movie-clip slots exist in the dialogue data, but copyrighted movie audio/dialogue is not bundled; any such clip should only be added if the team has permission to use it.
 
-After every run, select feel tags and add a short note. The latest session is kept in browser local storage and the completed comparison can be exported as JSON.
+## Research
 
-## Reading an exported session
-
-Run `npm run playtest:summary -- /path/to/session.json` to print the preset mapping, feel tags, driving metrics and frame-rate warning for each candidate.
+The exaggerated stereotypes behind the scoring are documented in `../research/PARODY_RESEARCH_REDDIT.md`, with Reddit source links and explicit notes that the material is anecdotal satire rather than evidence about every real driver.

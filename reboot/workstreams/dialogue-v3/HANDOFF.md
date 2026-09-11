@@ -41,7 +41,7 @@ Do not imitate district speech from comedy films. The differences should come ma
 ## Examiner register split
 Normal examiner speech is intentionally short, low-key and deadpan. The rulebook category is the exception: it is intentionally stiff bureaucratic Malayalam and should be performed completely seriously.
 
-Safety overrides the joke. Major crashes, pedestrian danger and genuine loss of control use plain urgent language and must not trigger comic approval.
+Managed recklessness may trigger comic approval when an authored dry-road maneuver resolves cleanly. Major crashes, pedestrian danger and genuine loss of control use plain urgent language and must not trigger comic approval.
 ## Optional licensed media slots
 `MOVIE_CLIP_SLOT_01`, `MOVIE_CLIP_SLOT_02` and `MOVIE_CLIP_SLOT_03` are metadata-only insertion points. No film dialogue or copyrighted clip is bundled or transcribed. Gameplay cannot depend on them. Only user-owned or explicitly licensed material should be attached later.
 
@@ -61,7 +61,7 @@ For ambient passengers, prefer conversations and object/route concerns over dire
 6. Mark native review complete only after that in-context pass.
 
 ## Final QA before integration
-Check that dialogue never rewards a serious collision, no normal spoken line has drifted into announcement Malayalam, callback state is available before wiring rare lines, and licensed media slots still work when empty.
+Check that dialogue never rewards a serious collision/pedestrian impact/loss of control, normal spoken lines stay conversational, callback state is available before wiring rare lines, and licensed media slots still work when empty.
 
 The JSON is data-only and can be consumed by a later TypeScript adapter without changing these authored source files.
 ## V3.1 dialogue polish pass

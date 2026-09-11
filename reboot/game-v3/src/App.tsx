@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber"
 import { HandlingLab } from "./HandlingLab"
 import { HandlingAudio } from "./audio/HandlingAudio"
 import { PlaytestPanel } from "./ui/PlaytestPanel"
+import { UselessQualificationPanel } from "./gameplay/UselessQualificationPanel"
 import { setVirtualControl, setVirtualSteer, type VirtualControl } from "./sim/input"
 import {
   BUILTIN_PRESETS,
@@ -268,6 +269,7 @@ export default function App() {
   const onBlindModeChange = useCallback((blind: boolean) => setBlindMode(blind), [])
   const stateText = useMemo(() => telemetry.ready ? "PHYSICS LIVE" : "INITIALISING WASM", [telemetry.ready])
   const coarsePointer = useMemo(() => matchMedia("(pointer: coarse)").matches, [])
+  const labMode = useMemo(() => new URLSearchParams(window.location.search).get("lab") === "1", [])
 
   return (
     <main className="app-shell">
@@ -285,11 +287,11 @@ export default function App() {
 
       <header className="topbar">
         <div>
-          <div className="eyebrow">അടുത്ത സ്റ്റോപ്പിൽ™ / REBOOT</div>
-          <h1>R1 Handling Lab</h1>
+          <div className="eyebrow">TINKERHUB USELESS PROJECTS / FICTIONAL LICENCE TEST</div>
+          <h1>{labMode ? "R1 Handling Lab" : "KSRTC Driver Qualification Test"}</h1>
         </div>
         <div className={`status-pill ${telemetry.ready ? "is-live" : ""}`}>
-          <i />{stateText}
+          <i />{labMode ? stateText : telemetry.ready ? "QUALIFICATION LIVE" : stateText}
         </div>
       </header>
 
@@ -298,20 +300,28 @@ export default function App() {
         <span><kbd>S</kbd> brake / reverse</span>
         <span><kbd>A</kbd><kbd>D</kbd> steer</span>
         <span><kbd>SPACE</kbd> full brake</span>
+        <span><kbd>H</kbd> horn diplomacy</span>
         <span><kbd>R</kbd> reset</span>
       </div>
 
-      {!blindMode && <TelemetryPanel telemetry={telemetry} />}
-      {!blindMode && <TuningPanel tuning={tuning} setTuning={setTuning} />}
+      {labMode && !blindMode && <TelemetryPanel telemetry={telemetry} />}
+      {labMode && !blindMode && <TuningPanel tuning={tuning} setTuning={setTuning} />}
+      {!labMode && <UselessQualificationPanel telemetry={telemetry} />}
       <HandlingAudio telemetry={telemetry} />
-      <PlaytestPanel telemetry={telemetry} setTuning={setTuning} resetBus={() => setResetToken((value) => value + 1)} onBlindModeChange={onBlindModeChange} />
+      {labMode && <PlaytestPanel telemetry={telemetry} setTuning={setTuning} resetBus={() => setResetToken((value) => value + 1)} onBlindModeChange={onBlindModeChange} />}
       <TouchControls />
 
       <div className="course-legend">
-        <span><b>0–100 m</b> acceleration + stop</span>
-        <span><b>120–205 m</b> slalom</span>
-        <span><b>232–282 m</b> chicane</span>
-        <span><b>315–385 m</b> turning circle</span>
+        {labMode ? <>
+          <span><b>0–100 m</b> acceleration + stop</span>
+          <span><b>120–205 m</b> slalom</span>
+          <span><b>232–282 m</b> chicane</span>
+          <span><b>315–385 m</b> turning circle</span>
+        </> : <>
+          <span><b>Rule 1</b> textbook driving is suspicious</span>
+          <span><b>Dry road</b> confidence earns points</span>
+          <span><b>Bus stop</b> passenger cardio opportunity</span>
+        </>}
       </div>
     </main>
   )

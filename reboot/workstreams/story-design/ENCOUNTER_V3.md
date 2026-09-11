@@ -1,6 +1,6 @@
 # Encounter V3 — Reusable Premise Bank
 
-Design rule: an encounter is a driving/social situation with a readable decision, not a joke card. Most should still work with dialogue muted. Dangerous contact is never the preferred solution.
+Design rule: an encounter is a driving/social situation with a readable decision, not a joke card. Most should still work with dialogue muted. **Reckless-looking driving may be the preferred fictional qualification solution on a dry/clear authored road, but actual contact, pedestrian impact and loss of control collapse the joke into failure.**
 
 Each runtime encounter should define telegraph, safe fallback, fictional examiner preference, scoring window, modifier compatibility, reaction pools, camera options, audio opportunities, cooldown, and incident tags.
 
@@ -56,6 +56,16 @@ Each runtime encounter should define telegraph, safe fallback, fictional examine
 43. **Departmental Clock** — late in authored progression, examiner checks whether his own result/review counter will still be open. Briefly exposes personal stakes without changing his persona.
 44. **Final Two Metres** — after result signing, examiner asks for the bus to be reversed slightly for his own convenient exit: “വണ്ടി ഒന്ന് പിന്നോട്ട് ഇടാമോ?” Final authored callback and low-speed skill sting.
 
+
+## Useless-project signature encounters
+
+45. **Passenger Cardio Programme** — the painted stop marker is obvious. Exact placement is marked as “driving-school contamination.” A controlled stop roughly 1.5–5.5 m before/after it earns passenger-fitness points because everyone receives free walking distance. A massive miss is still a miss.
+46. **Dry Road Confidence Window** — clear asphalt, readable sightlines, low traffic. The examiner explicitly wants pace and commitment. A clean aggressive-looking line earns Managed Recklessness; a near-miss instantly reverses the grade.
+47. **Horn Diplomacy Practical** — another vehicle is indecisive but not in immediate danger. One short horn + clear positioning earns “communication efficiency.” Repeated horn spam gets sarcastic feedback.
+48. **Schedule Debt Recovery** — the fictional timetable says the bus is late. Dry open stretch converts speed/clean shifts into “minutes recovered” even though the metric is nonsense.
+49. **Road Ownership Assessment** — a wide authored merge gives the player room to take space decisively. Examiner rewards clean commitment; contact means the player misunderstood the phrase “ownership.”
+50. **Wet Road Reality Check** — repeats an earlier dry-road confidence setup in rain. The exact behavior that earned points before now loses them. Examiner: same confidence, wrong evidence.
+
 ## Modifier matrix
 
 Use modifiers to make known premises feel new rather than multiplying gimmicks. Safe combinations include: dry / light rain / heavy rain; seated / standing-heavy manifest; low / medium traffic; examiner confidence tier; conductor familiarity tier; daylight / overcast / late-afternoon; calm / impatient passenger mood; road surface dry / wet / patched.
@@ -64,7 +74,7 @@ Do not combine more than two meaningful pressures until the player has learned b
 
 ## Encounter families to keep out of the game
 
-Cut any premise whose only solution is to clip a vehicle, intimidate a pedestrian, ignore a vulnerable passenger, speed through low visibility, mount a shoulder dangerously, or treat a crash as a punchline. Also cut dialogue-only quizzes, meme references that age instantly, exact real-operator ridicule, and encounters whose entire joke is “Kerala traffic is crazy.”
+Cut any premise whose only solution is actual contact, pedestrian intimidation/impact, ignoring a vulnerable passenger, blind low-visibility speed, unrecoverable shoulder use, or treating a crash as a punchline. Aggressive-looking but consequence-free authored maneuvers are allowed because that inversion is now a core joke. Also cut dialogue-only quizzes, meme references that age instantly, exact real-operator ridicule, and encounters whose entire joke is “Kerala traffic is crazy.”
 
 ## Reaction design
 

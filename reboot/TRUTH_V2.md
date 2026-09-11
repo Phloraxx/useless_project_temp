@@ -12,7 +12,7 @@ A driving examiner sits inside the bus with a clipboard. A conductor and a chang
 
 The central inversion remains: ordinary textbook driving can be marked as evidence that the candidate lacks the fictional "natural bus-driver instinct". The game may reward controlled assertiveness, comic stop placement, horn communication, confident ETA answers and maintaining flow.
 
-Serious collisions, pedestrian impacts and loss of control are never rewarded. They are major penalties or disqualification.
+Reckless-looking authored driving can be rewarded as part of the parody, especially on dry/clear roads. Serious collisions, pedestrian impacts and loss of control are still major penalties or disqualification; consequence is the boundary.
 
 ## Core loop
 

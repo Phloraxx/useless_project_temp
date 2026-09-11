@@ -2,7 +2,7 @@
 
 ## Design goal
 
-Scoring must reward **good bus control plus successful reading of the fictional institution**, without teaching the player that unsafe driving is clever. The player should be able to understand a run through three concepts: Natural Aptitude score, Flow multiplier, and Examiner Approval. Safety sits above all three as a hard gate.
+Scoring must reward **successful performance of an absurd fictional KSRTC qualification**, including carefully authored reckless-looking behaviour. The comedy is intentionally inverted: on a dry, clear road the examiner may give extra points for pace, late commitment, aggressive-looking lane confidence or horn communication **when the maneuver ends cleanly**. The player reads Natural Aptitude, Flow and Examiner Approval while physics remains the final judge.
 
 ## 1. Natural Aptitude — lifetime run score
 
@@ -37,13 +37,16 @@ Approval represents whether this examiner believes the candidate has the require
 
 Approval changes slowly. A single exact textbook stop should never make the player feel half-dead. Small corrections are usually ±1–4% equivalents; major repeated failures may cost more.
 
-Approval rises for repeated evidence of safe, confident route reading and can gain a small “trust buffer” after novel solutions. It falls for over-hesitation, missed readable cues, wildly impractical stop placement, and repeated failure to progress when safe opportunities are obvious.## 4. Safety gate — non-negotiable layer
+Approval rises for repeated evidence of safe, confident route reading and can gain a small “trust buffer” after novel solutions. It falls for over-hesitation, missed readable cues, wildly impractical stop placement, and repeated failure to progress when safe opportunities are obvious.## 4. Managed Recklessness — the useless-project inversion
 
-Safety overrides all comedy scoring. Severe pedestrian impact, major collision, rollover or unrecoverable loss of control ends the run. Near-misses caused by reckless speed should not be reframed as “confidence.”
+Dangerous-looking driving is allowed to be part of the joke. A deliberately authored maneuver can earn extra qualification points when the road is dry/clear, the player commits confidently and the result is clean. This is not “safe driving rewarded with a funny label”; the examiner genuinely prefers a little fictional madness.
 
-Encounters can prefer **assertiveness inside a safe envelope**, never aggression outside it. The scoring system should evaluate collision margin, speed, bus stability and vulnerable-road-user conflict before awarding an examiner-style bonus.
+Use three outcome bands:
+- **clean managed recklessness:** dry road + stable bus + no contact/near-miss → large Aptitude bonus and Flow;
+- **near miss:** the joke collapses → score/Approval loss and Flow reset;
+- **contact / pedestrian impact / rollover:** physics wins → major penalty or disqualification.
 
-If a fictional-preference condition and a safety condition conflict, safety wins and the examiner either approves the safe action or remains silent. Never generate a joke that implies the player should have endangered someone.
+Weather is part of the absurd doctrine. Dry asphalt grants a risk multiplier; wet/loose roads remove it. Doing the exact same stunt in rain is classified as “enthusiasm without evidence.” The UI should make this distinction obvious so the player learns the parody system, not a real-world rule.
 
 ## 5. Passenger mood — hidden response state
 
@@ -119,3 +122,15 @@ A very high score cannot erase a severe safety event. A very safe but extremely 
 Persist for the summary: highest Flow, total Aptitude, distance, safety status, 2–3 strongest positive incident tags, 1 strongest correction tag, one passenger-mood descriptor, and whether the player accepted the first certificate checkpoint or continued.
 
 Those tags drive examiner summary lines and make two similar scores feel like different runs.
+
+## Fake public-benefit metrics
+
+These make the useless idea look suspiciously useful:
+- **Passenger Fitness:** safe stop offset becomes free walking distance. About 1.5–5.5 m from the marker is the comedy sweet spot; exact placement increases Textbook Contamination.
+- **Schedule Recovery:** pace on dry open road pays down fictional timetable debt.
+- **Road Ownership:** decisive positioning, confident clean cornering and contextual horn use.
+- **Horn Diplomacy:** a well-timed short horn is treated as a complete inter-vehicle communication protocol.
+- **Managed Recklessness:** streak meter for dry-road risk that remained consequence-free.
+- **Textbook Contamination:** rises when the player behaves suspiciously like somebody who learned normal driving rules.
+
+These are comic metrics, not simulations of public benefit.

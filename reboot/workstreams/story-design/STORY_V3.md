@@ -2,13 +2,23 @@
 
 Status: narrative workstream proposal for the continuous-route reboot.
 
+## V4 useless-project premise override
+
+The project is now framed directly as a **fictional KSRTC Driver Qualification Licence**. A normal driving test asks whether the candidate follows textbook rules. This test asks the absurd opposite question: can the candidate demonstrate enough exaggerated, internet-stereotype “KSRTC instinct” to satisfy a dead-serious examiner?
+
+The examiner presents the nonsense as measurable public benefit. Stopping a few metres away from the marker improves **Passenger Fitness**. Driving an assertive dry-road pace improves **Schedule Recovery**. A short horn becomes **Horn Diplomacy**. Confident positioning becomes **Road Ownership**. Reckless-looking but consequence-free dry-road driving becomes **Managed Recklessness**. Perfect driving creates **Textbook Contamination**.
+
+The core comic rule is no longer “the player must always drive safely.” The game is allowed to reward authored dangerous-looking behaviour. The boundary is consequence: dry/clear + controlled + clean can score; a near miss loses the joke; collision, pedestrian impact or loss of control can still disqualify. Rain removes the risk bonus, so repeating the same stunt in wet conditions is treated as unjustified enthusiasm.
+
+This is an exaggerated parody of recurring Kerala internet stereotypes, not a factual description of all KSRTC drivers and not real driving advice.
+
 ## Narrative promise
 
-The player already has a valid heavy-vehicle licence. What they do not have is the fictional **Local Route Instinct Endorsement**, a second certificate invented by a regional passenger-transport bureaucracy to prove that a driver has “natural public-service aptitude.” The test should have been an empty-bus assessment. Instead, the depot has merged the test vehicle with a live scheduled service “to avoid dead mileage.” Real passengers board. The examiner treats this as perfectly normal.
+The player arrives for a fictional **KSRTC Driver Qualification Licence**, an additional absurd assessment that claims an ordinary heavy-vehicle licence cannot measure “public-service instinct.” The test should have been an empty-bus assessment. Instead, the depot has merged the test vehicle with a live scheduled service “to avoid dead mileage.” Real passengers board. The examiner treats this as perfectly normal.
 
 That contradiction powers the game: the examiner evaluates doctrine, the conductor tries to keep an actual service moving, passengers have ordinary human needs, and the player must drive a heavy bus well while learning which harmless pieces of local bus intuition this particular examiner worships.
 
-The institution is the target of the satire, not Kerala bus workers, passengers, or safe driving. Genuinely dangerous driving is never rewarded.
+The institution and internet stereotype are the targets of the satire, not individual real KSRTC workers. The fictional examiner can reward reckless-looking dry-road behaviour; actual contact, pedestrian harm and loss of control remain failures.
 
 ## Core cast
 
@@ -151,7 +161,7 @@ These work only when the player’s action is genuinely safe. The examiner may d
 
 The interruption pattern is: evidence → examiner micro-reaction → one short judgement → score delta → immediate return. The first two or three are authored reveals. Later ones are mostly glance/clipboard barks so the joke does not destroy driving rhythm.
 
-Never grade down: yielding to a pedestrian; waiting for an elderly/disabled passenger; reducing speed for visibility; avoiding a collision; leaving safe following distance; obeying a genuinely dangerous conflict; stopping after a passenger is not safely aboard.
+Hard exceptions: never grade down yielding to a pedestrian, waiting for an elderly/disabled passenger, reducing speed for genuinely poor visibility, avoiding an imminent collision, or stopping because a passenger is not safely aboard. Ordinary textbook habits such as generous empty-road following distance may still be mocked by the fictional examiner.
 
 ## Running jokes and callbacks
 
@@ -174,7 +184,7 @@ None of these needs a camera cut. The player should discover many of them at 35�
 
 Rare events are memorable because they temporarily change texture, not because they become random chaos. Candidates: sudden funeral/wedding/procession detour handled respectfully; power-cut-darkened commercial strip in rain; a stranded bus whose passengers briefly crowd the stop; a film-shoot-like roadside gathering without celebrity imitation; an animal herd crossing managed as a complete stop-and-wait; examiner asked by another official to prove his own paperwork; a familiar passenger reappearing much later after apparently taking a shortcut; conductor temporarily occupied with a passenger issue so the player must read the stop alone.
 
-Rare events must never require culturally disrespectful behavior or unsafe driving for the punchline.
+Rare events must never require culturally disrespectful behavior, actual impact, vulnerable-road-user intimidation or unrecoverable loss of control for the punchline.
 
 ## Failure and run ending
 

@@ -43,7 +43,11 @@ export type ScoreReasonCode =
   | 'CONDUCTOR_CUE_IGNORED'
   | 'TRAFFIC_COMM_CLEAR'
   | 'TRAFFIC_COMM_UNCLEAR'
-  | 'TRAFFIC_COMM_OVERAGGRESSIVE';
+  | 'TRAFFIC_COMM_OVERAGGRESSIVE'
+  | 'DRY_ROAD_MANAGED_RECKLESSNESS'
+  | 'RISK_WITHOUT_EVIDENCE'
+  | 'RISK_NEAR_MISS'
+  | 'RISK_CONTACT';
 
 export interface ScoringContext {
   flow: number;
@@ -100,6 +104,7 @@ const DEFAULT_COOLDOWNS: Record<SemanticDrivingEventType, number> = {
   REVERSING: 2_000,
   CONDUCTOR_CUE: 2_000,
   TRAFFIC_COMMUNICATION: 1_500,
+  MANAGED_RECKLESSNESS: 1_200,
 };
 
 export class ExaminerScoring {
@@ -217,6 +222,13 @@ export class ExaminerScoring {
         if (event.payload.outcome === 'clear') return qSuccess('TRAFFIC_COMM_CLEAR', 45, 1, 1);
         if (event.payload.outcome === 'unclear') return qMistake('TRAFFIC_COMM_UNCLEAR', -15, -1, -1, false);
         return safety('TRAFFIC_COMM_OVERAGGRESSIVE', -80, -5, true);
+      case 'MANAGED_RECKLESSNESS': {
+        if (event.payload.consequence === 'contact') return safety('RISK_CONTACT', -220, -12, true, 1);
+        if (event.payload.consequence === 'near_miss') return safety('RISK_NEAR_MISS', -90, -5, true, 1);
+        if (event.payload.road !== 'dry') return qMistake('RISK_WITHOUT_EVIDENCE', -35, -2, -1, true);
+        const intensity = Math.max(0, Math.min(1, event.payload.intensity01));
+        return qSuccess('DRY_ROAD_MANAGED_RECKLESSNESS', 55 + Math.round(intensity * 70), 2, 1);
+      }
     }
   }
 }

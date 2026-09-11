@@ -30,6 +30,7 @@ export type SemanticDrivingEvent =
   | EventBase<'EXCESSIVE_ROLLOVER_RISK', { rollAngleDeg: number; wheelLiftFraction: number; durationMs: number }>
   | EventBase<'REVERSING', { reverseDistanceM: number; speedKph: number; context: 'conductor_adjustment' | 'recovery' | 'traffic' | 'unknown' }>
   | EventBase<'CONDUCTOR_CUE', { cueId: string; outcome: 'obeyed' | 'ignored' | 'delayed' }>
-  | EventBase<'TRAFFIC_COMMUNICATION', { method: 'horn' | 'positioning' | 'yield'; outcome: 'clear' | 'unclear' | 'overaggressive' }>;
+  | EventBase<'TRAFFIC_COMMUNICATION', { method: 'horn' | 'positioning' | 'yield'; outcome: 'clear' | 'unclear' | 'overaggressive' }>
+  | EventBase<'MANAGED_RECKLESSNESS', { kind: 'pace' | 'corner' | 'overtake' | 'late_brake' | 'lane_claim'; road: 'dry' | 'wet' | 'loose'; consequence: 'clean' | 'near_miss' | 'contact'; intensity01: number }>;
 
 export type SemanticDrivingEventType = SemanticDrivingEvent['type'];

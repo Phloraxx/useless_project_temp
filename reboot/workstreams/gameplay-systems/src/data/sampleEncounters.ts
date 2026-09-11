@@ -2,6 +2,24 @@ import type { EncounterDefinition } from '../encounters.js';
 
 export const sampleEncounters: readonly EncounterDefinition[] = [
   {
+    id: 'dry-road-confidence', family: 'qualification', title: 'Dry Road Confidence Window', weight: 1.05, rarity: 'common',
+    cooldownDistanceM: 500, cooldownSeconds: 55, antiRepeatGroups: ['managed-recklessness'],
+    eligibility: { requiredChunkTags: ['mixed-road'], maxTrafficDensity: 0.55, weather: ['clear', 'overcast'] },
+    authoredNotes: 'A deliberately absurd qualification window: brisk, assertive, reckless-looking driving can score only while the authored road is dry/clear and the maneuver ends cleanly. Contact or near-miss overrides the joke.'
+  },
+  {
+    id: 'passenger-cardio-stop', family: 'stop', title: 'Passenger Cardio Programme', weight: 0.9, rarity: 'common',
+    cooldownDistanceM: 650, cooldownSeconds: 70, antiRepeatGroups: ['stop-positioning'],
+    eligibility: { requiredChunkTags: ['bus-stop'], requiredGeometryTags: ['safe-stop-pocket'], minPassengers: 1 },
+    authoredNotes: 'Stopping roughly 1.5-5.5 m away from the exact marker grants fictional passenger-fitness points. Exact textbook placement is suspicious. Huge misses still lose marks.'
+  },
+  {
+    id: 'horn-diplomacy', family: 'traffic', title: 'Horn Diplomacy', weight: 1.0, rarity: 'common',
+    cooldownDistanceM: 380, cooldownSeconds: 35, antiRepeatGroups: ['horn-diplomacy'],
+    eligibility: { requiredChunkTags: ['mixed-road'], maxTrafficDensity: 0.75 },
+    authoredNotes: 'A short contextual horn is treated as an official communications protocol. Spam is not diplomacy.'
+  },
+  {
     id: 'textbook-stop', family: 'stop', title: 'Textbook Stop', weight: 1.2, rarity: 'common',
     cooldownDistanceM: 650, cooldownSeconds: 75, antiRepeatGroups: ['stop-positioning'],
     eligibility: { requiredChunkTags: ['bus-stop'], requiredGeometryTags: ['safe-stop-pocket'], minPassengers: 1 },

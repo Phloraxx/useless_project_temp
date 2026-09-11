@@ -6,16 +6,28 @@
 ### Team Name: അടുത്ത സ്റ്റോപ്പിൽ
 
 ### Team Members
-- Team Lead: Sourav P Bijoy — Sahrdaya College of Engineering & Technology
+- Team Lead: Sourav P Bijoy — Final Year, Sahrdaya College of Engineering & Technology
+- Member 2: Aradhana Rose — Second Year, Sahrdaya College of Engineering & Technology
 
 ### Project Description
-A Kerala bus-driving comedy game where a completely stone-faced examiner grades you using absurd fictional bus-qualification logic. The player drives one continuous, increasingly chaotic Kerala route while passengers, roadside events, weather, dialogue, cinematics, and the examiner react to how the bus is being driven.
+A fake **KSRTC Driver Qualification Test** built for TinkerHub Useless Projects. Normal driving tests reward careful textbook driving; this one sarcastically asks whether you have enough fictional “KSRTC instinct” to pass. On a dry road, confident and reckless-looking-but-controlled driving can earn absurd qualification points. Actually crashing, hitting pedestrians or losing the bus still fails you.
 
 ### The Problem (that doesn't exist)
-Kerala has plenty of driving tests, buses and unsolicited driving advice, but apparently no examination where doing something perfectly sensible can still be marked wrong because it was "not sufficiently bus-driver-like."
+Normal licences have an obvious flaw: they only test whether you can drive properly. Nobody checks whether you can stop three metres away from the bus stop for passenger cardio, convert a horn into a communication protocol, recover an impossible timetable, or demonstrate sufficient fictional ownership of the road.
 
 ### The Solution (that nobody asked for)
-Build an unnecessarily serious bus simulator around that imaginary qualification exam: heavy bus physics, gear shifts, passengers, authored Kerala road chunks, Malayalam dialogue, conductor bells, rain, traffic situations, cinematic examiner reactions and a scoring system that distinguishes genuine danger from ridiculous fictional examiner logic.
+Build an unnecessarily serious “public-service optimisation platform” around an imaginary KSRTC qualification licence. The system measures **Passenger Fitness**, **Schedule Recovery**, **Road Ownership**, **Horn Diplomacy**, **Managed Recklessness**, **Examiner Approval**, and the dangerous condition known as **Textbook Contamination**. The joke is that the website presents every useless/inverted behaviour as a socially beneficial innovation.
+
+
+### Core Useless Metrics
+- **Passenger Fitness:** stop a few metres before/after the marker and the system credits the passengers with free walking distance.
+- **Schedule Recovery:** maintain an assertive pace on a dry road and “recover” fictional timetable debt.
+- **Road Ownership:** decisive lane positioning, committed cornering and contextual horn use build institutional confidence.
+- **Horn Diplomacy:** press `H`; one well-timed horn is treated as a complete communications protocol.
+- **Managed Recklessness:** reckless-looking but controlled dry-road driving earns parody points; the same behaviour on wet roads is marked as unjustified enthusiasm.
+- **Textbook Contamination:** suspiciously perfect driving increases this failure metric.
+
+The game is parody, not a claim about every real KSRTC driver and not real driving advice. The stereotypes are deliberately exaggerated from common Kerala internet jokes/complaints.
 
 ## Technical Details
 ### Technologies/Components Used
@@ -48,7 +60,7 @@ npm run dev
 npm run build
 ```
 
-Desktop controls: `W` throttle, `S` brake/reverse, `A/D` steering, `Space` emergency brake, `R` reset. Mobile touch steering uses the same physical left/right convention as keyboard input.
+Desktop controls: `W` throttle, `S` brake/reverse, `A/D` steering, `Space` emergency brake, `H` horn diplomacy, `R` reset. Mobile touch steering uses the same physical left/right convention as keyboard input.
 
 ## Project Documentation
 
@@ -72,7 +84,7 @@ See [`reboot/INTEGRATION_CONTRACT.md`](reboot/INTEGRATION_CONTRACT.md) and [`reb
 ### Major Workstreams
 - Physics + drivetrain — 13.2 t effective bus, 5.64 m wheelbase, 6-speed arcade drivetrain, fixed-step tests and corrected touch steering.
 - Endless world — seeded streaming of authored Kerala road chunks with world-origin rebasing and logical route distance.
-- Gameplay systems — encounters, player run state, Flow and examiner scoring.
+- Gameplay systems — encounters, player run state, Flow, examiner scoring and the live Useless Qualification Board.
 - Characters — seated examiner/conductor/passenger animation states and vehicle-motion overlays.
 - Cinematics/UI — camera-state director, safe/unsafe grading reactions and presentation UI.
 - Audio — layered telemetry-driven engine, shifts, brakes, horn, rain, road and Kerala ambience.
@@ -87,7 +99,8 @@ A newer bus mesh experimented with during development was derived from a user-do
 The current repository is an active integration snapshot. Run `reboot/game-v3` locally using the commands above. The subsystem proofs and handoff documents are kept in `reboot/workstreams/` so the development trail is reproducible.
 
 ## Team Contributions
-- Sourav P Bijoy: concept, direction, game design, implementation/integration, testing and production pipeline.
+- Sourav P Bijoy: Team lead; game direction, implementation/integration, testing and production pipeline.
+- Aradhana Rose: Concept development, satire/gameplay ideation and useless-project framing.
 
 ---
 Made at TinkerHub Useless Projects

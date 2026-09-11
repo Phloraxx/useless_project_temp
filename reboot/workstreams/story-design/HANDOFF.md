@@ -11,7 +11,7 @@ Status: V3 narrative proposal for integration with the reboot. This workstream c
 5. The first ten minutes are authored ordering inside the same continuous streamer. After minute ten, encounter ordering becomes systemic without a mode-change screen.
 6. A certificate checkpoint appears at a safe terminus roughly 15–25 minutes into a healthy run. Player may finish or continue endlessly.
 7. The final authored sting remains “വണ്ടി ഒന്ന് പിന്നോട്ട് ഇടാമോ?” as a tiny post-certificate reverse for the examiner’s personal convenience.
-8. Safety always outranks parody. No score system may reward collision, pedestrian intimidation or genuinely dangerous commitment.
+8. Managed recklessness is now an intentional parody mechanic: dry/clear + clean resolution may score. Collision, pedestrian intimidation/impact and loss of control still override the joke.
 
 ## Files
 
