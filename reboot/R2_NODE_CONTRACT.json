@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "coordinateSystem": {
+    "forward": "+Z",
+    "up": "+Y",
+    "right": "+X",
+    "origin": "wheelbase midpoint on road plane"
+  },
+  "requiredNodes": [
+    "BUS_ROOT",
+    "BODY_VISUAL",
+    "INTERIOR_ROOT",
+    "WHEEL_FL",
+    "WHEEL_FR",
+    "WHEEL_RL",
+    "WHEEL_RR",
+    "PIVOT_DOOR_FRONT",
+    "PIVOT_STEERING_WHEEL",
+    "PIVOT_WIPER_L",
+    "PIVOT_WIPER_R",
+    "LIGHT_HEAD_L",
+    "LIGHT_HEAD_R",
+    "LIGHT_BRAKE_L",
+    "LIGHT_BRAKE_R"
+  ],
+  "requiredCharacterSockets": [
+    "SOCKET_DRIVER",
+    "SOCKET_EXAMINER",
+    "SOCKET_CONDUCTOR_HOME",
+    "SOCKET_DOOR_ENTRY"
+  ],  "requiredCameraAnchors": [
+    "CAM_DRIVER",
+    "CAM_EXAMINER_MEDIUM",
+    "CAM_DRIVER_EXAMINER_TWO_SHOT",
+    "CAM_DOOR_BOARDING",
+    "CAM_AISLE_REAR",
+    "CAM_CHASE_REFERENCE"
+  ],
+  "patternNodes": {
+    "seatSockets": "SOCKET_SEAT_##",
+    "aisleSockets": "SOCKET_AISLE_##",
+    "standingSockets": "SOCKET_STAND_##"
+  },
+  "wheelCentersMeters": {
+    "WHEEL_FL": [-1.01, 0.48, 2.725],
+    "WHEEL_FR": [1.01, 0.48, 2.725],
+    "WHEEL_RL": [-1.01, 0.48, -2.725],
+    "WHEEL_RR": [1.01, 0.48, -2.725]
+  },
+  "exportRules": {
+    "format": "GLB",
+    "applyObjectTransforms": true,
+    "meters": true,
+    "includeCameras": false,
+    "includeLights": false,
+    "animationPolicy": "game-driven pivots; no required baked clips in R2 blockout"
+  }
+}

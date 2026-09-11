@@ -1,0 +1,37 @@
+{
+  "durationSeconds": 120,
+  "environment": "Chromium headless; runtime-stability/heap observation, not GPU benchmark",
+  "samples": [
+    {
+      "second": 0,
+      "heapUsed": 59217228,
+      "heapTotal": 85042920,
+      "resources": 22
+    },
+    {
+      "second": 30,
+      "heapUsed": 51703716,
+      "heapTotal": 53010780,
+      "resources": 22
+    },
+    {
+      "second": 60,
+      "heapUsed": 51814764,
+      "heapTotal": 53023068,
+      "resources": 22
+    },
+    {
+      "second": 90,
+      "heapUsed": 51726220,
+      "heapTotal": 53285212,
+      "resources": 22
+    },
+    {
+      "second": 120,
+      "heapUsed": 51923720,
+      "heapTotal": 53285212,
+      "resources": 22
+    }
+  ],
+  "errors": []
+}

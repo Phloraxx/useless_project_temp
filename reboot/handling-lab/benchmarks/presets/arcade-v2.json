@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-09-11T13:23:34.933Z",
+  "tuning": {
+    "engineForce": 12500,
+    "brakeImpulse": 360,
+    "maxSpeedKmh": 64,
+    "maxReverseKmh": 13,
+    "throttleRise": 2.2,
+    "throttleFall": 3.4,
+    "brakeRise": 4.8,
+    "brakeFall": 6.5,
+    "maxSteerDeg": 30,
+    "highSpeedSteerDeg": 11.5,
+    "steerFadeStartKmh": 16,
+    "steerFadeEndKmh": 58,
+    "steerResponse": 3.4,
+    "suspensionRestLength": 0.38,
+    "suspensionStiffness": 38,
+    "suspensionCompression": 4.2,
+    "suspensionRelaxation": 5,
+    "maxSuspensionTravel": 0.22,
+    "maxSuspensionForce": 76000,
+    "frictionSlip": 3.5,
+    "sideFrictionStiffness": 1.35
+  },
+  "reverse": {
+    "timeTo10KmhSec": 3.3166666666666598,
+    "peakReverseKmh": 12.260773944854737,
+    "endSignedKmh": -12.260773944854737
+  },
+  "acceleration": {
+    "timeTo40Sec": 7.19999999999998,
+    "distanceTo40M": 42.6357536315918,
+    "reachedKmh": 40.02346115112305
+  },
+  "topSpeed": {
+    "seconds": 25,
+    "peakKmh": 59.153933715820315,
+    "endKmh": 59.153926849365234
+  },
+  "dryBrake": {
+    "stopTimeSec": 1.6666666666666656,
+    "stopDistanceM": 10.143646240234375,
+    "endKmh": 0.42736518681049346
+  },
+  "wetBrake": {
+    "stopTimeSec": 1.866666666666665,
+    "stopDistanceM": 11.222267150878906,
+    "endKmh": 0.36777350306510925
+  },
+  "lateriteBrake": {
+    "stopTimeSec": 1.9999999999999978,
+    "stopDistanceM": 11.976238250732422,
+    "endKmh": 0.46070040464401246
+  },
+  "wetBrakeDistanceDeltaPct": 10.633463402599986,
+  "lateriteBrakeDistanceDeltaPct": 18.066403018168575,
+  "turn": {
+    "maxRollDeg": 0.16190607715132244,
+    "minWheelContacts": 4,
+    "maxSpeedKmh": 30.400903701782227,
+    "finalX": 19.2115421295166,
+    "finalZ": 53.42019271850586,
+    "finalY": 0.9822599291801453
+  },
+  "rideComfort": {
+    "seconds": 14.000000000000275,
+    "endKmh": 27.040555000305176,
+    "maxVerticalAccelG": 0.8005205689949362,
+    "maxPitchDeg": 1.1236452473882999,
+    "minWheelContacts": 2,
+    "suspensionRangeM": 0.2199999988079071,
+    "minSuspensionLengthM": 0.1599999964237213,
+    "maxSuspensionLengthM": 0.3799999952316284
+  }
+}

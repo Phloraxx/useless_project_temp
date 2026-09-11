@@ -1,0 +1,48 @@
+[
+  {
+    "id": "textbook-stop",
+    "family": "stop",
+    "title": "Textbook Stop",
+    "weight": 1.2,
+    "rarity": "common",
+    "cooldownDistanceM": 650,
+    "cooldownSeconds": 75,
+    "antiRepeatGroups": ["stop-positioning"],
+    "eligibility": {"requiredChunkTags": ["bus-stop"], "requiredGeometryTags": ["safe-stop-pocket"], "minPassengers": 1},
+    "followUps": [{"encounterId": "impossible-eta", "onOutcome": ["success"], "chance": 0.7, "minDistanceAfterM": 180, "expiresAfterM": 900, "callbackTag": "examiner-remembers-stop-confidence"}]
+  },
+  {
+    "id": "auto-in-lane",
+    "family": "traffic",
+    "title": "Auto in Lane",
+    "weight": 1.1,
+    "rarity": "common",
+    "cooldownDistanceM": 550,
+    "cooldownSeconds": 60,
+    "antiRepeatGroups": ["traffic-negotiation"],
+    "incompatibleWith": ["market-merge"],
+    "eligibility": {"requiredChunkTags": ["mixed-road"], "minTrafficDensity": 0.25, "maxTrafficDensity": 0.8, "weather": ["clear", "overcast", "rain"]}
+  },
+  {
+    "id": "rough-road-smoothness",
+    "family": "road-control",
+    "title": "Rough Road Smoothness",
+    "weight": 0.9,
+    "rarity": "common",
+    "cooldownDistanceM": 800,
+    "cooldownSeconds": 90,
+    "antiRepeatGroups": ["surface-control"],
+    "eligibility": {"requiredChunkTags": ["rough-road"], "requiredGeometryTags": ["broken-surface"], "maxTrafficDensity": 0.75}
+  },
+  {
+    "id": "impossible-eta",
+    "family": "social",
+    "title": "Impossible ETA",
+    "weight": 0.55,
+    "rarity": "uncommon",
+    "cooldownDistanceM": 1000,
+    "cooldownSeconds": 120,
+    "antiRepeatGroups": ["passenger-question"],
+    "eligibility": {"minPassengers": 1, "requiredStoryGates": ["examiner-rules-introduced"]}
+  }
+]

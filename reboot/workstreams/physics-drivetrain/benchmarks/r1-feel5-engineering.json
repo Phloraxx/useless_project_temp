@@ -1,0 +1,106 @@
+
+> handling-lab@0.0.0 benchmark
+> node scripts/benchmark.mjs
+
+{
+  "generatedAt": "2026-09-11T13:52:33.896Z",
+  "tuning": {
+    "engineForce": 10500,
+    "brakeImpulse": 320,
+    "maxSpeedKmh": 62,
+    "maxReverseKmh": 13,
+    "throttleRise": 1.8,
+    "throttleFall": 3.4,
+    "brakeRise": 4.8,
+    "brakeFall": 6.5,
+    "maxSteerDeg": 30,
+    "highSpeedSteerDeg": 9.5,
+    "steerFadeStartKmh": 16,
+    "steerFadeEndKmh": 58,
+    "steerResponse": 2.8,
+    "suspensionRestLength": 0.38,
+    "suspensionStiffness": 34,
+    "suspensionCompression": 4.6,
+    "suspensionRelaxation": 5.4,
+    "maxSuspensionTravel": 0.24,
+    "maxSuspensionForce": 72000,
+    "frictionSlip": 3.2,
+    "sideFrictionStiffness": 1.25
+  },
+  "reverse": {
+    "timeTo10KmhSec": 4.0666666666666575,
+    "peakReverseKmh": 12.128077125549316,
+    "endSignedKmh": -12.128077125549316
+  },
+  "acceleration": {
+    "timeTo40Sec": 9.166666666666702,
+    "distanceTo40M": 55.5323371887207,
+    "reachedKmh": 40.029160308837895
+  },
+  "topSpeed": {
+    "seconds": 25,
+    "peakKmh": 56.647852706909184,
+    "endKmh": 56.647852706909184
+  },
+  "dryBrake": {
+    "stopTimeSec": 1.8333333333333317,
+    "stopDistanceM": 10.998332977294922,
+    "endKmh": 0.3764755815267563
+  },
+  "wetBrake": {
+    "stopTimeSec": 2.033333333333331,
+    "stopDistanceM": 12.17727279663086,
+    "endKmh": 0.69795600771904
+  },
+  "lateriteBrake": {
+    "stopTimeSec": 2.199999999999997,
+    "stopDistanceM": 13.000141143798828,
+    "endKmh": 0.43613059222698214
+  },
+  "wetBrakeDistanceDeltaPct": 10.719259198369002,
+  "lateriteBrakeDistanceDeltaPct": 18.201014377692147,
+  "turn": {
+    "maxRollDeg": 0.15044941039704976,
+    "minWheelContacts": 4,
+    "maxSpeedKmh": 30.275535964965822,
+    "finalX": 18.37955093383789,
+    "finalZ": 58.8263053894043,
+    "finalY": 0.9761871099472046
+  },
+  "rideComfort": {
+    "seconds": 14.000000000000275,
+    "endKmh": 26.961566734313966,
+    "maxVerticalAccelG": 0.7320659787647585,
+    "maxPitchDeg": 1.026785604453382,
+    "minWheelContacts": 2,
+    "suspensionRangeM": 0.23999999463558197,
+    "minSuspensionLengthM": 0.14000000059604645,
+    "maxSuspensionLengthM": 0.3799999952316284
+  },
+  "cadence": [
+    {
+      "renderFps": 30,
+      "x": 37.6248664855957,
+      "y": 0.9761883616447449,
+      "z": 74.40924072265625,
+      "speedKmh": 0.22044221609830858,
+      "yawDeg": 47.71835582681872
+    },
+    {
+      "renderFps": 60,
+      "x": 37.32044219970703,
+      "y": 0.9761882424354553,
+      "z": 74.14827728271484,
+      "speedKmh": 0.2204434499144554,
+      "yawDeg": 47.48835397070842
+    },
+    {
+      "renderFps": 120,
+      "x": 37.45722961425781,
+      "y": 0.9761884212493896,
+      "z": 73.93280792236328,
+      "speedKmh": 0.22044092863798143,
+      "yawDeg": 47.698869787890324
+    }
+  ]
+}

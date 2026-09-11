@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-09-11T12:41:49.589Z",
+  "tuning": {
+    "engineForce": 10500,
+    "brakeImpulse": 320,
+    "maxSpeedKmh": 62,
+    "throttleRise": 1.8,
+    "throttleFall": 3.4,
+    "brakeRise": 4.8,
+    "brakeFall": 6.5,
+    "maxSteerDeg": 30,
+    "steerResponse": 2.8,
+    "suspensionRestLength": 0.38,
+    "suspensionStiffness": 34,
+    "suspensionCompression": 4.6,
+    "suspensionRelaxation": 5.4,
+    "maxSuspensionTravel": 0.24,
+    "maxSuspensionForce": 72000,
+    "frictionSlip": 3.2,
+    "sideFrictionStiffness": 1.25
+  },
+  "acceleration": {
+    "timeTo40Sec": 9.166666666666702,
+    "distanceTo40M": 55.5323371887207,
+    "reachedKmh": 40.029160308837895
+  },
+  "dryBrake": {
+    "stopTimeSec": 1.8333333333333317,
+    "stopDistanceM": 10.998332977294922,
+    "endKmh": 0.3764755815267563
+  },
+  "wetBrake": {
+    "stopTimeSec": 2.033333333333331,
+    "stopDistanceM": 12.17727279663086,
+    "endKmh": 0.69795600771904
+  },
+  "wetBrakeDistanceDeltaPct": 10.719259198369002,
+  "turn": {
+    "maxRollDeg": 0.13107178366513522,
+    "minWheelContacts": 4,
+    "maxSpeedKmh": 30.31135482788086,
+    "finalX": 16.21604347229004,
+    "finalZ": 60.67110061645508,
+    "finalY": 0.9761871695518494
+  }
+}

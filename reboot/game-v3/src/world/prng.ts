@@ -1,0 +1,3 @@
+function xmur3(str:string){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19;}return()=>{h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return(h^=h>>>16)>>>0;};}
+export function random01(seed:string,domain:string,index:number,salt=0){let t=xmur3(`${seed}|${domain}|${index}|${salt}`)()+0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296;}
+export function pickWeighted<T>(items:T[],weight:(item:T)=>number,r:number):T{const total=items.reduce((s,item)=>s+Math.max(0,weight(item)),0);let cursor=r*total;for(const item of items){cursor-=Math.max(0,weight(item));if(cursor<=0)return item;}return items[items.length-1];}

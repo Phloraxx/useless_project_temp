@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-11T19:59:48.838Z",
+  "seed": "SHOWCASE-KERALA-2047",
+  "method": "Accelerated logical-distance browser soak at 1800 km/h; validates streaming/rebasing/render stability, not vehicle-physics timing.",
+  "environment": "Oracle VM headless Chromium; FPS is software/headless and should not be treated as target-device GPU certification.",
+  "profiles": [
+    {
+      "name": "desktop-high",
+      "quality": "HIGH",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "sampleCount": 36,
+      "logicalDistanceDeltaM": 2850,
+      "finalDistanceM": 2900,
+      "rebases": 5,
+      "families": [
+        "residential-ribbon",
+        "town-high-street",
+        "paddy-open",
+        "tea-stop",
+        "market-junction",
+        "bridge-green"
+      ],
+      "fps": {
+        "avg": 11.3,
+        "min": 5,
+        "max": 51.9
+      },
+      "drawCalls": {
+        "avg": 154.6,
+        "max": 211
+      },
+      "triangles": {
+        "avg": 11803,
+        "max": 14384
+      },
+      "liveChunks": {
+        "min": 5,
+        "max": 7
+      }
+    },
+    {
+      "name": "mobile-low",
+      "quality": "LOW",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "sampleCount": 36,
+      "logicalDistanceDeltaM": 6760,
+      "finalDistanceM": 7075,
+      "rebases": 13,
+      "families": [
+        "tea-stop",
+        "residential-ribbon",
+        "market-junction",
+        "town-high-street",
+        "bridge-green",
+        "paddy-open"
+      ],
+      "fps": {
+        "avg": 17.5,
+        "min": 13.6,
+        "max": 28.5
+      },
+      "drawCalls": {
+        "avg": 112.2,
+        "max": 164
+      },
+      "triangles": {
+        "avg": 7711,
+        "max": 9004
+      },
+      "liveChunks": {
+        "min": 6,
+        "max": 7
+      }
+    }
+  ]
+}

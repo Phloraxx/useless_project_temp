@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-09-11T13:17:56.488Z",
+  "tuning": {
+    "engineForce": 9500,
+    "brakeImpulse": 300,
+    "maxSpeedKmh": 60,
+    "throttleRise": 1.4,
+    "throttleFall": 3.4,
+    "brakeRise": 4.8,
+    "brakeFall": 6.5,
+    "maxSteerDeg": 30,
+    "highSpeedSteerDeg": 8,
+    "steerFadeStartKmh": 16,
+    "steerFadeEndKmh": 58,
+    "steerResponse": 2.3,
+    "suspensionRestLength": 0.38,
+    "suspensionStiffness": 30,
+    "suspensionCompression": 5,
+    "suspensionRelaxation": 6.2,
+    "maxSuspensionTravel": 0.28,
+    "maxSuspensionForce": 78000,
+    "frictionSlip": 3,
+    "sideFrictionStiffness": 1.18
+  },
+  "acceleration": {
+    "timeTo40Sec": 10.683333333333444,
+    "distanceTo40M": 65.52967071533203,
+    "reachedKmh": 40.01781349182129
+  },
+  "topSpeed": {
+    "seconds": 25,
+    "peakKmh": 54.49156608581543,
+    "endKmh": 54.49156608581543
+  },
+  "dryBrake": {
+    "stopTimeSec": 1.9166666666666647,
+    "stopDistanceM": 11.497138977050781,
+    "endKmh": 0.6394814908504486
+  },
+  "wetBrake": {
+    "stopTimeSec": 2.1499999999999972,
+    "stopDistanceM": 12.734001159667969,
+    "endKmh": 0.5412653267383576
+  },
+  "lateriteBrake": {
+    "stopTimeSec": 2.3166666666666633,
+    "stopDistanceM": 13.595977783203125,
+    "endKmh": 0.4408139705657959
+  },
+  "wetBrakeDistanceDeltaPct": 10.757999751817081,
+  "lateriteBrakeDistanceDeltaPct": 18.255313868448454,
+  "turn": {
+    "maxRollDeg": 0.1408189405964728,
+    "minWheelContacts": 4,
+    "maxSpeedKmh": 30.199465942382812,
+    "finalX": 17.876541137695312,
+    "finalZ": 62.81666946411133,
+    "finalY": 0.9684947729110718
+  },
+  "rideComfort": {
+    "seconds": 14.000000000000275,
+    "endKmh": 26.942637634277343,
+    "maxVerticalAccelG": 0.8420600621343023,
+    "maxPitchDeg": 0.8824890934814407,
+    "minWheelContacts": 2,
+    "suspensionRangeM": 0.2631290853023529,
+    "minSuspensionLengthM": 0.11687090992927551,
+    "maxSuspensionLengthM": 0.3799999952316284
+  }
+}

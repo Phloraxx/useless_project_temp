@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-11T21:33:54.341Z",
+  "distanceKm": 50,
+  "samples": 5001,
+  "elapsedMs": 247.1,
+  "updatesPerSecond": 20239,
+  "peakLiveChunks": 7,
+  "peakPooledIds": 2,
+  "generatedChunks": 506,
+  "rebases": 94,
+  "maxPlayerRenderRadiusM": 519.35,
+  "heapUsedMB": 21.08,
+  "rssMB": 94.07,
+  "note": "CPU-only deterministic streamer benchmark; browser GPU metrics are measured separately."
+}

@@ -1,0 +1,385 @@
+{
+  "generated": "2026-09-11",
+  "files": [
+    {
+      "path": "assets/curated/kenney-nature/LICENSE.txt",
+      "bytes": 611,
+      "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+    },
+    {
+      "path": "assets/curated/kenney-nature/grass.glb",
+      "bytes": 11496,
+      "sha256": "260e41d3e5f2472492ed7b475c5b92a30b13ce2bad408535b5ff50574d4575e7"
+    },
+    {
+      "path": "assets/curated/kenney-nature/grass_large.glb",
+      "bytes": 18504,
+      "sha256": "af49a595624abca7249824eeefb944d4baf974abeeb5b16110d175da3563d6cd"
+    },
+    {
+      "path": "assets/curated/kenney-nature/grass_leafs.glb",
+      "bytes": 4608,
+      "sha256": "8bc4c0b17c2e64c34e1acbf7c4a2fd8c04cfcd7155328e61767887b2ced112c7"
+    },
+    {
+      "path": "assets/curated/kenney-nature/plant_bush.glb",
+      "bytes": 4396,
+      "sha256": "ae7b1beb39e242b13f5f29e3ec23ef21034b814f82297b8aa00a9bf4e1b09590"
+    },
+    {
+      "path": "assets/curated/kenney-nature/plant_bushDetailed.glb",
+      "bytes": 10172,
+      "sha256": "2e0487020d68ccf664435db9d829c78ae00e6d2785ee3ec10b9f89cc70a10406"
+    },
+    {
+      "path": "assets/curated/kenney-nature/plant_bushLarge.glb",
+      "bytes": 6436,
+      "sha256": "10e1d9fbf29d96d1d1a56fb2ce25ae66537505101759229afe01ae22c6c45e02"
+    },
+    {
+      "path": "assets/curated/kenney-nature/rock_largeA.glb",
+      "bytes": 7552,
+      "sha256": "6dd15390fd96501dcd1454765a17ba61dbbd8d47705dfe5149c8dd92b353ce25"
+    },
+    {
+      "path": "assets/curated/kenney-nature/rock_largeB.glb",
+      "bytes": 8560,
+      "sha256": "caa8b025833d4dabf6d98fe2e96cf2fbd886693ac990df0db75f9d827194374b"
+    },
+    {
+      "path": "assets/curated/kenney-nature/rock_smallA.glb",
+      "bytes": 3044,
+      "sha256": "df9fff9d711e61370e8df0caa2514c89b8f8a8dc6c6fafaf4eb2ec79c5ae07c1"
+    },
+    {
+      "path": "assets/curated/kenney-nature/rock_smallB.glb",
+      "bytes": 3528,
+      "sha256": "11b26bc0a12e971a3b69df1401e530e24432d528c262df94b99c412e7f372763"
+    },
+    {
+      "path": "assets/curated/kenney-nature/tree_palm.glb",
+      "bytes": 13616,
+      "sha256": "27bbb23d26ed788d84de6df2f7fab0acc3fe0ff16c7d08cdcfa1fffcb11de324"
+    },
+    {
+      "path": "assets/curated/kenney-nature/tree_palmBend.glb",
+      "bytes": 14820,
+      "sha256": "8af9dae16ce3c03183f9457996ebdd135167199514e8f4f944ee2bd82828d5c9"
+    },
+    {
+      "path": "assets/curated/kenney-nature/tree_palmDetailedShort.glb",
+      "bytes": 28212,
+      "sha256": "bc1013aaacca3bdd116ad1cded4f9499f008fe3056e760f3238be05aa21ff9f2"
+    },
+    {
+      "path": "assets/curated/kenney-nature/tree_palmDetailedTall.glb",
+      "bytes": 28204,
+      "sha256": "2cbea0f9621cde884c63a7b4ad787bda1d051fa27ef3c66b9f2b65328dc53683"
+    },
+    {
+      "path": "assets/curated/kenney-nature/tree_palmShort.glb",
+      "bytes": 15596,
+      "sha256": "d2526ca31c144a238820aa5c0f6183c5b9cf37fd3cc037932e637cf7c473ba27"
+    },
+    {
+      "path": "assets/curated/kenney-nature/tree_palmTall.glb",
+      "bytes": 15592,
+      "sha256": "cbd2c2ea7d0316be7514d44699527c566ce91e0542e8b6c6bf431a155e5655f6"
+    },
+    {
+      "path": "assets/curated/kenney-roads/LICENSE.txt",
+      "bytes": 703,
+      "sha256": "87b9404aef5dff6162ae1e53a27bc6427fe1cdd2e2dd5ec05fdd25f17da10498"
+    },
+    {
+      "path": "assets/curated/kenney-roads/construction-barrier.glb",
+      "bytes": 7052,
+      "sha256": "906f73a6d62d8de58a4c5a19e76ff95b460c42b37e5fa37478b8612f06793f26"
+    },
+    {
+      "path": "assets/curated/kenney-roads/construction-cone.glb",
+      "bytes": 7056,
+      "sha256": "50ceae45cd1d71f738a8f7c40f8b6b46f360063c2754bf717aae54013d6f2ee4"
+    },
+    {
+      "path": "assets/curated/kenney-roads/electricity-pole.glb",
+      "bytes": 43652,
+      "sha256": "08c9b924e297eaa46bbd79ac09795c045848a4e38a72b2ce4f973517f840c2d3"
+    },
+    {
+      "path": "assets/curated/kenney-roads/electricity-wires.glb",
+      "bytes": 8952,
+      "sha256": "514027014328d1465c9cb60755efc184a2b53a9c1ecd77fd34c5265856bd699f"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-bend.glb",
+      "bytes": 20164,
+      "sha256": "9752f63448c8e7a3d30ca2e0e1bb6784c5adb72b56a2b05667be8d546c1674bc"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-bridge.glb",
+      "bytes": 24796,
+      "sha256": "5e2bdaabddf39b309a3b5d109d7c6423cd68829a8e63960fcc2d23d62c8425b0"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-crossing.glb",
+      "bytes": 8700,
+      "sha256": "eb8575335f77da513add4a5277a7b60cad4886c07966f024b15cf55e5966cde3"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-crossroad.glb",
+      "bytes": 10084,
+      "sha256": "2dc52a28cf89ec88025a047c0f6fff4c643f16b0f50f0e9a1140f16230c28b12"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-curve.glb",
+      "bytes": 23912,
+      "sha256": "d076717bfe3493dfd5a4b4207a7825e4aff1876273f0d58f5e16e8e8670906f7"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-intersection.glb",
+      "bytes": 7900,
+      "sha256": "fdf4f213abe41ddfe2a7e798a0ef1c3de5b7a68143e21c44f1893985ec6aae58"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-roundabout.glb",
+      "bytes": 105876,
+      "sha256": "6bde41e46040fa35c90f86a524fe5ff344ede07f50f077e1732762b82f8e2d66"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-sign-empty.glb",
+      "bytes": 5968,
+      "sha256": "7681ee84c5363e2c95a37593fc3bdd0afb81b23fa46ae6be1c0939a112a4306a"
+    },
+    {
+      "path": "assets/curated/kenney-roads/road-straight.glb",
+      "bytes": 5248,
+      "sha256": "f8f744fb6fc96dedd5ad1f763b550166f2624a3757bf36b4b39969d2e7cacac5"
+    },
+    {
+      "path": "assets/curated/kenney-roads/traffic-light.glb",
+      "bytes": 20344,
+      "sha256": "6c9ee253b7370e1043168493b2e662b349484a0cdd02100cff04d9d8d1bd9abb"
+    },
+    {
+      "path": "assets/curated/lighting/hanger_exterior_cloudy_1k.hdr",
+      "bytes": 1603575,
+      "sha256": "a703c2c6a94ee6c438dd193f647dd1a3519aa1a37bec5e1941bd016ec035faee"
+    },
+    {
+      "path": "assets/curated/lighting/red_hill_cloudy_1k.hdr",
+      "bytes": 1623619,
+      "sha256": "659e11ffa69ab5cc76d59ebecdfb7912ddd4fed67824026fc017c9d144ad0e3a"
+    },
+    {
+      "path": "assets/curated/quaternius/ANIMATION_MANIFEST.json",
+      "bytes": 2259,
+      "sha256": "4aee0b7d74804b5972391b70b800399825bf0787138cf2271efc1808a9cd77ef"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/LICENSE.txt",
+      "bytes": 806,
+      "sha256": "0f4beaf0fe360a7732e58bbe3dbf60a2422367fbea60cb9ea4add968f383268e"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/Superhero_Female_FullBody.bin",
+      "bytes": 990808,
+      "sha256": "3a8220a485b33d05d879115a50697728b45a151781106033afb8b8c243fca208"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/Superhero_Female_FullBody.gltf",
+      "bytes": 22939,
+      "sha256": "fd43e6c9a343a249cfebad1a24818794f6df50465a8ca7095b4642525a4cc5fc"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/Superhero_Male_FullBody.bin",
+      "bytes": 720076,
+      "sha256": "459003f9745853ae562a85506a2b94dd56515c1f37728f9fa3d2ce1a3e4cd92f"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/Superhero_Male_FullBody.gltf",
+      "bytes": 22407,
+      "sha256": "3aa16f6ab5d3a141c2ef0bf90a84d0abea3b735c8328e7f5eb1c0299a9abd743"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Eye_Brown.png",
+      "bytes": 35958,
+      "sha256": "d08e3356a83211bc6ca21fe3a8e39f4b5c1a3b8f85457fc2c0fb57be09935025"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Eye_Normal.png",
+      "bytes": 15099,
+      "sha256": "9ed61f7726a54fe346a78b9e5a18905d8e2b88f86235d97f53cd207a26f3f8c7"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Hair_1_BaseColor.png",
+      "bytes": 1570376,
+      "sha256": "bc7aa863bd22ab0a995cd838cceb4d3a5186ee54ee2fb0108fad85d20c057e6e"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Hair_1_BaseColor_png.png",
+      "bytes": 1570376,
+      "sha256": "bc7aa863bd22ab0a995cd838cceb4d3a5186ee54ee2fb0108fad85d20c057e6e"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Hair_1_Normal.png",
+      "bytes": 4326126,
+      "sha256": "57fd0ad8c96a4d01b38769637e066cecaa285b456f6e48ce00863754a457affb"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Hair_2_BaseColor.png",
+      "bytes": 1729467,
+      "sha256": "f9f4f2fb3eeeefb0b6f0fdef38b0770fd6607640c1c680b8139dd76697e9f9b3"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Hair_2_BaseColor_png.png",
+      "bytes": 1729467,
+      "sha256": "f9f4f2fb3eeeefb0b6f0fdef38b0770fd6607640c1c680b8139dd76697e9f9b3"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Hair_2_Normal.png",
+      "bytes": 4710013,
+      "sha256": "172f230aae0d4366c3cfc0402b2e6d1811b11f8487344bff28605eeacac1558d"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Superhero_Female_Dark_BaseColor.png",
+      "bytes": 1319410,
+      "sha256": "d366843ee7d9e9f37ec87a0e1c98c7f2e45573c08eeb80a51a6d9344e68cf288"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Superhero_Female_Normal.png",
+      "bytes": 3940537,
+      "sha256": "cf922460b43ccd31e983e34db05514c9d451dd2f9cdd01a843978e797719f859"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Superhero_Female_Roughness.png",
+      "bytes": 3277022,
+      "sha256": "d2beabf2bd0313e32c68dcdbb80dca371a6e994fabf96efa97128bf9f14fa57b"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Superhero_Male_Dark.png",
+      "bytes": 1384380,
+      "sha256": "df680cbc1967a61e85998bfafb8f7bc0a36dd604bb3266486c4b06b1a184bb45"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Superhero_Male_Normal.png",
+      "bytes": 4252937,
+      "sha256": "9b25cf9200216eb754b79cf4c63b5380c419780788322f3c57cdd2b3e02679a6"
+    },
+    {
+      "path": "assets/curated/quaternius/characters/T_Superhero_Male_Roughness.png",
+      "bytes": 3152049,
+      "sha256": "c70dabf48574cda55644d556beae1ee7cf1bdcf68a50d259d20f2f2358f27991"
+    },
+    {
+      "path": "assets/curated/quaternius/ual1/LICENSE.txt",
+      "bytes": 332,
+      "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061"
+    },
+    {
+      "path": "assets/curated/quaternius/ual1/README.txt",
+      "bytes": 702,
+      "sha256": "ccd02718886b5a57f10f0a8911a38cfe10c36880e1d6dfa3445923fba32d2a72"
+    },
+    {
+      "path": "assets/curated/quaternius/ual1/UAL1_Standard.glb",
+      "bytes": 7618436,
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997"
+    },
+    {
+      "path": "assets/curated/quaternius/ual2/LICENSE.txt",
+      "bytes": 332,
+      "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061"
+    },
+    {
+      "path": "assets/curated/quaternius/ual2/README.txt",
+      "bytes": 702,
+      "sha256": "ccd02718886b5a57f10f0a8911a38cfe10c36880e1d6dfa3445923fba32d2a72"
+    },
+    {
+      "path": "assets/curated/quaternius/ual2/UAL2_Standard.glb",
+      "bytes": 8091444,
+      "sha256": "8cee20ab1bc55130092447e810e26df22dd2803eccc54f52137a7d54d7ab88a8"
+    },
+    {
+      "path": "audio/curated/engine-loop-0.wav",
+      "bytes": 76332,
+      "sha256": "69d74b106509037ce547429e4c3f9ae906b0fffe88d0bb8b3b5a8b0cfc239048"
+    },
+    {
+      "path": "audio/curated/engine-loop-1.wav",
+      "bytes": 58920,
+      "sha256": "0bc6bf7e1ad33d347ed805b4f2b55d1f79e38f892006f98acbe85a3177ff77a2"
+    },
+    {
+      "path": "audio/curated/engine-loop-2.wav",
+      "bytes": 60322,
+      "sha256": "e26bef6f1804670aba02b6b9a8c5485cf05a6a1e902a5a50c098230ace49967f"
+    },
+    {
+      "path": "audio/curated/engine-loop-3.wav",
+      "bytes": 54454,
+      "sha256": "015aee5cd2dec394b28ff0994360c780cfbe29c3cddfb16dba8df81b4a68eea2"
+    },
+    {
+      "path": "audio/curated/engine-loop-4.wav",
+      "bytes": 55760,
+      "sha256": "fadf4420104d9273e6cc0a1c4583d863937af382382866251fc2b8dc005f9369"
+    },
+    {
+      "path": "audio/curated/engine-loop-5.wav",
+      "bytes": 55648,
+      "sha256": "e0c65476764931770e46308dec744a196d8ecf996f8c7675f125805d28609b34"
+    },
+    {
+      "path": "audio/curated/footstep-01.ogg",
+      "bytes": 9715,
+      "sha256": "33c9bef5e8aeb1069455699a34a0c5e1ef1787fd3f61594b0859d7e6bb9f9dec"
+    },
+    {
+      "path": "audio/curated/footstep-02.ogg",
+      "bytes": 10531,
+      "sha256": "f05396c807eb8eaecffb2a1ead611ec971c5a7914d1d081c91d7796e852692a2"
+    },
+    {
+      "path": "audio/curated/footstep-03.ogg",
+      "bytes": 14136,
+      "sha256": "9817cc93897ed1de5da87675b26be4196bfda3daa6f1de9dc4398a68d250cdb9"
+    },
+    {
+      "path": "audio/curated/footstep-04.ogg",
+      "bytes": 13771,
+      "sha256": "b373ff981e44d6f7ba2291225a4803078771029615ed81606136fdb9599906d5"
+    },
+    {
+      "path": "audio/curated/footstep-05.ogg",
+      "bytes": 13595,
+      "sha256": "f1b4893dd3cebe23438567a0dcaf047848a52b594e7eb03e5c212d99e83d2298"
+    },
+    {
+      "path": "audio/curated/footstep-06.ogg",
+      "bytes": 11329,
+      "sha256": "39147cc1b98abb4b5378ad07b15d50d18f2aa0f0fd2f5514f078c1e574d14773"
+    },
+    {
+      "path": "audio/curated/rain-1.ogg",
+      "bytes": 550049,
+      "sha256": "4f659f68cf5219007d0bb0969a1862491ceee4057fda4c491c6001e8608fa2cb"
+    },
+    {
+      "path": "audio/curated/rain-2.ogg",
+      "bytes": 529890,
+      "sha256": "204bbdba67bd69f744bbb07d81155d0ee775960b979abd0a9b662b23dbc124fd"
+    },
+    {
+      "path": "audio/curated/rain-3.ogg",
+      "bytes": 913769,
+      "sha256": "73a0f5ef19ed9f64599c0425b1fb52d857acfc42c0fd5eab85c4577ace18f0ed"
+    },
+    {
+      "path": "audio/curated/rain-4.ogg",
+      "bytes": 762663,
+      "sha256": "de24aeefd113daf0d12769c61adb1a262606e7df683e3bb52a27c4d0ff356549"
+    }
+  ]
+}

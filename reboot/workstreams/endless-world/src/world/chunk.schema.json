@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adutha-stoppil.local/schemas/world-chunk.schema.json",
+  "title": "Adutha Stoppil Authored World Chunk",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id","family","name","path","length","roadWidth","shoulderWidth","density","tags","weight","props","sockets","paletteVariant"],
+  "properties": {
+    "id": {"type":"string","minLength":1},
+    "family": {"enum":["town-high-street","residential-ribbon","tea-stop","market-junction","paddy-open","bridge-green"]},
+    "name": {"type":"string","minLength":1},
+    "path": {"type":"array","minItems":2,"items":{"$ref":"#/$defs/pathPoint"}},
+    "length": {"type":"number","exclusiveMinimum":0},
+    "roadWidth": {"type":"number","minimum":5,"maximum":12},
+    "shoulderWidth": {"type":"number","minimum":0,"maximum":4},
+    "density": {"enum":["dense","medium","open"]},
+    "tags": {"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "weight": {"type":"number","exclusiveMinimum":0},
+    "props": {"type":"array","items":{"$ref":"#/$defs/prop"}},
+    "sockets": {"type":"array","items":{"$ref":"#/$defs/socket"}},
+    "paletteVariant": {"type":"integer","minimum":0}
+  },
+  "$defs": {
+    "pathPoint": {"type":"object","additionalProperties":false,"required":["x","z"],"properties":{"x":{"type":"number"},"z":{"type":"number"}}},
+    "prop": {
+      "type":"object","additionalProperties":false,"required":["id","kind","x","z"],
+      "properties": {
+        "id":{"type":"string"},
+        "kind":{"enum":["house","shop","teaShop","wall","gate","pole","palm","banana","jackfruit","auto","bike","shelter","tarp","corrugated","paddy","marketStall","bridgeRail","canal","poster","sign","drainCover","parkedCar"]},
+        "x":{"type":"number"},"z":{"type":"number"},"y":{"type":"number"},"heading":{"type":"number"},"scale":{"type":"number","exclusiveMinimum":0},
+        "variant":{"type":"integer","minimum":0},"label":{"type":"string"},"side":{"enum":["left","right","both"]},"importance":{"enum":["hero","identity","decor"]}
+      }
+    },
+    "socket": {
+      "type":"object","additionalProperties":false,"required":["id","kind","x","z"],
+      "properties": {
+        "id":{"type":"string"},"kind":{"enum":["traffic","pedestrian","busStop","shop","encounter","camera","audio"]},
+        "x":{"type":"number"},"z":{"type":"number"},"heading":{"type":"number"},"radius":{"type":"number","minimum":0},
+        "tags":{"type":"array","items":{"type":"string"},"uniqueItems":true}
+      }
+    }
+  }
+}

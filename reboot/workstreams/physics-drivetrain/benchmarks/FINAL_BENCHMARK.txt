@@ -1,0 +1,60 @@
+ADUTHA STOPPIL - PHYSICS/DRIVETRAIN FINAL BENCHMARK
+Generated from scripts/benchmark.mjs at fixed 60 Hz
+
+HEAVY
+0-20 km/h: 3.57 s
+0-40 km/h: 9.62 s
+0-60 km/h: n/a s
+35 s peak speed: 57.98 km/h
+40-0 dry: 12.01 m / 2.02 s
+60-0 dry: 22.68 m / 2.73 s (target reached: False)
+40-0 wet: 14.74 m (22.7% vs dry)
+40-0 laterite: 16.49 m (37.3% vs dry)
+sustained turn: roll 0.50 deg, yaw 13.57 deg/s, contacts 4/4
+slalom: yaw 18.39 deg/s, exit 32.62 km/h, contacts 4/4
+rough: peak vertical 0.84 g, pitch 0.77 deg, min contacts 2/4
+reverse peak: 12.04 km/h
+shift cut requested/observed: 365 ms / 366.7-366.7 ms
+full 1-6 sequence: False; cut bound pass: True
+touch steering direction pass: True
+fixed-step max delta: pos 0.000000 m, speed 0.000000 km/h, yaw 0.000000 deg
+
+BALANCED
+0-20 km/h: 3.10 s
+0-40 km/h: 8.17 s
+0-60 km/h: 18.78 s
+35 s peak speed: 61.50 km/h
+40-0 dry: 11.38 m / 1.88 s
+60-0 dry: 22.85 m / 2.63 s (target reached: True)
+40-0 wet: 13.96 m (22.7% vs dry)
+40-0 laterite: 15.62 m (37.2% vs dry)
+sustained turn: roll 0.57 deg, yaw 13.78 deg/s, contacts 4/4
+slalom: yaw 18.66 deg/s, exit 34.30 km/h, contacts 4/4
+rough: peak vertical 0.84 g, pitch 0.89 deg, min contacts 2/4
+reverse peak: 12.14 km/h
+shift cut requested/observed: 320 ms / 333.3-333.3 ms
+full 1-6 sequence: True; cut bound pass: True
+touch steering direction pass: True
+fixed-step max delta: pos 0.000000 m, speed 0.000000 km/h, yaw 0.000000 deg
+
+MANIAC
+0-20 km/h: 2.57 s
+0-40 km/h: 6.52 s
+0-60 km/h: 13.40 s
+35 s peak speed: 64.70 km/h
+40-0 dry: 10.43 m / 1.72 s
+60-0 dry: 20.89 m / 2.38 s (target reached: True)
+40-0 wet: 12.77 m (22.5% vs dry)
+40-0 laterite: 14.29 m (37.0% vs dry)
+sustained turn: roll 2.98 deg, yaw 14.79 deg/s, contacts 4/4
+slalom: yaw 20.08 deg/s, exit 36.43 km/h, contacts 4/4
+rough: peak vertical 1.00 g, pitch 1.09 deg, min contacts 2/4
+reverse peak: 12.27 km/h
+shift cut requested/observed: 270 ms / 283.3-283.3 ms
+full 1-6 sequence: True; cut bound pass: True
+touch steering direction pass: True
+fixed-step max delta: pos 0.000000 m, speed 0.000000 km/h, yaw 0.000000 deg
+
+RECOMMENDED DEFAULT: BALANCED
+Balanced is the best compromise between deliberate bus mass, meaningful shift pauses, controllable cornering, usable 0-60 performance, and surface differentiation.
+Heavy is deliberately slower and never reaches 60 km/h in the acceleration window; Maniac is the fast arcade edge case.

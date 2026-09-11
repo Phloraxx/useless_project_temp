@@ -1,0 +1,746 @@
+{
+  "generatedAt": "2026-09-11T21:01:55.131Z",
+  "bus": {
+    "massKg": 13200,
+    "wheelbaseM": 5.64,
+    "trackWidthM": 2.04,
+    "wheelRadiusM": 0.48,
+    "colliderHalfExtents": [
+      1.18,
+      0.56,
+      5.28
+    ],
+    "comOffsetY": -0.24,
+    "linearDamping": 0.075,
+    "angularDamping": 1.22
+  },
+  "surfaceGrip": {
+    "asphalt": 1,
+    "wet": 0.64,
+    "laterite": 0.48,
+    "rough": 0.88
+  },
+  "tuning": {
+    "engineForce": 11800,
+    "brakeImpulse": 340,
+    "maxSpeedKmh": 67,
+    "maxReverseKmh": 13,
+    "throttleRise": 1.85,
+    "throttleFall": 3.5,
+    "brakeRise": 4.9,
+    "brakeFall": 6.5,
+    "maxSteerDeg": 31,
+    "highSpeedSteerDeg": 8.5,
+    "steerFadeStartKmh": 18,
+    "steerFadeEndKmh": 62,
+    "steerResponse": 2.75,
+    "suspensionRestLength": 0.39,
+    "suspensionStiffness": 32,
+    "suspensionCompression": 4.8,
+    "suspensionRelaxation": 5.8,
+    "maxSuspensionTravel": 0.27,
+    "maxSuspensionForce": 82000,
+    "frictionSlip": 3.25,
+    "sideFrictionStiffness": 1.28,
+    "shiftDurationMs": 320,
+    "highSpeedYawDamping": 0.34
+  },
+  "acceleration": {
+    "zeroTo20": {
+      "timeSec": 3.0999999999999908,
+      "distanceM": 8.566856384277344,
+      "speedKmh": 20.00779609680176
+    },
+    "zeroTo40": {
+      "timeSec": 8.166666666666702,
+      "distanceM": 52.57546615600586,
+      "speedKmh": 40.03832015991211
+    },
+    "zeroTo60": {
+      "timeSec": 18.78333333333349,
+      "distanceM": 207.4329376220703,
+      "speedKmh": 60.01835174560547
+    },
+    "shiftEvents": [
+      {
+        "serial": 1,
+        "fromGear": 1,
+        "toGear": 2,
+        "reason": "upshift",
+        "startSec": 2.7333333333333285,
+        "startKmh": 12.844694709777832,
+        "startRpm": 0.8821766441345216,
+        "endSec": 3.0666666666666607,
+        "cutDurationMs": 333.3333333333321,
+        "endKmh": 12.668314361572266
+      },
+      {
+        "serial": 2,
+        "fromGear": 2,
+        "toGear": 3,
+        "reason": "upshift",
+        "startSec": 4.8333333333333215,
+        "startKmh": 24.71217613220215,
+        "startRpm": 0.8927991101946151,
+        "endSec": 5.166666666666654,
+        "cutDurationMs": 333.3333333333321,
+        "endKmh": 24.221028900146486
+      },
+      {
+        "serial": 3,
+        "fromGear": 3,
+        "toGear": 4,
+        "reason": "upshift",
+        "startSec": 7.816666666666644,
+        "startKmh": 37.04502983093262,
+        "startRpm": 0.9018011932373049,
+        "endSec": 8.149999999999984,
+        "cutDurationMs": 333.33333333334014,
+        "endKmh": 36.23225440979004
+      },
+      {
+        "serial": 4,
+        "fromGear": 4,
+        "toGear": 5,
+        "reason": "upshift",
+        "startSec": 12.383333333333528,
+        "startKmh": 49.538338851928714,
+        "startRpm": 0.9102861270480687,
+        "endSec": 12.716666666666878,
+        "cutDurationMs": 333.3333333333499,
+        "endKmh": 48.405998611450194
+      },
+      {
+        "serial": 5,
+        "fromGear": 5,
+        "toGear": 6,
+        "reason": "upshift",
+        "startSec": 18.133333333333585,
+        "startKmh": 59.32275924682617,
+        "startRpm": 0.900211935563521,
+        "endSec": 18.4666666666669,
+        "cutDurationMs": 333.3333333333144,
+        "endKmh": 57.94644012451172
+      }
+    ]
+  },
+  "topSpeed": {
+    "seconds": 35,
+    "peakKmh": 61.50046920776367,
+    "endKmh": 61.50046920776367,
+    "gear": 6,
+    "normalizedRpm": 0.6086538522893732
+  },
+  "braking": {
+    "dry40to0": {
+      "targetStartKmh": 40,
+      "reachedStart": true,
+      "actualStartKmh": 40.03832015991211,
+      "stopTimeSec": 1.8833333333333315,
+      "stopDistanceM": 11.381935119628906,
+      "endKmh": 0.65100656747818,
+      "shiftEvents": [
+        {
+          "serial": 1,
+          "fromGear": 1,
+          "toGear": 2,
+          "reason": "upshift",
+          "startSec": 2.7333333333333285,
+          "startKmh": 12.844694709777832,
+          "startRpm": 0.8821766441345216,
+          "endSec": 3.0666666666666607,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 12.668314361572266
+        },
+        {
+          "serial": 2,
+          "fromGear": 2,
+          "toGear": 3,
+          "reason": "upshift",
+          "startSec": 4.8333333333333215,
+          "startKmh": 24.71217613220215,
+          "startRpm": 0.8927991101946151,
+          "endSec": 5.166666666666654,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 24.221028900146486
+        },
+        {
+          "serial": 3,
+          "fromGear": 3,
+          "toGear": 4,
+          "reason": "upshift",
+          "startSec": 7.816666666666644,
+          "startKmh": 37.04502983093262,
+          "startRpm": 0.9018011932373049,
+          "endSec": 8.149999999999984,
+          "cutDurationMs": 333.33333333334014,
+          "endKmh": 36.23225440979004
+        },
+        {
+          "serial": 4,
+          "fromGear": 4,
+          "toGear": 3,
+          "reason": "downshift",
+          "startSec": 9.750000000000064,
+          "startKmh": 31.04454803466797,
+          "startRpm": 0.23629019504123264,
+          "endSec": 10.083333333333414,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 22.95703296661377
+        },
+        {
+          "serial": 5,
+          "fromGear": 3,
+          "toGear": 2,
+          "reason": "downshift",
+          "startSec": 10.200000000000086,
+          "startKmh": 20.173856163024904,
+          "startRpm": 0.22695424652099616,
+          "endSec": 10.533333333333436,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 12.35509843826294
+        },
+        {
+          "serial": 6,
+          "fromGear": 2,
+          "toGear": 1,
+          "reason": "downshift",
+          "startSec": 10.616666666666774,
+          "startKmh": 10.430933189392091,
+          "startRpm": 0.22362086944580084,
+          "endSec": 10.950000000000124,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 2.8580904722213747
+        }
+      ]
+    },
+    "dry60to0": {
+      "targetStartKmh": 60,
+      "reachedStart": true,
+      "actualStartKmh": 60.01835174560547,
+      "stopTimeSec": 2.633333333333329,
+      "stopDistanceM": 22.849395751953125,
+      "endKmh": 0.680589884519577,
+      "shiftEvents": [
+        {
+          "serial": 1,
+          "fromGear": 1,
+          "toGear": 2,
+          "reason": "upshift",
+          "startSec": 2.7333333333333285,
+          "startKmh": 12.844694709777832,
+          "startRpm": 0.8821766441345216,
+          "endSec": 3.0666666666666607,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 12.668314361572266
+        },
+        {
+          "serial": 2,
+          "fromGear": 2,
+          "toGear": 3,
+          "reason": "upshift",
+          "startSec": 4.8333333333333215,
+          "startKmh": 24.71217613220215,
+          "startRpm": 0.8927991101946151,
+          "endSec": 5.166666666666654,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 24.221028900146486
+        },
+        {
+          "serial": 3,
+          "fromGear": 3,
+          "toGear": 4,
+          "reason": "upshift",
+          "startSec": 7.816666666666644,
+          "startKmh": 37.04502983093262,
+          "startRpm": 0.9018011932373049,
+          "endSec": 8.149999999999984,
+          "cutDurationMs": 333.33333333334014,
+          "endKmh": 36.23225440979004
+        },
+        {
+          "serial": 4,
+          "fromGear": 4,
+          "toGear": 5,
+          "reason": "upshift",
+          "startSec": 12.383333333333528,
+          "startKmh": 49.538338851928714,
+          "startRpm": 0.9102861270480687,
+          "endSec": 12.716666666666878,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 48.405998611450194
+        },
+        {
+          "serial": 5,
+          "fromGear": 5,
+          "toGear": 6,
+          "reason": "upshift",
+          "startSec": 18.133333333333585,
+          "startKmh": 59.32275924682617,
+          "startRpm": 0.900211935563521,
+          "endSec": 18.4666666666669,
+          "cutDurationMs": 333.3333333333144,
+          "endKmh": 57.94644012451172
+        },
+        {
+          "serial": 6,
+          "fromGear": 6,
+          "toGear": 5,
+          "reason": "downshift",
+          "startSec": 20.316666666666794,
+          "startKmh": 51.336347579956055,
+          "startRpm": 0.22980931888927114,
+          "endSec": 20.65000000000011,
+          "cutDurationMs": 333.3333333333144,
+          "endKmh": 42.74793663024902
+        },
+        {
+          "serial": 7,
+          "fromGear": 5,
+          "toGear": 4,
+          "reason": "downshift",
+          "startSec": 20.700000000000106,
+          "startKmh": 41.47808532714844,
+          "startRpm": 0.23509227128462373,
+          "endSec": 21.03333333333342,
+          "cutDurationMs": 333.3333333333144,
+          "endKmh": 33.13299751281738
+        },
+        {
+          "serial": 8,
+          "fromGear": 4,
+          "toGear": 3,
+          "reason": "downshift",
+          "startSec": 21.11666666666675,
+          "startKmh": 31.079103469848633,
+          "startRpm": 0.23754954867892797,
+          "endSec": 21.450000000000063,
+          "cutDurationMs": 333.3333333333144,
+          "endKmh": 22.990740394592287
+        },
+        {
+          "serial": 9,
+          "fromGear": 3,
+          "toGear": 2,
+          "reason": "downshift",
+          "startSec": 21.566666666666723,
+          "startKmh": 20.207271766662597,
+          "startRpm": 0.2282908706665039,
+          "endSec": 21.900000000000038,
+          "cutDurationMs": 333.3333333333144,
+          "endKmh": 12.387687492370606
+        },
+        {
+          "serial": 10,
+          "fromGear": 2,
+          "toGear": 1,
+          "reason": "downshift",
+          "startSec": 21.983333333333366,
+          "startKmh": 10.463314533233643,
+          "startRpm": 0.22513816670009068,
+          "endSec": 22.31666666666668,
+          "cutDurationMs": 333.3333333333144,
+          "endKmh": 2.8895864725112914
+        }
+      ]
+    },
+    "wet40to0": {
+      "targetStartKmh": 40,
+      "reachedStart": true,
+      "actualStartKmh": 40.03832015991211,
+      "stopTimeSec": 2.366666666666663,
+      "stopDistanceM": 13.96042251586914,
+      "endKmh": 0.47163426876068115,
+      "shiftEvents": [
+        {
+          "serial": 1,
+          "fromGear": 1,
+          "toGear": 2,
+          "reason": "upshift",
+          "startSec": 2.7333333333333285,
+          "startKmh": 12.844694709777832,
+          "startRpm": 0.8821766441345216,
+          "endSec": 3.0666666666666607,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 12.668314361572266
+        },
+        {
+          "serial": 2,
+          "fromGear": 2,
+          "toGear": 3,
+          "reason": "upshift",
+          "startSec": 4.8333333333333215,
+          "startKmh": 24.71217613220215,
+          "startRpm": 0.8927991101946151,
+          "endSec": 5.166666666666654,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 24.221028900146486
+        },
+        {
+          "serial": 3,
+          "fromGear": 3,
+          "toGear": 4,
+          "reason": "upshift",
+          "startSec": 7.816666666666644,
+          "startKmh": 37.04502983093262,
+          "startRpm": 0.9018011932373049,
+          "endSec": 8.149999999999984,
+          "cutDurationMs": 333.33333333334014,
+          "endKmh": 36.23225440979004
+        },
+        {
+          "serial": 4,
+          "fromGear": 4,
+          "toGear": 3,
+          "reason": "downshift",
+          "startSec": 9.850000000000069,
+          "startKmh": 31.03930206298828,
+          "startRpm": 0.2360990085177951,
+          "endSec": 10.183333333333419,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 24.665202713012697
+        },
+        {
+          "serial": 5,
+          "fromGear": 3,
+          "toGear": 2,
+          "reason": "downshift",
+          "startSec": 10.416666666666764,
+          "startKmh": 20.297253227233888,
+          "startRpm": 0.23189012908935552,
+          "endSec": 10.750000000000114,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 14.188583564758302
+        },
+        {
+          "serial": 6,
+          "fromGear": 2,
+          "toGear": 1,
+          "reason": "downshift",
+          "startSec": 10.950000000000124,
+          "startKmh": 10.596213054656983,
+          "startRpm": 0.23136541170392722,
+          "endSec": 11.283333333333474,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 4.729216861724853
+        }
+      ]
+    },
+    "laterite40to0": {
+      "targetStartKmh": 40,
+      "reachedStart": true,
+      "actualStartKmh": 40.03832015991211,
+      "stopTimeSec": 2.666666666666662,
+      "stopDistanceM": 15.621196746826172,
+      "endKmh": 0.5943497300148011,
+      "shiftEvents": [
+        {
+          "serial": 1,
+          "fromGear": 1,
+          "toGear": 2,
+          "reason": "upshift",
+          "startSec": 2.7333333333333285,
+          "startKmh": 12.844694709777832,
+          "startRpm": 0.8821766441345216,
+          "endSec": 3.0666666666666607,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 12.668314361572266
+        },
+        {
+          "serial": 2,
+          "fromGear": 2,
+          "toGear": 3,
+          "reason": "upshift",
+          "startSec": 4.8333333333333215,
+          "startKmh": 24.71217613220215,
+          "startRpm": 0.8927991101946151,
+          "endSec": 5.166666666666654,
+          "cutDurationMs": 333.3333333333321,
+          "endKmh": 24.221028900146486
+        },
+        {
+          "serial": 3,
+          "fromGear": 3,
+          "toGear": 4,
+          "reason": "upshift",
+          "startSec": 7.816666666666644,
+          "startKmh": 37.04502983093262,
+          "startRpm": 0.9018011932373049,
+          "endSec": 8.149999999999984,
+          "cutDurationMs": 333.33333333334014,
+          "endKmh": 36.23225440979004
+        },
+        {
+          "serial": 4,
+          "fromGear": 4,
+          "toGear": 3,
+          "reason": "downshift",
+          "startSec": 9.916666666666739,
+          "startKmh": 30.985572052001952,
+          "startRpm": 0.2341408481174045,
+          "endSec": 10.250000000000089,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 25.374159049987792
+        },
+        {
+          "serial": 5,
+          "fromGear": 3,
+          "toGear": 2,
+          "reason": "downshift",
+          "startSec": 10.550000000000104,
+          "startKmh": 20.442447853088378,
+          "startRpm": 0.23769791412353514,
+          "endSec": 10.883333333333454,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 15.091450309753418
+        },
+        {
+          "serial": 6,
+          "fromGear": 2,
+          "toGear": 1,
+          "reason": "downshift",
+          "startSec": 11.166666666666801,
+          "startKmh": 10.647418785095216,
+          "startRpm": 0.2337647659301758,
+          "endSec": 11.500000000000151,
+          "cutDurationMs": 333.3333333333499,
+          "endKmh": 5.5398975849151615
+        }
+      ]
+    },
+    "wetDistanceDeltaPct": 22.65420922838912,
+    "lateriteDistanceDeltaPct": 37.24552620130803
+  },
+  "sustainedTurn": {
+    "maxRollDeg": 0.5694081373776566,
+    "minWheelContacts": 4,
+    "maxYawRateDeg": 13.77867592990858,
+    "minSpeedKmh": 32.28809051513672,
+    "maxSpeedKmh": 34.27198448181152,
+    "finalX": 35.77869415283203,
+    "finalZ": 66.96640014648438
+  },
+  "slalom": {
+    "maxAbsLateralM": 8.129423108689682,
+    "maxRollDeg": 0.13631619976064802,
+    "maxYawRateDeg": 18.658267117681078,
+    "minWheelContacts": 4,
+    "exitSpeedKmh": 34.29731483459473,
+    "finalX": 8.030537605285645
+  },
+  "roughRoad": {
+    "seconds": 16.000000000000373,
+    "endKmh": 26.995801162719726,
+    "maxVerticalAccelG": 0.8393277468256629,
+    "maxPitchDeg": 0.8944467979706162,
+    "minWheelContacts": 2,
+    "suspensionRangeM": 0.2585236132144928,
+    "minSuspensionLengthM": 0.13147637248039246,
+    "maxSuspensionLengthM": 0.38999998569488525
+  },
+  "shiftSequenceTiming": {
+    "requestedCutMs": 320,
+    "events": [
+      {
+        "serial": 1,
+        "fromGear": 1,
+        "toGear": 2,
+        "reason": "upshift",
+        "startSec": 2.7333333333333285,
+        "startKmh": 12.844694709777832,
+        "startRpm": 0.8821766441345216,
+        "endSec": 3.0666666666666607,
+        "cutDurationMs": 333.3333333333321,
+        "endKmh": 12.668314361572266
+      },
+      {
+        "serial": 2,
+        "fromGear": 2,
+        "toGear": 3,
+        "reason": "upshift",
+        "startSec": 4.8333333333333215,
+        "startKmh": 24.71217613220215,
+        "startRpm": 0.8927991101946151,
+        "endSec": 5.166666666666654,
+        "cutDurationMs": 333.3333333333321,
+        "endKmh": 24.221028900146486
+      },
+      {
+        "serial": 3,
+        "fromGear": 3,
+        "toGear": 4,
+        "reason": "upshift",
+        "startSec": 7.816666666666644,
+        "startKmh": 37.04502983093262,
+        "startRpm": 0.9018011932373049,
+        "endSec": 8.149999999999984,
+        "cutDurationMs": 333.33333333334014,
+        "endKmh": 36.23225440979004
+      },
+      {
+        "serial": 4,
+        "fromGear": 4,
+        "toGear": 5,
+        "reason": "upshift",
+        "startSec": 12.383333333333528,
+        "startKmh": 49.538338851928714,
+        "startRpm": 0.9102861270480687,
+        "endSec": 12.716666666666878,
+        "cutDurationMs": 333.3333333333499,
+        "endKmh": 48.405998611450194
+      },
+      {
+        "serial": 5,
+        "fromGear": 5,
+        "toGear": 6,
+        "reason": "upshift",
+        "startSec": 18.133333333333585,
+        "startKmh": 59.32275924682617,
+        "startRpm": 0.900211935563521,
+        "endSec": 18.4666666666669,
+        "cutDurationMs": 333.3333333333144,
+        "endKmh": 57.94644012451172
+      }
+    ],
+    "minObservedCutMs": 333.3333333333144,
+    "maxObservedCutMs": 333.3333333333499,
+    "allWithin250to400ms": true,
+    "fullForwardSequenceReached": true,
+    "brakingDownshifts": [
+      {
+        "serial": 6,
+        "fromGear": 6,
+        "toGear": 5,
+        "reason": "downshift",
+        "startSec": 20.316666666666794,
+        "startKmh": 51.336347579956055,
+        "startRpm": 0.22980931888927114,
+        "endSec": 20.65000000000011,
+        "cutDurationMs": 333.3333333333144,
+        "endKmh": 42.74793663024902
+      },
+      {
+        "serial": 7,
+        "fromGear": 5,
+        "toGear": 4,
+        "reason": "downshift",
+        "startSec": 20.700000000000106,
+        "startKmh": 41.47808532714844,
+        "startRpm": 0.23509227128462373,
+        "endSec": 21.03333333333342,
+        "cutDurationMs": 333.3333333333144,
+        "endKmh": 33.13299751281738
+      },
+      {
+        "serial": 8,
+        "fromGear": 4,
+        "toGear": 3,
+        "reason": "downshift",
+        "startSec": 21.11666666666675,
+        "startKmh": 31.079103469848633,
+        "startRpm": 0.23754954867892797,
+        "endSec": 21.450000000000063,
+        "cutDurationMs": 333.3333333333144,
+        "endKmh": 22.990740394592287
+      },
+      {
+        "serial": 9,
+        "fromGear": 3,
+        "toGear": 2,
+        "reason": "downshift",
+        "startSec": 21.566666666666723,
+        "startKmh": 20.207271766662597,
+        "startRpm": 0.2282908706665039,
+        "endSec": 21.900000000000038,
+        "cutDurationMs": 333.3333333333144,
+        "endKmh": 12.387687492370606
+      },
+      {
+        "serial": 10,
+        "fromGear": 2,
+        "toGear": 1,
+        "reason": "downshift",
+        "startSec": 21.983333333333366,
+        "startKmh": 10.463314533233643,
+        "startRpm": 0.22513816670009068,
+        "endSec": 22.31666666666668,
+        "cutDurationMs": 333.3333333333144,
+        "endKmh": 2.8895864725112914
+      }
+    ]
+  },
+  "reverse": {
+    "timeTo10KmhSec": 4.233333333333324,
+    "peakReverseKmh": 12.141865825653076,
+    "endSignedKmh": -12.141865825653076
+  },
+  "steeringVerification": {
+    "touchMapping": {
+      "left": -1,
+      "right": 1
+    },
+    "left": {
+      "steerInput": -0.45,
+      "deltaX": -4.881585609453639,
+      "deltaZ": 11.821490287780762,
+      "yawDeg": -31.60539306068335
+    },
+    "right": {
+      "steerInput": 0.45,
+      "deltaX": 4.881590831738988,
+      "deltaZ": 11.821490287780762,
+      "yawDeg": 31.605401212729618
+    },
+    "physicallyCorrect": true,
+    "keyboardConventionPreserved": true
+  },
+  "fixedStepConsistency": [
+    {
+      "renderFps": 30,
+      "x": 47.58252716064453,
+      "y": 0.9825814962387085,
+      "z": 87.9637451171875,
+      "speedKmh": 0.22046626210212708,
+      "yawDeg": 50.979702878074015,
+      "gear": 1
+    },
+    {
+      "renderFps": 60,
+      "x": 47.58252716064453,
+      "y": 0.9825814962387085,
+      "z": 87.9637451171875,
+      "speedKmh": 0.22046626210212708,
+      "yawDeg": 50.979702878074015,
+      "gear": 1
+    },
+    {
+      "renderFps": 120,
+      "x": 47.58252716064453,
+      "y": 0.9825814962387085,
+      "z": 87.9637451171875,
+      "speedKmh": 0.22046626210212708,
+      "yawDeg": 50.979702878074015,
+      "gear": 1
+    }
+  ],
+  "fixedStepDeltas": [
+    {
+      "renderFps": 30,
+      "positionDeltaM": 0,
+      "speedDeltaKmh": 0,
+      "yawDeltaDeg": 0
+    },
+    {
+      "renderFps": 60,
+      "positionDeltaM": 0,
+      "speedDeltaKmh": 0,
+      "yawDeltaDeg": 0
+    },
+    {
+      "renderFps": 120,
+      "positionDeltaM": 0,
+      "speedDeltaKmh": 0,
+      "yawDeltaDeg": 0
+    }
+  ]
+}

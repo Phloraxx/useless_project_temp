@@ -1,0 +1,307 @@
+[
+  {
+    "id": "803762",
+    "title": "bus_idle_long.wav",
+    "author": "Mihacappy",
+    "sourceUrl": "https://freesound.org/s/803762/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-idle-803762.mp3",
+    "sha256": "e1381ac120afc7489486902412db9605fcfcb89e1276301e655f93ca8fad6649",
+    "runtimeFiles": [
+      "engine-idle.ogg"
+    ],
+    "note": "MAN/Solaris bus engine idling, interior.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "803767",
+    "title": "buslow2.wav",
+    "author": "Mihacappy",
+    "sourceUrl": "https://freesound.org/s/803767/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-low-803767.mp3",
+    "sha256": "a88190a9031bcc9485ae4b8c37b199cb311e2cf509076e4ecf97068f2a9e2405",
+    "runtimeFiles": [
+      "engine-low.ogg"
+    ],
+    "note": "MAN/Solaris bus cruising at low RPM.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "803761",
+    "title": "busmid.wav",
+    "author": "Mihacappy",
+    "sourceUrl": "https://freesound.org/s/803761/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-mid-803761.mp3",
+    "sha256": "9d61f99aa1c667e2dba6f88f1e1d586d0cd202ef96c246045ce1e781b73fb74a",
+    "runtimeFiles": [
+      "engine-mid.ogg"
+    ],
+    "note": "MAN/Solaris bus engine cruising around 2000 RPM.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "803766",
+    "title": "bushigh2.wav",
+    "author": "Mihacappy",
+    "sourceUrl": "https://freesound.org/s/803766/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-high-803766.mp3",
+    "sha256": "1bcb6328018b648eec392f22f5e41521fec52b737a3a7807b0eba16361ef043c",
+    "runtimeFiles": [
+      "engine-high.ogg"
+    ],
+    "note": "High/load bus engine layer.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "803763",
+    "title": "bus_takeoff.wav",
+    "author": "Mihacappy",
+    "sourceUrl": "https://freesound.org/s/803763/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-takeoff-803763.mp3",
+    "sha256": "7846479be279da218be31dd4720d68431c64a064063eec71699abc502e1beab7",
+    "runtimeFiles": [
+      "engine-takeoff.ogg"
+    ],
+    "note": "Bus takeoff transient.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "803768",
+    "title": "busshift.wav",
+    "author": "Mihacappy",
+    "sourceUrl": "https://freesound.org/s/803768/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-shift-803768.mp3",
+    "sha256": "1627a16738ae09e0f02d16d582ee2612ec2fc250892ccf37c8df0c1b9cda9a96",
+    "runtimeFiles": [
+      "gear-shift.ogg"
+    ],
+    "note": "Recorded bus shift transient.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "803764",
+    "title": "bus_to_idle.wav",
+    "author": "Mihacappy",
+    "sourceUrl": "https://freesound.org/s/803764/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-to-idle-803764.mp3",
+    "sha256": "71ffcfb94f6c7df19b9fa0f2a1f6712938db8e07a78a64fa13442219c3cb6533",
+    "runtimeFiles": [
+      "engine-to-idle.ogg"
+    ],
+    "note": "Bus deceleration/return-to-idle transient.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "801435",
+    "title": "air brake sound effect",
+    "author": "okpato123",
+    "sourceUrl": "https://freesound.org/s/801435/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/air-brake-801435.mp3",
+    "sha256": "1db922421fd4aa844203697ba0ddc91084ab8dc9ef37dd656460b96c7a9e3505",
+    "runtimeFiles": [
+      "air-brake-release.ogg"
+    ],
+    "note": "Air-brake hiss/release source.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "104026",
+    "title": "Tires Squeaking.aif",
+    "author": "RutgerMuller",
+    "sourceUrl": "https://freesound.org/s/104026/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/brake-squeal-104026.mp3",
+    "sha256": "0bfe34b01bbfcbf782b88a1cb7df7b88f58ed30ad9c3d6bf1fe08234a9e8fe47",
+    "runtimeFiles": [
+      "brake-squeal.ogg"
+    ],
+    "note": "Short tyre squeal; gated to panic braking on dry asphalt.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "451697",
+    "title": "school bus truck int horn honk.flac",
+    "author": "kyles",
+    "sourceUrl": "https://freesound.org/s/451697/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/horn-heavy-bus-451697.mp3",
+    "sha256": "63283b1bc52676ba27311478afb55f9a9c62e739aa03999c5ff900f84d30774f",
+    "runtimeFiles": [
+      "horn-short.ogg",
+      "horn-held.ogg"
+    ],
+    "note": "Heavy vehicle/school-bus horn used for player horn architecture.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "475211",
+    "title": "routemaster bell nice.mp3",
+    "author": "peteberry007",
+    "sourceUrl": "https://freesound.org/s/475211/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/conductor-bell-475211.mp3",
+    "sha256": "6785ff1871f8cf8816b418147883518980721e384078ee12e81d1b87d88b507b",
+    "runtimeFiles": [
+      "conductor-bell.ogg"
+    ],
+    "note": "Mechanical bus bell stand-in.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "446458",
+    "title": "27-Puertas_bus.wav",
+    "author": "UsuarioLeal",
+    "sourceUrl": "https://freesound.org/s/446458/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/door-open-446458.mp3",
+    "sha256": "89aaee0d6f7ce78e68b1c162cb762bd7b965afbf2a705750cd440bb120d4658d",
+    "runtimeFiles": [
+      "door-open.ogg"
+    ],
+    "note": "Mechanical pressure bus door opening.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "837919",
+    "title": "Bus door closing 1 9",
+    "author": "drrumi",
+    "sourceUrl": "https://freesound.org/s/837919/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/door-close-837919.mp3",
+    "sha256": "ba7641c7ab91032d50d3d92293052a44b00cc78fe4a09b460f3d063fd13d6261",
+    "runtimeFiles": [
+      "door-close.ogg"
+    ],
+    "note": "Bus door closing source.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "50768",
+    "title": "Windshield Wiper In Car.mp3",
+    "author": "RutgerMuller",
+    "sourceUrl": "https://freesound.org/s/50768/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/wiper-interior-50768.mp3",
+    "sha256": "523c4c7296cbe1efc23e5738148a69bafa9a816bed1bf2d10bc4f3211000698f",
+    "runtimeFiles": [
+      "wiper-loop.ogg"
+    ],
+    "note": "Interior windshield wiper source.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "650774",
+    "title": "Rain on car roof interior / Regen auf Autodach",
+    "author": "Borgory",
+    "sourceUrl": "https://freesound.org/s/650774/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/rain-roof-interior-650774.mp3",
+    "sha256": "908671001883363f44054e9d03f2ef097576b554f952879da876e57ec46fd0b0",
+    "runtimeFiles": [
+      "rain-roof-loop.ogg"
+    ],
+    "note": "Rain recorded from inside vehicle; prototype for bus roof rain.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "860717",
+    "title": "Interior sound of a moving car",
+    "author": "artemditkovsky",
+    "sourceUrl": "https://freesound.org/s/860717/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/road-cabin-860717.mp3",
+    "sha256": "c7e47fd5c97888bb8ae95e79094c6ad37f49156fd8a9fa9bc1c9a8ad4fbcccbc",
+    "runtimeFiles": [
+      "road-cabin-loop.ogg"
+    ],
+    "note": "Continuous road/cabin vibration bed; generic vehicle prototype.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "128290",
+    "title": "School Bus.mp3",
+    "author": "GaryQ",
+    "sourceUrl": "https://freesound.org/s/128290/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/bus-rattle-128290.mp3",
+    "sha256": "6a9380bd201dcaf73840e1170b416eaede1dd52eab442eb81ad4f1bdad0c5a1c",
+    "runtimeFiles": [
+      "bus-rattle-loop.ogg"
+    ],
+    "note": "Empty school-bus ambience with metallic/clanky equipment; prototype rattle bed.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "585570",
+    "title": "Indian Street traffic Ambience 2.WAV",
+    "author": "Athul_PR",
+    "sourceUrl": "https://freesound.org/s/585570/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/ambience-kerala-585570.mp3",
+    "sha256": "80ba4a04d9e171dae31f74c3579ce32905ec7dc2cf682a285ad23cf963101d37",
+    "runtimeFiles": [
+      "ambience-kerala-loop.ogg"
+    ],
+    "note": "Alichuvadu Junction, Vennala, Kerala; traffic, autos, horns, background Malayalam speech.",
+    "verified": "2026-09-12"
+  },
+  {
+    "id": "515515",
+    "title": "Night traffic Kerala Road 1 .wav",
+    "author": "jdaudioproductions",
+    "sourceUrl": "https://freesound.org/s/515515/",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "acquisition": "Freesound public HQ MP3 preview of the source page recording",
+    "rawFile": "raw/freesound/ambience-kerala-night-515515.mp3",
+    "sha256": "5378e8e03fb1ea81a6b828f0c2a667429eb89d34a29f7f66f7498c23dc3ef2f1",
+    "runtimeFiles": [
+      "ambience-kerala-night-loop.ogg"
+    ],
+    "note": "Kerala night-road traffic ambience.",
+    "verified": "2026-09-12"
+  }
+]

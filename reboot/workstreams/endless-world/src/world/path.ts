@@ -1,0 +1,6 @@
+import type{ChunkDefinition,GlobalPose,PathPoint}from'./types';
+export function polylineLength(path:PathPoint[]){let n=0;for(let i=1;i<path.length;i++)n+=Math.hypot(path[i].x-path[i-1].x,path[i].z-path[i-1].z);return n;}
+export function samplePolyline(path:PathPoint[],distance:number):GlobalPose{const total=polylineLength(path);let d=Math.max(0,Math.min(total,distance));for(let i=1;i<path.length;i++){const a=path[i-1],b=path[i],seg=Math.hypot(b.x-a.x,b.z-a.z);if(d<=seg||i===path.length-1){const t=seg>0?d/seg:0;return{x:a.x+(b.x-a.x)*t,z:a.z+(b.z-a.z)*t,heading:Math.atan2(b.x-a.x,b.z-a.z)};}d-=seg;}return{x:0,z:0,heading:0};}
+export function transformLocal(local:GlobalPose,origin:GlobalPose):GlobalPose{const c=Math.cos(origin.heading),s=Math.sin(origin.heading);return{x:origin.x+local.x*c+local.z*s,z:origin.z-local.x*s+local.z*c,heading:origin.heading+local.heading};}
+export function definitionEndPose(def:ChunkDefinition,origin:GlobalPose){return transformLocal(samplePolyline(def.path,def.length),origin);}
+export function sampleDefinition(def:ChunkDefinition,localDistance:number,origin:GlobalPose){return transformLocal(samplePolyline(def.path,localDistance),origin);}

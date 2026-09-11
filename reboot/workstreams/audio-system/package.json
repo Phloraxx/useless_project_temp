@@ -1,0 +1,21 @@
+{
+  "name": "adutha-stoppil-audio-system",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b --pretty false",
+    "test": "tsx --test tests/*.test.ts",
+    "lint": "oxlint src tests",
+    "verify:audio": "bash scripts/verify_runtime.sh",
+    "process:audio": "bash scripts/process_audio.sh"
+  },
+  "devDependencies": {
+    "oxlint": "^1.82.0",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

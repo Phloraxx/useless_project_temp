@@ -1,0 +1,2 @@
+Browser runtime errors: 0
+Recorded video: /home/drvij/projects/adutha-stoppil/reboot/workstreams/cinematics-ui/proof/presentation-sequence.webm

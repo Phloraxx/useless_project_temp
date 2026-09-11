@@ -1,0 +1,104 @@
+{
+  "durationSeconds": 900,
+  "sampleEverySeconds": 60,
+  "churn": "12 ↔ 4 passenger instances every 1.5 s; new keys force mixer/object mount+dispose",
+  "samples": [
+    {
+      "second": 0,
+      "heapUsed": 77214027,
+      "heapTotal": 81743519,
+      "resources": 22
+    },
+    {
+      "second": 60,
+      "heapUsed": 80185163,
+      "heapTotal": 81949127,
+      "resources": 22
+    },
+    {
+      "second": 120,
+      "heapUsed": 81009875,
+      "heapTotal": 82964935,
+      "resources": 22
+    },
+    {
+      "second": 180,
+      "heapUsed": 80636983,
+      "heapTotal": 82518471,
+      "resources": 22
+    },
+    {
+      "second": 240,
+      "heapUsed": 81396385,
+      "heapTotal": 83415321,
+      "resources": 22
+    },
+    {
+      "second": 300,
+      "heapUsed": 80708661,
+      "heapTotal": 82571545,
+      "resources": 22
+    },
+    {
+      "second": 360,
+      "heapUsed": 75572861,
+      "heapTotal": 76502305,
+      "resources": 22
+    },
+    {
+      "second": 420,
+      "heapUsed": 79434829,
+      "heapTotal": 81559841,
+      "resources": 22
+    },
+    {
+      "second": 480,
+      "heapUsed": 80764725,
+      "heapTotal": 82665753,
+      "resources": 22
+    },
+    {
+      "second": 540,
+      "heapUsed": 79915597,
+      "heapTotal": 82129185,
+      "resources": 22
+    },
+    {
+      "second": 600,
+      "heapUsed": 78621689,
+      "heapTotal": 82583197,
+      "resources": 22
+    },
+    {
+      "second": 660,
+      "heapUsed": 75692865,
+      "heapTotal": 76776737,
+      "resources": 22
+    },
+    {
+      "second": 720,
+      "heapUsed": 80289637,
+      "heapTotal": 82231577,
+      "resources": 22
+    },
+    {
+      "second": 780,
+      "heapUsed": 80066949,
+      "heapTotal": 82436377,
+      "resources": 22
+    },
+    {
+      "second": 840,
+      "heapUsed": 78939849,
+      "heapTotal": 82321053,
+      "resources": 22
+    },
+    {
+      "second": 900,
+      "heapUsed": 81410065,
+      "heapTotal": 83792153,
+      "resources": 22
+    }
+  ],
+  "errors": []
+}

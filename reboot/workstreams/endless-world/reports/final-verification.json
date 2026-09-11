@@ -1,0 +1,94 @@
+{
+  "date": "2026-09-11T21:38:34.188Z",
+  "status": "PASS",
+  "checks": {
+    "lint": "PASS",
+    "build": "PASS_WITH_BUNDLE_SIZE_WARNING",
+    "streamerRegression": "PASS",
+    "chunkSchemaJson": "PASS",
+    "assetLedger": "PASS",
+    "handoff": "PASS",
+    "runtimeExternalAssets": [
+      "public/assets/lighting/red_hill_cloudy_1k.hdr"
+    ],
+    "unexpectedRuntimeGLBs": 0
+  },
+  "streaming": {
+    "distanceKm": 50,
+    "generatedChunks": 506,
+    "rebases": 94,
+    "peakLiveChunks": 7,
+    "maxPlayerRenderRadiusM": 519.35
+  },
+  "bigmac": {
+    "renderer": {
+      "vendor": "Google Inc. (Apple)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3, Unspecified Version)"
+    },
+    "profiles": [
+      {
+        "name": "bigmac-high",
+        "fps": {
+          "avg": 60,
+          "min": 59.8,
+          "max": 60.1
+        },
+        "drawCalls": {
+          "avg": 167.8,
+          "max": 240
+        },
+        "triangles": {
+          "avg": 12430,
+          "max": 14836
+        },
+        "rebases": 8,
+        "families": [
+          "paddy-open",
+          "residential-ribbon",
+          "tea-stop",
+          "market-junction",
+          "town-high-street",
+          "bridge-green"
+        ]
+      },
+      {
+        "name": "bigmac-mobile-low",
+        "fps": {
+          "avg": 60,
+          "min": 59.8,
+          "max": 60.1
+        },
+        "drawCalls": {
+          "avg": 121.9,
+          "max": 181
+        },
+        "triangles": {
+          "avg": 7886,
+          "max": 9408
+        },
+        "rebases": 8,
+        "families": [
+          "paddy-open",
+          "residential-ribbon",
+          "tea-stop",
+          "town-high-street",
+          "bridge-green",
+          "market-junction"
+        ]
+      }
+    ]
+  },
+  "screenshots": {
+    "residential.png": 62171,
+    "town-high-street.png": 158536,
+    "tea-stop.png": 96344,
+    "market-junction.png": 102448,
+    "paddy-open.png": 83250,
+    "bridge-green.png": 90619,
+    "mobile-low-tea-stop.png": 24615
+  },
+  "notes": [
+    "Bundle currently emits a Vite >500 kB chunk-size warning; code splitting is a production integration task.",
+    "World-lab geometry is prototype art; final environment-art quality is intentionally not claimed."
+  ]
+}

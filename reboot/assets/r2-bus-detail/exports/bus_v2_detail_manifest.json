@@ -1,0 +1,26 @@
+{
+  "asset": "bus_v2_detail",
+  "authoring_axes": "+X right, +Z up, -Y forward",
+  "runtime_axes": "+X right, +Y up, +Z forward",
+  "dimensions_target_m": {
+    "length": 10.95,
+    "width": 2.55,
+    "height": 3.25,
+    "wheelbase": 5.45
+  },
+  "blender_bounds_min": [
+    -1.6299999952316284,
+    -5.274499893188477,
+    -6.775265237735084e-09
+  ],
+  "blender_bounds_max": [
+    1.6299999952316284,
+    5.954999923706055,
+    3.2299997806549072
+  ],
+  "object_count": 375,
+  "mesh_count": 329,
+  "triangle_count": 29944,
+  "required_nodes_missing": [],
+  "required_nodes_ok": true
+}

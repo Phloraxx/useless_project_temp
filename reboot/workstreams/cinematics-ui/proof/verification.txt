@@ -1,0 +1,11 @@
+PASS Malayalam menu title renders as text
+PASS Bundled Malayalam font is loaded
+PASS Unsafe driving remains at live-driving speed
+PASS Unsafe judgement does not take camera control
+PASS Unsafe judgement still delivers subtitle reaction
+PASS Judgement begins with evidence shot
+PASS Judgement chains to examiner clipboard shot
+PASS Sequence returns exactly to chase state
+PASS All 15 requested camera states are exposed
+PASS All micro-animation hooks execute without browser errors
+Browser errors: 0

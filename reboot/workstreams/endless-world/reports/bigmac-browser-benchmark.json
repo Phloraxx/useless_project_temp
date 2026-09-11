@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-11T20:28:25.901Z",
+  "renderer": {
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3, Unspecified Version)"
+  },
+  "method": "Accelerated 1800 km/h logical-distance soak in Brave headless-new using ANGLE/Metal on BigMac; validates rendering/streaming stability rather than real vehicle timing.",
+  "profiles": [
+    {
+      "name": "bigmac-high",
+      "viewport": {"width": 1440, "height": 900, "dpr": 1, "mobile": false},
+      "sampleCount": 20,
+      "distanceDeltaM": 3758,
+      "finalDistanceM": 4416,
+      "rebases": 8,
+      "families": ["paddy-open", "residential-ribbon", "tea-stop", "market-junction", "town-high-street", "bridge-green"],
+      "fps": {"avg": 60, "min": 59.8, "max": 60.1},
+      "drawCalls": {"avg": 167.8, "max": 240},
+      "triangles": {"avg": 12430, "max": 14836},
+      "liveChunks": {"min": 6, "max": 7}
+    },
+    {
+      "name": "bigmac-mobile-low",
+      "viewport": {"width": 390, "height": 844, "dpr": 1, "mobile": true},
+      "sampleCount": 20,
+      "distanceDeltaM": 3767,
+      "finalDistanceM": 4425,      "rebases": 8,
+      "families": ["paddy-open", "residential-ribbon", "tea-stop", "town-high-street", "bridge-green", "market-junction"],
+      "fps": {"avg": 60, "min": 59.8, "max": 60.1},
+      "drawCalls": {"avg": 121.9, "max": 181},
+      "triangles": {"avg": 7886, "max": 9408},
+      "liveChunks": {"min": 6, "max": 7}
+    }
+  ]
+}
