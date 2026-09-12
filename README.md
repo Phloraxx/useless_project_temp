@@ -6,6 +6,9 @@
 
 > **“ലൈസൻസ് കിട്ടിയത് മാത്രം പോരാ. സർവീസ് പിടിക്കണം.”**
 
+### Live Qualification Build
+**[Open അടുത്ത സ്റ്റോപ്പിൽ™](https://adutha-stoppil-144-24-114-90.sslip.io/)**
+
 ## Basic Details
 
 ### Team Name: അടുത്ത സ്റ്റോപ്പിൽ
