@@ -266,21 +266,22 @@ function StartOverlay({ candidate, setCandidate, onStart }: { candidate: string;
   return (
     <section className="start-overlay">
       <div className="start-card">
-        <div className="start-stamp">TINKERHUB USELESS PROJECTS</div>
-        <div className="start-kicker">REGIONAL PUBLIC TRANSPORT APTITUDE BOARD · FORM 404-K</div>
-        <h2>KSRTC Driver<br />Qualification Test</h2>
-        <p className="start-copy">Normal driving licences verify road rules. This completely unnecessary second licence verifies whether you possess the fictional instincts required to make an examiner quietly worried and strangely impressed at the same time.</p>
+        <div className="start-stamp">കേരള റൂട്ട് സർവീസ് യോഗ്യതാ ബോർഡ്</div>
+        <div className="start-kicker">SPECIAL SERVICE ENDORSEMENT · FORM 404-K</div>
+        <h2>അടുത്ത സ്റ്റോപ്പിൽ™<br /><span>Driver Qualification</span></h2>
+        <p className="start-malayalam">ലൈസൻസ് കിട്ടിയത് മാത്രം പോരാ. സർവീസ് പിടിക്കണം.</p>
+        <p className="start-copy">This route examination evaluates whether a licensed driver can maintain a fictional Kerala public-bus service under timetable pressure, mixed traffic, imperfect roads, passenger requests and examiner supervision.</p>
         <div className="start-rules">
-          <span><b>01</b> Exact bus-stop alignment may indicate dangerous textbook dependency.</span>
-          <span><b>02</b> Dry-road confidence, horn diplomacy and timetable recovery earn marks.</span>
-          <span><b>03</b> Crashing still means you crashed. Bureaucracy cannot fix physics.</span>
+          <span><b>01</b> <i>സ്റ്റോപ്പ് സെൻസ്</i> — place the bus where the service logic expects it, not where the textbook feels safest.</span>
+          <span><b>02</b> <i>സമയം പിടിക്കൽ + റോഡ് വായന</i> — progress matters, but only while the വണ്ടി remains കൈയിൽ.</span>
+          <span><b>03</b> Actual contact, loss of control or a serious impact terminates the qualification immediately.</span>
         </div>
         <label className="candidate-field">
           <span>Candidate name</span>
           <input value={candidate} maxLength={32} onChange={(event) => setCandidate(event.currentTarget.value)} placeholder="Applicant #404" />
         </label>
-        <button className="begin-test" onClick={onStart}>BEGIN QUALIFICATION</button>
-        <small>Parody. Not affiliated with KSRTC. Definitely not driving advice.</small>
+        <button className="begin-test" onClick={onStart}>റൂട്ട് പരീക്ഷ തുടങ്ങുക · BEGIN</button>
+        <small>Fictional qualification system · not affiliated with KSRTC · not driving guidance</small>
       </div>
     </section>
   )
@@ -301,25 +302,25 @@ function ResultOverlay({ candidate, metrics, onRetry }: { candidate: string; met
   return (
     <section className="result-overlay">
       <div className="certificate">
-        <div className="certificate-topline"><span>FICTIONAL REGIONAL TRANSPORT APTITUDE BOARD</span><b>{result.code}</b></div>
-        <div className="certificate-seal">QUALIFIED<br />ISH</div>
-        <p className="certificate-kicker">CERTIFICATE OF EXTREMELY SPECIFIC DRIVING COMPETENCE</p>
+        <div className="certificate-topline"><span>കേരള റൂട്ട് സർവീസ് യോഗ്യതാ ബോർഡ് · FICTIONAL</span><b>{result.code}</b></div>
+        <div className="certificate-seal">SERVICE<br />ENDORSEMENT</div>
+        <p className="certificate-kicker">റൂട്ട് സർവീസ് യോഗ്യതാ സർട്ടിഫിക്കറ്റ് · FORM 404-K</p>
         <h2>{result.title}</h2>
-        <p className="certificate-name">This is to certify that <strong>{safeCandidate}</strong> completed one unnecessarily serious public-bus aptitude examination and returned enough of the vehicle for assessment.</p>
+        <p className="certificate-name">This is to certify that <strong>{safeCandidate}</strong> completed the prescribed route-service examination and submitted sufficient evidence of stop sense, timetable recovery, road reading and vehicle control for institutional judgement.</p>
         <div className="certificate-grid">
           <div><span>Natural aptitude</span><strong>{metrics?.score ?? 0}</strong></div>
           <div><span>Examiner approval</span><strong>{Math.round(metrics?.approval ?? 0)}%</strong></div>
-          <div><span>Passenger fitness contribution</span><strong>{Math.round(metrics?.passengerFitness ?? 0)}%</strong></div>
-          <div><span>Schedule recovery</span><strong>{Math.round(metrics?.scheduleRecovery ?? 0)}%</strong></div>
-          <div><span>Road ownership</span><strong>{Math.round(metrics?.roadOwnership ?? 0)}%</strong></div>
-          <div><span>Textbook contamination</span><strong>{Math.round(metrics?.textbookContamination ?? 0)}%</strong></div>
+          <div><span>നടത്തം ബോണസ് · Passenger fitness</span><strong>{Math.round(metrics?.passengerFitness ?? 0)}%</strong></div>
+          <div><span>സമയം പിടിക്കൽ · Schedule recovery</span><strong>{Math.round(metrics?.scheduleRecovery ?? 0)}%</strong></div>
+          <div><span>റോഡ് വായന · Road reading</span><strong>{Math.round(metrics?.roadOwnership ?? 0)}%</strong></div>
+          <div><span>ഡ്രൈവിംഗ്-സ്കൂൾ ലക്ഷണം</span><strong>{Math.round(metrics?.textbookContamination ?? 0)}%</strong></div>
         </div>
         <div className="certificate-verdict">
           <span>Examiner's final observation</span>
           <p>{result.passed ? "വണ്ടി കൊണ്ടുവന്നു. സമയവും കൊണ്ടുവന്നു. പുസ്തകം മാത്രം കുറച്ചു വീട്ടിൽ വെക്കാം." : "Driving അറിയാം. പക്ഷേ ഈ പ്രത്യേക പരീക്ഷയ്ക്ക് അതാണ് ചെറിയ പ്രശ്നം."}</p>
         </div>
         <div className="certificate-signatures"><span>Examiner<br /><i>signature unreadable</i></span><span>Administrative efficiency officer<br /><i>stamp applied twice</i></span></div>
-        <button onClick={onRetry}>TAKE THE TEST AGAIN</button>
+        <button onClick={onRetry}>വീണ്ടും സർവീസ് പിടിക്കുക · RETRY</button>
       </div>
     </section>
   )
@@ -419,9 +420,9 @@ export default function App() {
           <span><b>232–282 m</b> chicane</span>
           <span><b>315–385 m</b> turning circle</span>
         </> : <>
-          <span><b>Rule 1</b> textbook driving is suspicious</span>
-          <span><b>Dry road</b> confidence earns points</span>
-          <span><b>Finish</b> depot at 900 m</span>
+          <span><b>സ്റ്റോപ്പ് സെൻസ്</b> placement matters</span>
+          <span><b>വണ്ടി കൈയിൽ</b> control before style</span>
+          <span><b>ഡിപ്പോ</b> final judgement at 900 m</span>
         </>}
       </div>}
 

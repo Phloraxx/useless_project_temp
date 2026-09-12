@@ -69,6 +69,91 @@ function RoadsidePeople() {
   </group>)}</>
 }
 
+
+function MovingAuto({ lane = -2.35, start = 120, span = 710, speed = 9.5, phase = 0 }: { lane?: number; start?: number; span?: number; speed?: number; phase?: number }) {
+  const ref = useRef<THREE.Group>(null)
+  useFrame(({ clock }) => {
+    if (!ref.current) return
+    ref.current.position.z = start + ((clock.elapsedTime * speed + phase) % span)
+  })
+  return <group ref={ref} position={[lane,0.46,start]}>
+    <mesh castShadow position={[0,0.52,0]}><boxGeometry args={[1.48,0.96,2.75]} /><meshStandardMaterial color="#c5a01e" roughness={0.78} /></mesh>
+    <mesh castShadow position={[0,1.08,-0.15]}><boxGeometry args={[1.25,0.48,1.35]} /><meshStandardMaterial color="#202729" roughness={0.42} /></mesh>
+    <mesh position={[0,0.74,1.39]}><boxGeometry args={[1.1,0.12,0.05]} /><meshStandardMaterial color="#ead466" /></mesh>
+    {[-0.56,0.56].flatMap((x)=>[-0.85,0.85].map((z)=><mesh key={`${x}-${z}`} position={[x,0.18,z]} rotation-z={Math.PI/2}><cylinderGeometry args={[0.24,0.24,0.14,12]} /><meshStandardMaterial color="#151719" /></mesh>))}
+  </group>
+}
+
+function MovingScooter({ lane = 2.25, start = 720, span = 660, speed = 13, phase = 0 }: { lane?: number; start?: number; span?: number; speed?: number; phase?: number }) {
+  const ref = useRef<THREE.Group>(null)
+  useFrame(({ clock }) => {
+    if (!ref.current) return
+    ref.current.position.z = start - ((clock.elapsedTime * speed + phase) % span)
+  })
+  return <group ref={ref} position={[lane,0.30,start]} rotation-y={Math.PI}>
+    <mesh castShadow position={[0,0.42,0]}><boxGeometry args={[0.44,0.32,1.5]} /><meshStandardMaterial color="#486a70" roughness={0.68} /></mesh>
+    <mesh castShadow position={[0,1.08,-0.08]}><capsuleGeometry args={[0.16,0.58,5,8]} /><meshStandardMaterial color="#725f4d" /></mesh>
+    <mesh castShadow position={[0,1.58,-0.08]}><sphereGeometry args={[0.17,10,8]} /><meshStandardMaterial color="#7d5f4b" /></mesh>
+    {[-0.52,0.52].map((z)=><mesh key={z} position={[0,0.22,z]} rotation-y={Math.PI/2}><torusGeometry args={[0.24,0.06,7,12]} /><meshStandardMaterial color="#151719" /></mesh>)}
+  </group>
+}
+
+function ParkedScooters() {
+  const places = [[-8.2,151,0.1],[8.4,349,-0.16],[-8.4,545,0.18],[8.5,653,-0.12],[-8.2,742,0.08]] as const
+  return <>{places.map(([x,z,r],i)=><group key={i} position={[x,0.24,z]} rotation-y={r}>
+    <mesh castShadow position={[0,0.35,0]}><boxGeometry args={[0.44,0.3,1.42]} /><meshStandardMaterial color={i%2 ? "#805448" : "#526d72"} roughness={0.75} /></mesh>
+    {[-0.48,0.48].map((w)=><mesh key={w} position={[0,0.17,w]} rotation-y={Math.PI/2}><torusGeometry args={[0.21,0.055,7,12]} /><meshStandardMaterial color="#17191a" /></mesh>)}
+  </group>)}</>
+}
+
+function RoadsideLife() {
+  const clusters = [[-8.8,153],[8.9,351],[-8.8,548],[8.9,655],[-8.7,744]] as const
+  return <>{clusters.flatMap(([x,z],ci)=>[-0.65,0.1,0.78].map((dz,i)=><group key={`${ci}-${i}`} position={[x + (i-1)*0.58,0,z+dz]}>
+    <mesh castShadow position={[0,0.84,0]}><capsuleGeometry args={[0.17,0.7,5,8]} /><meshStandardMaterial color={["#6f5c75","#58736b","#7c654f"][(ci+i)%3]} /></mesh>
+    <mesh castShadow position={[0,1.54,0]}><sphereGeometry args={[0.19,10,8]} /><meshStandardMaterial color="#86624e" /></mesh>
+  </group>))}</>
+}
+
+
+function MonsoonZone() {
+  const ref = useRef<THREE.Group>(null)
+  const drops = Array.from({ length: 72 }, (_, i) => ({
+    x: ((i * 37) % 150) / 10 - 7.5,
+    y: 1 + ((i * 19) % 55) / 10,
+    z: 362 + ((i * 43) % 570) / 10,
+  }))
+  useFrame(({ clock }) => {
+    if (!ref.current) return
+    ref.current.position.y = -((clock.elapsedTime * 8.5) % 1.8)
+  })
+  return <group>
+    <group ref={ref}>
+      {drops.map((d,i)=><mesh key={i} position={[d.x,d.y,d.z]} rotation-z={-0.08}>
+        <boxGeometry args={[0.012,0.68,0.012]} /><meshBasicMaterial color="#c6d7dd" transparent opacity={0.42} />
+      </mesh>)}
+    </group>
+    {[370,382,397,412].map((z,i)=><mesh key={z} receiveShadow position={[(i%2?2.2:-2.5),0.025,z]}>
+      <circleGeometry args={[1.3 + i*0.18,24]} /><meshStandardMaterial color="#1f3339" transparent opacity={0.42} roughness={0.28} metalness={0.05} />
+    </mesh>)}
+  </group>
+}
+
+function RoadEdgeDetails() {
+  return <>
+    {Array.from({length: 21},(_,i)=>{
+      const z=18+i*41
+      return <group key={i}>
+        <mesh receiveShadow position={[-6.75,-0.02,z]}><boxGeometry args={[0.22,0.10,22]} /><meshStandardMaterial color="#78746a" roughness={1} /></mesh>
+        <mesh receiveShadow position={[6.75,-0.02,z]}><boxGeometry args={[0.22,0.10,22]} /><meshStandardMaterial color="#78746a" roughness={1} /></mesh>
+      </group>
+    })}
+    {[116,338,532,734].map((z,i)=><group key={z} position={[i%2 ? 7.6 : -7.6,0,z]}>
+      <mesh castShadow position={[0,0.55,0]}><boxGeometry args={[0.15,1.1,0.15]} /><meshStandardMaterial color="#5d625c" /></mesh>
+      <mesh castShadow position={[0.55,1.05,0]}><boxGeometry args={[1.5,0.56,0.12]} /><meshStandardMaterial color={i%2 ? "#365d50" : "#6e453b"} /></mesh>
+    </group>)}
+  </>
+}
+
 function RivalBus() {
   const ref = useRef<THREE.Group>(null)
   useFrame(({ clock }) => {
@@ -111,6 +196,14 @@ export function KeralaVerticalSlice() {
     <PaddyFields />
     <UtilityPoles />
     <RoadsidePeople />
+    <RoadsideLife />
+    <ParkedScooters />
+    <RoadEdgeDetails />
+    <MonsoonZone />
+    <MovingAuto lane={-2.35} start={120} phase={40} />
+    <MovingAuto lane={-2.15} start={260} speed={8.2} phase={220} />
+    <MovingScooter lane={2.35} start={770} phase={80} />
+    <MovingScooter lane={2.1} start={690} speed={11.5} phase={340} />
     <RivalBus />
     <FinishDepot />
     {[-12,-10.5,11,12.5].flatMap((x, xi) => [18,74,142,188,246,302,358,442,486,548,612,684,752,818,874].map((z, zi) => <Palm key={`${xi}-${zi}`} x={x + ((zi % 2) * 1.1)} z={z} s={0.85 + (zi % 3) * 0.09} />))}
