@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Canvas } from "@react-three/fiber"
 import { HandlingLab } from "./HandlingLab"
-import { HandlingAudio } from "./audio/HandlingAudio"
+import { IntegratedAudio } from "./audio/IntegratedAudio"
 import { PlaytestPanel } from "./ui/PlaytestPanel"
 import { UselessQualificationPanel, type QualificationMetrics } from "./gameplay/UselessQualificationPanel"
 import { setVirtualControl, setVirtualSteer, type VirtualControl } from "./sim/input"
@@ -409,7 +409,7 @@ export default function App() {
       {labMode && !blindMode && <TelemetryPanel telemetry={telemetry} />}
       {labMode && !blindMode && <TuningPanel tuning={tuning} setTuning={setTuning} />}
       {!labMode && phase === "running" && <UselessQualificationPanel telemetry={telemetry} onMetrics={onQualificationMetrics} />}
-      <HandlingAudio telemetry={telemetry} />
+      <IntegratedAudio telemetry={telemetry} />
       {labMode && <PlaytestPanel telemetry={telemetry} setTuning={setTuning} resetBus={() => setResetToken((value) => value + 1)} onBlindModeChange={onBlindModeChange} />}
       {(labMode || phase === "running") && <TouchControls />}
 

@@ -193,6 +193,7 @@ export class AudioEngine {
 
   private mix: AudioMix = { master: 1, effects: 1, dialogue: 1, ambience: 1 }
   private ready = false
+  private loadPromise: Promise<void> | null = null
   private running = false
   private last: CanonicalTelemetry | null = null
   private lastShiftToken: CanonicalTelemetry["shiftToken"] = null
@@ -262,18 +263,21 @@ export class AudioEngine {
 
   async load() {
     if (this.ready) return
-    await Promise.all((Object.entries(DEFAULT_ASSETS) as Array<[BufferKey, string]>).map(async ([key, file]) => {
+    if (this.loadPromise) return this.loadPromise
+    this.loadPromise = Promise.all((Object.entries(DEFAULT_ASSETS) as Array<[BufferKey, string]>).map(async ([key, file]) => {
       const response = await fetch(`${this.assetBaseUrl}/${file}`)
       if (!response.ok) throw new Error(`Audio asset failed: ${file} (${response.status})`)
       const buffer = await this.context.decodeAudioData(await response.arrayBuffer())
       this.buffers.set(key, buffer)
-    }))
-    this.ready = true
+    })).then(() => { this.ready = true }).finally(() => { this.loadPromise = null })
+    return this.loadPromise
   }
 
   async start() {
-    await this.load()
+    // Resume immediately while this call is still inside the user's gesture.
     await this.context.resume()
+    await this.load()
+    if (this.context.state !== "running") await this.context.resume()
     if (!this.running) this.startLoops()
     this.running = true
   }

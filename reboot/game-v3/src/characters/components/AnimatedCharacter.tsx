@@ -9,8 +9,8 @@ import type { CharacterModel, CharacterRole, CharacterState } from "../types"
 
 const BASE = "/models/quaternius/"
 const MODEL_URL: Record<CharacterModel, string> = {
-  male: `${BASE}Superhero_Male_FullBody.gltf`,
-  female: `${BASE}Superhero_Female_FullBody.gltf`,
+  male: `${BASE}Superhero_Male_Runtime.gltf`,
+  female: `${BASE}Superhero_Female_Runtime.gltf`,
 }
 const UAL1 = `${BASE}UAL1_Standard.glb`
 const UAL2 = `${BASE}UAL2_Standard.glb`
@@ -141,7 +141,3 @@ export function AnimatedCharacter({ model = "male", role, state, reactionScale =
 
   return <group ref={container} scale={scale}><primitive object={root} /></group>
 }
-
-Object.values(MODEL_URL).forEach((url) => useLoader.preload(GLTFLoader, url))
-useLoader.preload(GLTFLoader, UAL1)
-useLoader.preload(GLTFLoader, UAL2)

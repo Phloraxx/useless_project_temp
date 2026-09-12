@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { Suspense, useEffect, useRef, useState } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 import * as RAPIER from "@dimforge/rapier3d-compat"
@@ -9,6 +9,7 @@ import { AnimatedCharacter } from "./characters/components/AnimatedCharacter"
 import { MotionSignalContext, ZERO_MOTION } from "./characters/animation/motionSignalStore"
 import type { CharacterState } from "./characters/types"
 import { KeralaVerticalSlice } from "./world/KeralaVerticalSlice"
+import { BusAuthenticBody, BusAuthenticWheel } from "./BusAuthenticVisual"
 
 type Props = {
   tuning: BusTuning
@@ -778,78 +779,27 @@ export function HandlingLab({ tuning, onTelemetry, resetToken = 0, runActive = t
 
       <group ref={busRef}>
         <group ref={visualBodyRef}>
-          <mesh castShadow position={[0, 0.98, -0.05]}>
-            <boxGeometry args={[2.34, 1.08, 10.55]} />
-            <meshStandardMaterial color="#8f2f2c" roughness={0.82} />
-          </mesh>
-          <mesh castShadow position={[0, 2.72, -0.05]}>
-            <boxGeometry args={[2.34, 0.42, 10.55]} />
-            <meshStandardMaterial color="#8f2f2c" roughness={0.82} />
-          </mesh>
-          <mesh castShadow position={[0, 0.70, 0]}>
-            <boxGeometry args={[2.38, 0.32, 10.7]} />
-            <meshStandardMaterial color="#d4c7a5" roughness={0.9} />
-          </mesh>
-          {[-1.19, 1.19].map((x) => (
-            <mesh key={x} position={[x, 1.88, -0.15]}>
-              <boxGeometry args={[0.055, 1.26, 8.7]} />
-              <meshStandardMaterial color="#26343a" transparent opacity={0.38} roughness={0.25} />
-            </mesh>
-          ))}
-          <mesh castShadow position={[0, 1.95, 5.22]}>
-            <boxGeometry args={[2.22, 1.30, 0.11]} />
-            <meshStandardMaterial color="#223137" transparent opacity={0.58} roughness={0.3} />
-          </mesh>
-          <mesh position={[0, 2.55, 5.30]}>
-            <boxGeometry args={[1.52, 0.34, 0.04]} />
-            <meshStandardMaterial color="#161b1d" />
-          </mesh>
-          <mesh position={[0, 2.56, 5.33]}>
-            <boxGeometry args={[1.12, 0.08, 0.018]} />
-            <meshBasicMaterial color="#e0d16d" />
-          </mesh>
-          {[-0.72,0.72].map((x)=><mesh key={`lamp-${x}`} position={[x,1.02,5.34]}>
-            <boxGeometry args={[0.42,0.28,0.06]} /><meshStandardMaterial color="#e8dfb8" emissive="#776d42" emissiveIntensity={0.32} />
-          </mesh>)}
-          <mesh position={[0,0.82,5.36]}><boxGeometry args={[1.42,0.28,0.05]} /><meshStandardMaterial color="#252a2b" metalness={0.28} roughness={0.55} /></mesh>
-          <mesh position={[0,0.47,5.36]}><boxGeometry args={[2.15,0.16,0.10]} /><meshStandardMaterial color="#b7b0a0" metalness={0.18} roughness={0.62} /></mesh>
-          <mesh position={[-1.29,2.18,4.2]} rotation-y={0.3}><boxGeometry args={[0.10,0.38,0.58]} /><meshStandardMaterial color="#171d20" /></mesh>
-          <mesh position={[1.29,2.18,4.2]} rotation-y={-0.3}><boxGeometry args={[0.10,0.38,0.58]} /><meshStandardMaterial color="#171d20" /></mesh>
-          {[-3.7,-2.2,-0.7,0.8,2.3,3.8].map((z)=><group key={`window-${z}`}>
-            <mesh position={[-1.205,1.95,z]}><boxGeometry args={[0.035,0.96,1.15]} /><meshStandardMaterial color="#273940" transparent opacity={0.58} roughness={0.28} /></mesh>
-            <mesh position={[1.205,1.95,z]}><boxGeometry args={[0.035,0.96,1.15]} /><meshStandardMaterial color="#273940" transparent opacity={0.58} roughness={0.28} /></mesh>
-          </group>)}
-          <mesh position={[0, 0.62, 0]}>
-            <boxGeometry args={[2.05, 0.10, 9.8]} />
-            <meshStandardMaterial color="#5c5145" roughness={0.96} />
-          </mesh>
-          <MotionSignalContext.Provider value={motionSignals}>
-            <group position={[0.52, 0.66, 3.18]} rotation-y={Math.PI}>
-              <AnimatedCharacter role="examiner" state={examinerState} scale={0.95} lodMode="hero" />
-            </group>
-            <group position={[-0.62, 0.66, 1.0]} rotation-y={Math.PI}>
-              <AnimatedCharacter role="conductor" state="railIdle" scale={0.95} lodMode="hero" />
-            </group>
-            <group position={[0.58, 0.66, -1.4]} rotation-y={Math.PI}>
-              <AnimatedCharacter model="female" role="passenger" state="sitIdle" scale={0.94} lodMode="adaptive" />
-            </group>
-          </MotionSignalContext.Provider>
+          <Suspense fallback={null}>
+            <BusAuthenticBody />
+          </Suspense>
+          {runActive && <Suspense fallback={null}>
+            <MotionSignalContext.Provider value={motionSignals}>
+              <group position={[0.52, 0.66, 3.18]} rotation-y={Math.PI}>
+                <AnimatedCharacter role="examiner" state={examinerState} scale={0.95} lodMode="hero" />
+              </group>
+              <group position={[-0.62, 0.66, 1.0]} rotation-y={Math.PI}>
+                <AnimatedCharacter role="conductor" state="railIdle" scale={0.95} lodMode="hero" />
+              </group>
+              <group position={[0.58, 0.66, -1.4]} rotation-y={Math.PI}>
+                <AnimatedCharacter model="female" role="passenger" state="sitIdle" scale={0.94} lodMode="adaptive" />
+              </group>
+            </MotionSignalContext.Provider>
+          </Suspense>}
         </group>
       </group>
-
       {[0, 1, 2, 3].map((index) => (
-        <group
-          key={index}
-          ref={(node) => { wheelRefs.current[index] = node }}
-        >
-          <mesh castShadow rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[BUS.wheelRadiusM, BUS.wheelRadiusM, 0.28, 18]} />
-            <meshStandardMaterial color="#151719" roughness={0.94} />
-          </mesh>
-          <mesh rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[0.19, 0.19, 0.30, 14]} />
-            <meshStandardMaterial color="#8f969b" metalness={0.35} roughness={0.55} />
-          </mesh>
+        <group key={index} ref={(node) => { wheelRefs.current[index] = node }}>
+          <Suspense fallback={null}><BusAuthenticWheel index={index} /></Suspense>
         </group>
       ))}
     </>

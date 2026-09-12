@@ -1,5 +1,7 @@
 FROM node:20-alpine AS build
 WORKDIR /app
+ARG VITE_BUS_MODEL_URL
+ENV VITE_BUS_MODEL_URL=$VITE_BUS_MODEL_URL
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .

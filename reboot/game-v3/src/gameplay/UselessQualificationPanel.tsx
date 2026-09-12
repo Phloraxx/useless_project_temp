@@ -466,11 +466,7 @@ export function UselessQualificationPanel({ telemetry, onMetrics }: { telemetry:
       const currentTelemetry = telemetryRef.current
       if (currentTelemetry.position[2] >= 675 && currentTelemetry.position[2] <= 820) rivalHornRef.current += 1
 
-      try {
-        const horn = new Audio("/audio/horn-short.ogg")
-        horn.volume = 0.58
-        void horn.play()
-      } catch { /* browser may block audio in unusual embedding contexts */ }
+      window.dispatchEvent(new Event("adutha:horn-short"))
 
       dispatch({
         type: "horn",
